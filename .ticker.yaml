@@ -1,0 +1,49 @@
+# ~/.ticker.yaml
+show-summary: true
+show-tags: true
+show-fundamentals: true
+show-separator: false
+show-holdings: false
+interval: 5
+currency: USD
+currency-summary-only: false
+watchlist:
+  - AIRI
+  - AMD
+  - BLK
+  - CRSP
+  - CZGZF
+  - GD
+  - IBM
+  - KCIN
+  - LMT
+  - LUNR
+  - MLHK
+  - NOC
+  - QBTS
+  - TDG
+  - TSM
+  - BTC-USD # Bitcoin price via Yahoo
+#  - SOL.X # Solana price via CoinGecko
+#  - SAMOYEDCOIN.CG # Samoyed price via CoinGecko
+#  - CARDANO.CC # Samoyed price via CoinCap
+# lots:
+#  - symbol: "ABNB"
+#    quantity: 35.0
+#    unit_cost: 146.00
+#  - symbol: "ARKW"
+#    quantity: 20.0
+#    unit_cost: 152.25
+#  - symbol: "ARKW"
+#    quantity: 20.0
+#    unit_cost: 145.35
+#    fixed_cost: 7.00 # e.g. brokerage commission fee
+# groups:
+#  - name: crypto
+#    watchlist:
+#      - SHIB-USD
+#      - VGX-USD
+#    holdings:
+#      - symbol: SOL1-USD
+#        quantity: 17
+#        unit_cost: 159.10
