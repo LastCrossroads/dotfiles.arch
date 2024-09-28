@@ -220,7 +220,7 @@ else
   check_host entropy
   check_host ereshkigal
   check_host kappa10
-  check_host systemXI
+  # check_host systemXI
   check_host XXII
   nmcli connection show
   echo -n "    "
