@@ -165,7 +165,7 @@ export ASAN_OPTIONS=abort_on_error=1:halt_on_error=1
 export AVATAR="$HOME/Pictures/Logos/lc.png"
 export AVATAR_HYPRLOCK="$HOME/Pictures/Logos/lc_black.png"
 export BROWSER="zen-browser"
-export CFLAGS="-O2 -march=znver2 -mtune=znver2 -D_FORTIFY_SOURCE=2 -D_GLIBCXX_ASSERTIONS -fasynchronous-unwind-tables -fexceptions -fpie -Wl,-pie -fpic -shared -fplugin-annobin -fstack-clash-protection -fstack-protector-strong -g -grecord-gcc-switches -mcet -fcf-protection -Wall -Werror=format-security -Werror=implicit-function-declaration -Wl,-z,defs -Wl,-z,now -Wl,-z,relro"
+export CFLAGS="-O2 -march=znver2 -mtune=znver2 -D_FORTIFY_SOURCE=2 -D_GLIBCXX_ASSERTIONS -fasynchronous-unwind-tables -fexceptions -fpie -Wl,-pie -fpic -shared -fplugin-annobin -fstack-clash-protection -fstack-protector-strong -g -grecord-gcc-switches -mcet -fcf-protection -Wall -Werror -Werror=format-security -Werror=implicit-function-declaration -Wl,-z,defs -Wl,-z,now -Wl,-z,relro -Wpedantic"
 export DOTFILES="$GHREPOS/dotfiles"
 export EDITOR="helix"
 export GHREPOS="$REPOS/github.com/$GITUSER"
