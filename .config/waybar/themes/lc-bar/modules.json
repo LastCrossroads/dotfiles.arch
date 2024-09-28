@@ -1,0 +1,693 @@
+//  __  __           _       _            
+// |  \/  | ___   __| |_   _| | ___  ___  
+// | |\/| |/ _ \ / _` | | | | |/ _ \/ __| 
+// | |  | | (_) | (_| | |_| | |  __/\__ \ 
+// |_|  |_|\___/ \__,_|\__,_|_|\___||___/ 
+//                                        
+//  
+// by Stephan Raabe (2023) 
+// ----------------------------------------------------- 
+//
+{
+  // Workspaces
+  "hyprland/workspaces" : {
+		"disable-scroll": true,
+    "all-outputs": false,
+    "active-only": false,
+    "format": "{icon}",
+    "on-click": "activate",
+    "format-icons": {
+      "1": "一",
+      "2": "二",
+      "3": "三",
+      "4": "四",
+      "5": "五",
+      "6": "六",
+      "7": "七",
+      "8": "八",
+      "9": "九",
+      "10": "十",
+      "urgent": "",
+      "focused": "",
+      "default": ""
+    },
+    "persistent-workspaces": {
+      // START WORKSPACES
+      "*": 10
+      // END WORKSPACES
+    }
+  },
+
+  // Taskbar
+  "wlr/taskbar": {
+     "format": "{icon}",
+     "icon-size": 18,
+     "tooltip-format": "{title}",
+     "on-click": "activate",
+     "on-click-middle": "close",
+     "ignore-list": [
+       "Alacritty",
+       "ghostty",
+       "kitty",
+       "warp"
+     ],
+     "app_ids-mapping": {
+       "firefoxdeveloperedition": "firefox-developer-edition"
+     },
+     "rewrite": {
+       "Firefox Web Browser": "Firefox",
+       "Foot Server": "Terminal"
+     }
+  },
+
+  // Hyprland Window
+  "hyprland/window": {
+    "rewrite": {
+      "(.*) - Brave": "$1",
+      "(.*) - Chromium": "$1",
+      "(.*) - Brave Search": "$1",
+      "(.*) - Outlook": "$1",
+      "(.*) - Microsoft Edge Dev": "$1",
+      "(.*) Microsoft Teams": "$1"
+    },
+    "separate-outputs": true
+  },
+
+  // ML4W Welcome App
+  "custom/ml4w-welcome": {
+    "on-click": "ags -t sidebar",
+    "on-click-right": "sleep 0.1s ; $HOME/.config/ml4w/apps/ML4W_Welcome-x86_64.AppImage",
+    "format": " ",
+    "tooltip": true,
+    "tooltip-format": "Open Sidebar"
+  },
+
+  // Empty
+  "custom/empty": {
+    "format": ""
+  },
+
+  // Youtube Subscriber Count
+ "custom/youtube": {
+   "format": " {}",
+   "exec": "python ~/private/youtube.py",
+   "restart-interval": 600,
+   "on-click": "chromium https://studio.youtube.com",
+   "tooltip": false
+  },
+
+  // Cliphist
+  "custom/cliphist": {
+    "format": "",
+    "on-click": "sleep 0.1s ;  ~/.config/ml4w/scripts/cliphist.sh",
+    "on-click-right": "sleep 0.1s ; ~/.config/ml4w//scripts/cliphist.sh d",
+    "on-click-middle": "sleep 0.1s ; ~/.config/ml4w//scripts/cliphist.sh w",
+    "tooltip": true,
+    "tooltip-format": "Clip history"
+  },
+
+  // Hyprshade
+  "custom/hyprshade": {
+    "format": "󱩫",
+    "on-click": "sleep 0.1s ; ~/.config/hypr/scripts/hyprshade.sh",
+    "on-click-right": "sleep 0.1s ; ~/.config/hypr/scripts/hyprshade.sh rofi",
+    "tooltip": false
+  },
+
+  // Updates Count
+  "custom/updates": {
+    // "format": "  {}",
+    "format": "󰣇 {}",
+    "tooltip-format": "{}",
+    "escape": true,
+    "return-type": "json",
+    "exec": "~/.config/ml4w/scripts/updates.sh",
+    "restart-interval": 60,
+    "on-click": "alacritty --class dotfiles-floating -e ~/.config/ml4w/scripts/installupdates.sh",
+    "on-click-right": "~/.config/ml4w/settings/software.sh",
+    "tooltip": true,
+    "tooltip-format": "System update"
+  },
+
+  // Wallpaper
+  "custom/wallpaper": {
+    "format": "",
+    "on-click": "~/.config/hypr/scripts/wallpaper.sh select",
+    "on-click-right": "~/.config/hypr/scripts/wallpaper-effects.sh",
+    "tooltip": true,
+    "tooltip-format": "Change wallpaper"
+  },
+
+  // Waybar Themes
+  "custom/waybarthemes": {
+    "format": "",
+    "on-click": "~/.config/waybar/themeswitcher.sh",
+    "tooltip": true,
+    "tooltip-format": "Change theme"
+  },
+
+  // Settings
+  "custom/settings": {
+    "format": "",
+    "on-click": "~/.config/ml4w/apps/ML4W_Dotfiles_Settings-x86_64.AppImage",
+    "tooltip": true,
+    "tooltip-format": "Settings"
+  },
+
+  // Keybindings
+  "custom/keybindings": {
+    "format": "",
+    "on-click": "~/.config/hypr/scripts/keybindings.sh",
+    "tooltip": false
+  },
+
+  // Filemanager Launcher
+  "custom/filemanager": {
+    "format": "",
+    "on-click": "~/.config/ml4w/settings/filemanager.sh",
+    "tooltip": false
+  },
+
+  // Outlook Launcher
+  "custom/outlook": {
+    "format": "",
+    "on-click": "chromium --app=https://outlook.office.com/mail/",
+    "tooltip": false
+  },
+
+  // Teams Launcher
+  "custom/teams": {
+    "format": "",
+    "on-click": "chromium --app=https://teams.microsoft.com/go",
+    "tooltip": false
+  },
+
+  // Browser Launcher
+  "custom/browser": {
+    "format": "",
+    "on-click": "~/.config/ml4w/settings/browser.sh",
+    "tooltip": false
+  },
+
+  // ChatGPT Launcher
+  "custom/chatgpt": {
+    "format": " ",
+    "on-click": "chromium --app=https://chat.openai.com",
+    "tooltip": false
+  },
+
+  // Calculator
+  "custom/calculator": {
+    "format": "",
+    "on-click": "qalculate-gtk",
+    "tooltip": true,
+    "tooltip-format": "Calculator"
+  },
+
+  // Visual Studio Code
+  "custom/code": {
+    "format": "󰨞",
+    "on-click": "code",
+    "tooltip": true,
+    "tooltip-format": "VS Code"
+  },
+
+  // Wireshark
+  "custom/wireshark": {
+    "format": "󱙳",
+    "on-click": "wireshark",
+    "tooltip": true,
+    "tooltip-format": "Wireshark"
+  },
+
+  // Monitor brightness control
+  "custom/brightness": {
+    "format": "",
+    "on-click": "ddcutil --display=1 setvcp 10 + 25",
+    "on-click-right": "ddcutil --display=1 setvcp 10 - 25",
+    "tooltip": false
+  },
+
+  // Reload hyprland and waybar configuration
+  "custom/reload": {
+    "format": "󰑓",
+    "on-click": "hyprctl reload ; ~/.config/waybar/launch.sh",
+    "tooltip": true,
+    "tooltip-format": "Reload WM"
+  },
+
+  // Hyprland settings menu
+  "custom/hypr": {
+    "format": "",
+    "tooltip": true,
+    "tooltip-format": "Hyprland settings"
+  },
+
+  // Group hyprland
+  "group/hypr": {
+    "orientation": "inherit", "drawer": {
+      "transition-duration": 250,
+      "children-class": "not-hypr",
+      "transition-left-to-right": false
+    },
+    "modules": [
+      "custom/hypr",
+      "custom/reload",
+      "custom/brightness",
+      "custom/wallpaper",
+      "custom/waybarthemes",
+      "custom/ml4w-welcome"
+    ]
+  },
+
+  // Windows VM
+  "custom/windowsvm": {
+    "format": "",
+    "on-click": "~/.config/ml4w/scripts/launchvm.sh",
+    "tooltip": false
+  },
+
+  // Rofi Application Launcher
+  "custom/appmenu": {
+    // START APPS LABEL
+    "format": "Apps",
+    // END APPS LABEL
+    "on-click": "sleep 0.2;rofi -show drun -replace",
+    "on-click-right": "~/.config/hypr/scripts/keybindings.sh",
+    "tooltip": false
+  },
+
+  // Rofi Application Launcher
+  "custom/appmenuicon": {
+    "format": "",
+    "on-click": "rofi -show drun -replace",
+    "on-click-right": "~/.config/hypr/scripts/keybindings.sh",
+    "tooltip": false
+  },
+
+  // Power Menu
+  "custom/exit": {
+    "format": "󰐥",
+    "on-click": "wlogout",
+    "tooltip": false
+  },
+
+  // Keyboard State
+  "keyboard-state": {
+    "capslock": true,
+    // "numlock": true,
+    "format": {
+      "capslock": "{icon}"
+    },
+    "format-icons": {
+      "locked": "",
+      "unlocked": ""
+    }
+  },
+
+  // System tray
+    "tray": {
+    "icon-size": 21,
+    "spacing": 10
+  },
+
+  // Clock
+  "clock": {
+    // TIMEDATEFORMAT
+    "format": "{:%H:%M %Z}",
+    // "timezone": "America/New_York",
+    "tooltip-format": "<big>{:%A %D}</big>\n<tt><small>{calendar}</small></tt>",
+    "calendar": {
+      "mode": "year",
+      "mode-mon-col": 3,
+      "week-pos": "right",
+      "on-scroll": 1,
+      "format": {
+        "months": "<span color='#ffead3'><b>{}</b></span>",
+        "days": "<span color='#ecc6d9'><b>{}</b></span>",
+        "weeks": "<span color='#99ffdd'><b>{}</b></span>",
+        "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
+        "today": "<span color='#ff6699'><b>{}</b></span>"
+      }
+    },
+    // START CLOCK FORMAT
+    "format-alt": "{:%Y-%m-%d}",
+    // END CLOCK FORMAT
+    "actions": {
+      "on-scroll-up": "shift_up",
+      "on-scroll-down": "shift_down"
+    }
+  },
+
+  // Notifications
+  "custom/notification": {
+    "format": "󰂚",
+    "on-click": "dunstctl history-pop",
+    "tooltip": false
+  },
+
+  // System
+  "custom/system": {
+    "format": "",
+    "tooltip": false
+  },
+
+  "cpu": {
+    "states": {
+      "warning": 75,
+      "critical": 90
+    },
+    "interval": 5,
+    "format": "󰍛 {usage}%",
+    "format-alt": "{icon0}{icon1}{icon2}{icon3}",
+    "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"]
+  },
+
+  "load": {
+    "interval": 10,
+    "format": "{load1} {load5} {load15}",
+    "tooltip": true,
+    "tooltip-format": "Load average: {load1} {load5} {load15}"
+  },
+
+  "memory": {
+    "states": {
+      "warning": 75,
+      "critical": 90
+    },
+    "interval": 10,
+    "format": "󰘚 {percentage}%",
+    "format-alt": "󰘚 {used}GB",
+    "max-length": 10,
+    "tooltip": true,
+    "tooltip-format": "System memory: {used:0.1f}GB/{total:0.1f}GB"
+  },
+
+  "temperature": {
+    "interval": 10,
+    // "thermal-zone": 2,
+    "hwmon-path": "/sys/class/hwmon/hwmon4/temp3_input",
+    "critical-threshold": 80,
+    // "format-critical": "{temperatureC}°C {icon}",
+    "format": "{icon}&#8239;{temperatureC}°C",
+    "format-icons": ["", "", ""],
+    "tooltip": true,
+    "tooltip-format": "CPU temperature: {temperatureC}°C"
+  },
+
+  "custom/gpuinfo": {
+    "exec": "cat /sys/class/hwmon/hwmon6/device/gpu_busy_percent",
+    "format": "󰡁 {}%",
+    "return-type": "",
+    "interval": 10,
+    "tooltip": true,
+    "tooltip-format": "GPU utilization: {}%"
+  },
+
+  "custom/gputemp": {
+    "exec": "cat /sys/class/hwmon/hwmon6/temp1_input | bc -l | awk '{print $1/1000}'",
+    "format": " {}°C",
+    "return-type": "",
+    "interval": 10,
+    "tooltip": true,
+    "tooltip-format": "GPU temperature: {}°C"
+  },
+
+  // Harddisc space used
+  "disk": {
+    "interval": 30,
+    "format": "D {percentage_used}% ",
+    "path": "/",
+    "on-click": "alacritty -e htop"
+  },
+
+  "hyprland/language": {
+    "format": "{short}"
+  },
+
+  // Group System
+  "group/sysinfo": {
+    "orientation": "inherit",
+    "drawer": {
+      "transition-duration": 250,
+      "children-class": "not-cpu",
+      "transition-left-to-right": true,
+    },
+    "modules": [
+      "cpu",
+      "temperature",
+      "custom/gpuinfo",
+      "custom/gputemp",
+    ]
+  },
+
+  // Group Subsystem
+  "group/subsystem": {
+    "orientation": "inherit",
+    "drawer": {
+      "transition-duration": 250,
+      "children-class": "not-memory",
+      "transition-left-to-right": true,
+    },
+    "modules": [
+      "memory",
+      "network",
+      "bluetooth",
+    ]
+  },
+
+  // Group Hardware
+  "group/hardware": {
+    "orientation": "inherit",
+    "drawer": {
+      "transition-duration": 300,
+      "children-class": "not-memory",
+      "transition-left-to-right": false
+    },
+    "modules": [
+      "custom/system",
+      "disk",
+      "cpu",
+      "memory",
+      "hyprland/language"
+    ]
+  },
+
+  // Group Settings
+  "group/settings": {
+    "orientation": "horizontal",
+    "modules": [
+      // START CHATGPT TOOGLE
+      //"custom/chatgpt",
+      // END CHATGPT TOOGLE
+      "custom/settings",
+      "custom/waybarthemes",
+      "custom/wallpaper"
+    ]
+  },
+
+  // Group Quicklinks
+  "group/quicklinks": {
+    "orientation": "horizontal",
+    "modules": [
+      "custom/browser",
+      "custom/filemanager",
+    ]
+  },
+
+  // Network
+  "network": {
+    "format": "{ifname}",
+    "format-wifi": "󰖩 {signalStrength}%",
+    "format-ethernet": " {ifname}:{ipaddr}/{cidr}",
+    "format-disconnected": " Disconnected",
+    "tooltip-format": " {ifname} via {gwaddr}",
+    "tooltip-format-wifi": "󰖩 {ifname} @ {essid}\nIP: {ipaddr}\nStrength: {signalStrength}%\nFreq: {frequency}MHz\nGateway: {gwaddr}\nUp: {bandwidthUpBits} Down: {bandwidthDownBits}",
+    "tooltip-format-ethernet": " {ifname}\nIP: {ipaddr}\nGateway: {gwaddr}\n up: {bandwidthUpBits} down: {bandwidthDownBits}",
+    "tooltip-format-disconnected": "Disconnected",
+    "max-length": 50,
+    "on-click": "nm-connection-editor"
+  },
+
+  // Battery
+  "battery": {
+      "states": {
+      "good": 90,
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "{icon}{capacity}%",
+    "format-charging": " {capacity}%",
+    "format-plugged": " {capacity}%",
+    "format-alt": "{icon}{time}",
+    // "format-good": "", // An empty format will hide the module
+    // "format-full": "",
+    "format-icons": ["󰁺 ", "󰁻", "󰁼 ", "󰁽", "󰁾 ", "󰁿", "󰂀 ", "󰂁 ", "󰁹 "],
+    "tooltip": true,
+    "tooltip": "(timeTo} {power}w"
+  },
+
+  // Pulseaudio
+  "pulseaudio": {
+    "scroll-step": 1, // %, can be a float
+    "format": "{icon}{volume}% {format_source}",
+    "format-bluetooth": " {volume}% {format_source}",
+    "format-bluetooth-muted": "󰸈 {volume}%  {format_source}",
+    "format-muted": "󰸈 {format_source}",
+    "format-source": " {volume}%",
+    "format-source-muted": "󰍭",
+    "format-icons": {
+      "default": ["󰕿 ", "󰖀 ", "󰕾 "]
+    },
+    "on-click": "pavucontrol",
+    "on-click-right": "helvum",
+    "tooltip": true,
+    "tooltip-format": "Left-click: Sources, Right-click: Routing"
+  },
+
+  "pulseaudio#microphone": {
+    "format": "{format_source}",
+    "format-source": " {volume}%",
+    "format-source-muted": "",
+//    "on-click": "~/.config/hypr/scripts/Volume.sh --toggle-mic",
+//    "on-click-right": "pavucontrol -t 4",
+//    "on-scroll-up": "~/.config/hypr/scripts/Volume.sh --mic-inc",
+//    "on-scroll-down": "~/.config/hypr/scripts/Volume.sh --mic-dec",
+//	  "tooltip-format": "{source_desc} | {source_volume}%",
+    "scroll-step": 5
+  },
+
+  // JACK
+  "jack": {
+    "format": "DSP {load}% {samplerate}Hz {latency}ms",
+    "format-disconnected": "DSP off",
+    "on-click": "carla",
+    "realtime": true
+  },
+
+  // Mpris module
+  "mpris": {
+    "format": "{player_icon} <i>{title} - {artist} <small>[{position}/{length}]</small></i>",
+    "format-paused": "{status_icon} <i>{title} - {artist} <small>[{position}/{length}]</small></i>",
+    "player-icons": {
+      "chromium": "",
+      "default": "󰐊",
+      "firefox": "󰈹",
+      "spotify": "",
+      "vlc": "󰕼"
+    },
+    "status-icons": {
+      "paused": "󰏤",
+      "playing": "󰐊",
+      "stopped": "󰓛"
+    },
+    "interval": 1,
+    "max-length": 150
+  },
+
+  // Custom cava module
+  "custom/cava": {
+    "exec": "~/.scripts/waybarCava.sh",
+    "format": "{}"
+  },
+
+  "cava": {
+    // "cava_config": "$XDG_CONFIG_HOME/cava/cava.conf",
+    // "cava_config": "~/.config/cava/config",
+    "framerate": 30,
+    "autosens": 1,
+    "sensitivity": 100,
+    "bars": 14,
+    "lower_cutoff_freq": 50,
+    "higher_cutoff_freq": 12000,
+    "method": "pipewire",
+    "source": "auto",
+    "stereo": true,
+    "reverse": false,
+    "bar_delimiter": 0,
+    "monstercat": false,
+    "waves": true,
+    "noise_reduction": 0.77,
+    "input_delay": 0,
+    "format": "{}",
+    "format-icons" : ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█" ],
+    "actions": {
+      "on-click-right": "mode"
+    }
+  },
+
+  // Bluetooth
+  "bluetooth": {
+    "format": "",
+    "format": " {status}",
+    "format-disabled": "󰂲 ",
+    "format-connected": " {num_connections}",
+    "tooltip-format": " {device_alias}",
+    "tooltip-format-connected": "{device_enumerate}",
+    "tooltip-format-enumerate-connected": " {device_alias} {device_battery_percentage}%",
+    "interval": 10,
+    "on-click": "blueman-manager",
+    "format-no-controller": "󰂲 -"
+  },
+
+  // Username and uptime
+  "user": {
+    "format": "{work_d}:{work_H}:{work_M}",
+    "interval": 60,
+    "icon": false,
+    "on-click": "~/.config/ml4w/settings/filemanager.sh",
+  },
+
+  // Monitor systemd failed units
+  "systemd-failed-units": {
+	  "hide-on-ok": false, // Do not hide if there is zero failed units.
+	  "format": "✗ {nr_failed_system}",
+	  "format-ok": "✓",
+	  "system": true, // Monitor failed systemwide units.
+	  "user": false // Ignore failed user units.
+  },
+
+  // Hypridle inhibitor
+  "custom/hypridle": {
+    "format": "󰌾",
+    "return-type": "json",
+    "escape": true,
+    "exec-on-event": true,
+    "interval": 60,
+    "exec": "$HOME/.config/hypr/scripts/hypridle.sh status",
+    "on-click": "$HOME/.config/hypr/scripts/hypridle.sh toggle",
+    "on-click-right": "hyprlock"
+  },
+
+  // Color picker//
+  "custom/colorpicker": {
+    "format": "",
+    "on-click": "sleep 0.1s ; hyprpicker -a -f hex ; notify-send 'Hex color copied to clipboard'",
+    "on-click-right": "sleep 0.1s ; hyprpicker -a -f rgb ; notify-send 'RGB color copied to clipboard'",
+    "tooltip": true,
+    "tooltip-format": "Color Picker"
+  },
+  
+  // Idle Inhibator
+  "idle_inhibitor": {
+     "format": "{icon}",
+     "tooltip": true,
+     "format-icons":{
+        "activated": "󰌿",
+        "deactivated": "󰌾"
+      },
+    "on-click-right": "hyprlock"
+  },
+
+  // Segment definitions
+  "custom/segment_ll": {
+    "format": " ",
+    "interval": "once",
+    "tooltip": false
+  },
+  "custom/segment_lr": {
+    "format": " ",
+    "interval": "once",
+    "tooltip": false
+  }
+}

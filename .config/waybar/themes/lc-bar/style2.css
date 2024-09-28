@@ -1,0 +1,820 @@
+/*
+ * __        __          _                  ____  _         _       
+ * \ \      / /_ _ _   _| |__   __ _ _ __  / ___|| |_ _   _| | ___  
+ *  \ \ /\ / / _` | | | | '_ \ / _` | '__| \___ \| __| | | | |/ _ \ 
+ *   \ V  V / (_| | |_| | |_) | (_| | |     ___) | |_| |_| | |  __/ 
+ *    \_/\_/ \__,_|\__, |_.__/ \__,_|_|    |____/ \__|\__, |_|\___| 
+ *                 |___/                              |___/         
+ *  
+ * by Stephan Raabe (2023) 
+ * ----------------------------------------------------- 
+*/
+
+/* -----------------------------------------------------
+ * Import Pywal colors 
+ * ----------------------------------------------------- */
+/* @import 'style-light.css'; */
+
+/* -----------------------------------------------------
+ * General 
+ * ----------------------------------------------------- */
+
+* {
+    font-family: "AR Techni", FontAwesome, Roboto, Helvetica, Arial, sans-serif;
+    font-size: 95%;
+    border: none;
+    border-radius: 0px;
+}
+
+window#waybar {
+    border: 48px solid transparent;
+    background: rgba(22, 22, 22, 0.6);
+    background-color: rgba(22, 22, 22, 0.6);
+    transition-property: background-color;
+    transition-duration: .5s;
+}
+
+/* -----------------------------------------------------
+ * Workspaces 
+ * ----------------------------------------------------- */
+
+#workspaces {
+    background: darker(@workspacesbackground1);
+    margin: 2px 15px 3px 15px;
+    padding: 0px 1px;
+    border-radius: 22px;
+    border: 0px;
+    font-weight: bold;
+    font-style: normal;
+    /*
+    animation: glowText 1.5s ease-in-out infinite alternate;
+    */
+    opacity: 0.8;
+    font-size: 24px;
+    color: @textcolor1;
+}
+
+#workspaces button {
+    padding: 0px 5px;
+    margin: 4px 3px;
+    border-radius: 22px;
+    border: 0px;
+    color: @textcolor1;
+    background-color: @workspacesbackground2;
+    transition: all 0.3s ease-in-out;
+    opacity: 0.4;
+}
+
+#workspaces button.active {
+    color: @textcolor1;
+    /*
+    background: linear-gradient(to right, @workspacesbackground1, @workspacesbackground2);
+    background-size: 400% 400%;
+    animation: gradientAnimation 6s ease infinite;
+    */
+    background: @workspacesbackground2;
+    border-radius: 42px;
+    min-width: 48px;
+    transition: all 0.3s ease-in-out;
+    animation: pulse 2s ease infinite;
+    text-shadow:
+    0 0 7px #fff,
+    0 0 10px #fff,
+    0 0 14px #fff,
+    0 0 20px #0fa,
+    0 0 24px #0fa,
+    0 0 28px #0fa,
+    0 0 32px #0fa,
+    0 0 36px #0fa;
+    opacity:1.0;
+}
+
+@keyframes pulse {
+    from {
+      box-shadow: 0 0 8px 4px @textcolor1; /* Initial shadow with color red */
+    }
+    to {
+      box-shadow: 0 0 12px 6px @textcolor1; /* Increased shadow size and intensity */
+    }
+    from {
+      box-shadow: 0 0 12px 6px @textcolor1;
+    }
+    to {
+      box-shadow: 0 0 8px 4px @textcolor1;
+    }
+}
+
+#workspaces button:hover {
+    color: @textcolor1;
+    background: @workspacesbackground2;
+    border-radius: 22px;
+    text-shadow:
+    0 0 7px #fff,
+    0 0 10px #fff,
+    0 0 14px #fff,
+    0 0 18px #0fa,
+    0 0 22px #0fa,
+    0 0 26px #0fa,
+    0 0 30px #0fa,
+    0 0 34px #0fa;
+    opacity:0.7;
+}
+
+/* -----------------------------------------------------
+ * Tooltips
+ * ----------------------------------------------------- */
+
+tooltip {
+    border-radius: 10px;
+    background-color: darker(darker(@backgroundlight));
+    font-size: 24px;
+    opacity: 0.9;
+    padding: 20px;
+    margin: 0px;
+    border: 2px outset #000;
+    animation: fadeIn 1.5s;
+}
+
+tooltip label {
+    color: @textcolor2;
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 0.8; }
+}
+
+/* -----------------------------------------------------
+ *
+ * ----------------------------------------------------- */
+
+#window {
+    background: linear-gradient(-45deg, darker(darker(@backgrounddark)) 0%, darker(@backgroundlight) 50%, darker(@backgroundlight)) 100%;
+    background-size: 150% 150%;
+    animation: rotateBackground 6s ease infinite;
+    margin: 3px 10px 3px 10px;
+    padding: 0px 10px 0px 10px;
+    border-radius: 20px 10px 20px 10px;
+    color: @textcolor1;
+    font-size: 22px;
+    font-weight: normal;
+    opacity: 0.8;
+    border: 3px solid lighter(@bordercolor);
+}
+
+/* -----------------------------------------------------
+ * Animation defintions
+ * ----------------------------------------------------- */
+
+@keyframes gradientAnimation {
+    0% {
+      background-position: 0% 50%;
+    }
+    100% {
+      background-position: 100% 50%;
+    }
+}
+
+@keyframes gradientAnimationReverse {
+    0% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+}
+
+@keyframes rotateBackground {
+    0% {
+      background-position: 50% 0%;
+      opacity: 0.8;
+    }
+    50% {
+      background-position: 0% 50%;
+      opacity: 0.6;
+    }
+    100% {
+      background-position: 50% 0%;
+      opacity: 0.8;
+    }
+}
+
+@keyframes rotateBorder {
+   0% {
+     border-color: darker(@bordercolor);
+   }
+   50% {
+     border-color: @bordercolor;
+   }
+   100% {
+     border-color: lighter(@bordercolor);
+   }
+}
+
+@keyframes rotateRed {
+   0% {
+     border-color: @textcolor1;
+   }
+   50% {
+     border-color: @textcolor2;
+   }
+   100% {
+     border-color: @textcolor3;
+   }
+}
+
+  @keyframes glowing {
+    0% {
+      text-shadow: 0 0 10px #fff; /* Start with a white glow */
+    }
+    50% {
+      text-shadow: 0 0 20px #4caf50; /* Medium glow */
+    }
+    100% {
+      text-shadow: 0 0 10px #fff; /* End with a white glow */
+    }
+  }
+
+  @keyframes slideText {
+    0% {
+      opacity: 0; /* Start with opacity 0 */
+    }
+    50% {
+      opacity: 1; /* Middle of the animation */
+    }
+    100% {
+      opacity: 0; /* End with opacity 0 */
+    }
+  }
+
+  @keyframes glowingText {
+    0% {
+      color: #4caf50; /* Start color */
+      text-shadow: 0 0 10px #4caf50; /* Start glowing effect */
+    }
+    50% {
+      color: #fff; /* Middle color */
+      text-shadow: 0 0 20px #4caf50; /* Stronger glowing effect */
+    }
+    100% {
+      color: #4caf50; /* End color */
+      text-shadow: 0 0 10px #4caf50; /* End glowing effect */
+    }
+  }
+
+  @keyframes rotateBorder {
+    0% {
+      border: 2px solid @bordercolor; /* Start color */
+    }
+    25% {
+      border: 2px solid @bordercolor; /* Quarter rotation color */
+    }
+    50% {
+      border: 2px solid @textcolor1; /* Half rotation color */
+    }
+    75% {
+      border: 2px solid @textcolor1; /* Three-quarter rotation color */
+    }
+    100% {
+      border: 2px solid @bordercolor; /* End color */
+    }
+  }
+
+
+window#waybar.empty #window {
+    background-color:transparent;
+}
+
+/* -----------------------------------------------------
+ * Taskbar
+ * ----------------------------------------------------- */
+
+#taskbar {
+    background: @backgroundlight;
+    margin: 3px 15px 3px 0px;
+    padding:0px;
+    border-radius: 15px;
+    font-weight: normal;
+    font-style: normal;
+    opacity:0.8;
+    border: 3px solid @backgroundlight;
+}
+
+#taskbar button {
+    margin:0;
+    border-radius: 15px;
+    padding: 0px 5px 0px 5px;
+}
+
+/* -----------------------------------------------------
+ * Modules
+ * ----------------------------------------------------- */
+
+.modules-left > widget:first-child > #workspaces {
+    margin-left: 0;
+}
+
+.modules-right > widget:last-child > #workspaces {
+    margin-right: 0;
+}
+
+/* -----------------------------------------------------
+ * Custom Quicklinks
+ * ----------------------------------------------------- */
+
+#keyboard-state,
+#custom-browser,
+#custom-calculator,
+#custom-chatgpt,
+#custom-cliphist,
+#custom-code,
+#custom-colorpicker,
+#custom-filemanager,
+#custom-keybindings, 
+#custom-outlook, 
+#custom-teams,
+#custom-windowsvm,
+#custom-wireshark,
+#custom-vm {
+    margin-right: 15px;
+    font-size: 20px;
+    font-weight: bold;
+    opacity: 0.8;
+    color: @iconcolor;
+}
+
+/* -----------------------------------------------------
+ * Adjust system brightness
+ * ----------------------------------------------------- */
+
+#custom-brightness {
+    margin-right: 20px;
+    margin-top: 2px;
+    font-size: 20px;
+    font-weight: bold;
+    opacity: 0.8;
+    color: @iconcolor;
+    text-shadow:
+      0 0 7px #fff,
+      0 0 10px #fff,
+      0 0 21px #fff,
+      0 0 42px #0fa,
+      0 0 82px #0fa,
+      0 0 92px #0fa,
+      0 0 102px #0fa,
+      0 0 151px #0fa;
+}
+
+/* -----------------------------------------------------
+ * Replay system notifications
+ * ----------------------------------------------------- */
+
+#custom-notification {
+    margin-top: 3px;
+    margin-right: 10px;
+    margin-left: 10px;
+    font-size: 24px;
+    font-weight: bold;
+    padding: 0px 10px 0px 10px;
+    opacity:  0.8;
+    color: @iconcolor;
+}
+
+#custom-chatgpt {
+    margin-right: 15px;
+    background-image: url("../assets/lc.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    padding-right: 20px;
+}
+
+#custom-ml4w-welcome {
+    margin-right: 15px;
+    background-image: url("../assets/ml4w-icon-20.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    padding-right: 20px;
+}
+
+/* -----------------------------------------------------
+ * Idle Inhibator
+ * ----------------------------------------------------- */
+
+#idle_inhibitor {
+    margin-right: 20px;
+    margin-bottom: 2px;
+    font-size: 26px;
+    font-weight: bold;
+    opacity: 0.8;
+    color: @iconcolor;
+}
+
+#idle_inhibitor.activated {
+    margin-right: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    opacity: 0.8;
+    color: #dc2f2f;
+}
+
+/* -----------------------------------------------------
+ * Custom Modules
+ * ----------------------------------------------------- */
+
+#custom-appmenu, #custom-appmenuwlr {
+    background: linear-gradient(-45deg, darker(@backgrounddark) 0%, @backgroundlight 50%, darker(@backgrounddark) 100%);
+    background-size: 200% 200%;
+    animation: gradient_left_to_right 4s linear infinite;
+    font-size: 22px;
+    color: @textcolor1;
+    border-radius: 24px;
+    padding: 0px 10px 0px 10px;
+    margin: 3px 25px 3px 15px;
+    opacity:0.8;
+    border:5px solid lighter(@bordercolor);
+}
+
+/* -----------------------------------------------------
+ * Custom Exit
+ * ----------------------------------------------------- */
+
+#custom-exit, #custom-hypr, #custom-reload, #custom-settings, #custom-system, #custom-wallpaper, #custom-waybarthemes {
+    margin: 0px 15px 0px 0px;
+    padding:0px;
+    font-size:24px;
+    color: @iconcolor;
+}
+
+/* -----------------------------------------------------
+ * Custom Updates
+ * ----------------------------------------------------- */
+
+#custom-updates {
+    background-color: darker(@backgroundlight);
+    font-size: 22px;
+    color: @textcolor2;
+    border-radius: 10px 20px 10px 20px;
+    padding: 0px 10px 0px 10px;
+    margin: 5px 15px 5px 0px;
+    opacity:0.8;
+}
+
+#custom-updates.green {
+    background-color: darker(@backgroundlight);
+}
+
+#custom-updates.yellow {
+    background-color: #ff9a3c;
+    color: #FFFFFF;
+}
+
+#custom-updates.red {
+    background-color: #dc2f2f;
+    color: #FFFFFF;
+}
+
+/* -----------------------------------------------------
+ * Custom Youtube
+ * ----------------------------------------------------- */
+
+#custom-youtube {
+    background-color: @backgroundlight;
+    font-size: 16px;
+    color: @textcolor2;
+    border-radius: 15px;
+    padding: 2px 10px 0px 10px;
+    margin: 5px 15px 5px 0px;
+    opacity:0.8;
+}
+
+/*
+
+#custom-segment_ll,custom-segment_lr {
+    background-color: darker(@backgroundlight);
+    border: solid;
+    border-color: @border-color;
+    color: @textcolor1;
+    opacity: 0.8;
+    animation: rotateBorder 5s infinite;
+}
+
+#custom-segment_ll {
+    border-radius: 20px 10px 20px 10px;
+    margin-left: 0px;
+    padding-left: 0px;
+    border-left-width: 5px;
+    border-top-width: 5px;
+    border-bottom-width: 5px;
+}
+
+#custom-segment_lr {
+    border-radius: 20px 10px 20px 10px;
+    margin-right: 0px;
+    padding-right: 0px;
+    border-right-width: 5px;
+    border-top-width: 5px;
+    border-bottom-width: 5px;
+}
+
+*/
+
+/* -----------------------------------------------------
+ * Hardware Group
+ * ----------------------------------------------------- */
+
+/*
+
+*/
+
+#cpu,#custom-gpuinfo,#custom-gputemp,#memory,#temperature {
+    background-color: darker(@backgroundlight);
+    font-size: 22px;
+    color: @textcolor1;
+    border-radius: 20px 10px 20px 10px;
+    padding: 1px 10px 0px 10px;
+    margin: 3px 15px 3px 0px;
+    opacity: 0.8;
+    border: 5px solid @bordercolor;
+    animation: rotateBorder 5s infinite;
+}
+
+#cpu.warning, #memory.warning {
+    background-color: #e7bc40;
+    color: @textcolor1;
+    animation: blink 2s linear infinite alternate;
+}
+
+#cpu.critical, #memory.critical {
+    background-color: #f53c3c;
+    color: @textcolor1;
+    animation: blink 0.5s linear infinite alternate;
+}
+
+/* -----------------------------------------------------
+ * System load monitor
+ * ----------------------------------------------------- */
+
+#load {
+    background: darker(@backgroundlight);
+    padding: 3px 10px 0px 10px;
+    margin: 7px 15px 7px 0px;
+    border-radius: 10px 20px 10px 20px;
+    border: 0px;
+    opacity: 0.8;
+    font-size: 22px;
+    color: @textcolor1;
+}
+
+/* -----------------------------------------------------
+ * Keyboard language layout
+ * ----------------------------------------------------- */
+ 
+#language {
+    padding: 3px 0px 3px 0px;
+    margin: 7px 15px 7px 0px;
+    border: 0px;
+    font-size: 22px;
+    color: @textcolor1;
+    opacity: 0.8;
+}
+
+/* -----------------------------------------------------
+ * Clock
+ * ----------------------------------------------------- */
+
+#clock {
+    background: linear-gradient(225deg, darker(@backgrounddark) 0%, @backgroundlight 50%, darker(@backgrounddark) 100%);
+    background-size: 200% 200%;
+    animation: gradient_right_to_left 4s linear infinite;
+    font-size: 22px;
+    color: @textcolor1;
+    border-radius: 24px;
+    padding: 0px 10px 0px 10px;
+    margin: 3px 15px 2px 0px;
+    opacity:0.8;
+    border:5px solid lighter(@bordercolor);   
+}
+
+@keyframes gradient_left_to_right {
+    0% {
+        background-position: 200% 200%;
+    }
+    100% {
+        background-position: 0% 200%;
+    }
+}
+
+@keyframes gradient_right_to_left {
+    0% {
+        background-position: 0% 200%;
+    }
+    100% {
+        background-position: 200% 200%;
+    }
+}
+
+/* -----------------------------------------------------
+ * Pulseaudio
+ * ----------------------------------------------------- */
+
+#pulseaudio, #jack {
+    background-color: darker(@backgroundlight);
+    font-size: 20px;
+    color: @textcolor1;
+    border-radius: 10px 20px 10px 20px;
+    padding: 2px 10px 0px 10px;
+    margin: 5px 15px 5px 0px;
+   opacity:0.8;
+}
+
+
+#pulseaudio.muted {
+    background-color: @backgrounddark;
+    color: @textcolor1;
+}
+
+/* -----------------------------------------------------
+ * System Uptime
+ * ----------------------------------------------------- */
+
+#user {
+   background: linear-gradient(-45deg, darker(@backgrounddark) 0%, @backgroundlight 50%, darker(@backgrounddark) 100%);
+   background-size: 200% 200%;
+   animation: gradient_left_to_right 4s linear infinite;
+   font-size: 22px;
+   color: @textcolor1;
+   border-radius: 24px;
+   padding: 0px 10px 0px 10px;
+   margin: 3px 15px 2px 0px;
+   opacity: 0.8;
+   border: 5px solid lighter(@bordercolor);
+}
+
+#mpris {
+/*
+   background-color: @backgrounddark;
+*/
+   background: linear-gradient(225deg, darker(darker(@backgrounddark)) 0%, darker(@backgroundlight) 50%, darker(@backgrounddark) 100%);
+   background-size: 150% 150%;
+   animation: rotateBackground 6s ease infinite;
+   font-size: 22px;
+   color: @textcolor1;
+   border-radius: 10px 20px 10px 20px;
+   padding: 0px 10px 0px 10px;
+   margin: 3px 15px 3px 10px;
+   opacity: 0.8;
+   border: 3px solid lighter(@bordercolor);
+}
+
+/* -----------------------------------------------------
+ * Cava Visualizer
+ * ----------------------------------------------------- */
+
+#custom-cava, #cava {
+   font-size: 24px;
+   font-weight: normal;
+   color: @textcolor1;
+   text-shadow:
+     0 0 7px #fff,
+     0 0 10px #fff,
+     0 0 21px #fff,
+     0 0 42px #0fa,
+     0 0 82px #0fa,
+     0 0 92px #0fa;
+/*
+     0 0 102px #0fa,
+     0 0 151px #0fa;
+*/
+/*
+   border-radius: 24px;
+*/
+   min-width: 420px;
+   padding: 0px 10px 0px 10px; 
+   margin: 3px 10px 3px 10px;
+/*
+   border: 5px solid @backgroundlight;
+*/
+   opacity:0.6;
+}
+
+/* -----------------------------------------------------
+ * Network
+ * ----------------------------------------------------- */
+
+#network {
+    background-color: darker(@backgroundlight);
+    font-size: 22px;
+    color: @textcolor1;
+    border-radius: 10px 20px 10px 20px;
+    padding: 2px 10px 0px 10px;
+    margin: 5px 10px 5px 0px;
+    opacity:0.8;
+}
+
+#network.ethernet {
+    background-color: darker(@backgroundlight);
+    color: @textcolor1;
+}
+
+#network.wifi {
+    background-color: darker(@backgroundlight);
+    color: @textcolor1;
+}
+
+/* -----------------------------------------------------
+ * Systemd module failure alert
+ * ----------------------------------------------------- */
+
+#systemd-failed-units {
+    background-color: @backgroundlight;
+    font-size: 22px;
+    color: @textcolor1;
+    border-radius: 20px 10px 20px 10px;
+    padding: 2px 10px 0px 10px;
+    margin: 5px 15px 5px 0px;
+    opacity: 0.8;
+}
+
+/* -----------------------------------------------------
+ * Bluetooth
+ * ----------------------------------------------------- */
+
+#bluetooth, #bluetooth.on, #bluetooth.connected {
+    background-color: darker(@backgroundlight);
+    font-size: 22px;
+    color: @textcolor1;
+    border-radius: 10px 20px 10px 20px;
+    padding: 2px 10px 0px 10px;
+    margin: 5px 15px 5px 0px;
+    opacity:0.8;
+}
+
+#bluetooth.off {
+    background-color: transparent;
+    padding: 0px;
+    margin: 0px;
+}
+
+/* -----------------------------------------------------
+ * Battery
+ * ----------------------------------------------------- */
+
+#battery {
+    background-color: @backgroundlight;
+    font-size: 22px;
+    color: @textcolor1;
+    border-radius: 10px 20px 10px 20px;
+    padding: 2px 15px 0px 10px;
+    margin: 5px 15px 5px 0px;
+    opacity:0.8;
+}
+
+#battery:not(.charging) {
+    background-color: #e7bc40;
+    color: @textcolor1;
+    animation: blink 2s linear infinite alternate;
+}
+
+#battery.charging, #battery.plugged {
+    background-color: #5fa052;
+    color: @textcolor1;
+    animation: blink 2s linear infinite alternate;
+}
+
+@keyframes blink {
+    to {
+        background-color: @backgroundlight;
+        color: @textcolor1;
+    }
+}
+
+#battery.critical:not(.charging) {
+    background-color: #f53c3c;
+    color: @textcolor1;
+    animation: blink 0.5s linear infinite alternate;
+}
+
+/* -----------------------------------------------------
+ * Tray
+ * ----------------------------------------------------- */
+
+#tray {
+    padding: 0px 10px 0px 0px;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+}
+
+@keyframes glowText {
+    from {
+      text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000, 0 0 30px #ff0000;
+    }
+    to {
+      text-shadow: 0 0 20px #ff0000, 0 0 30px #ff0000, 0 0 40px #ff0000;
+    }
+}
