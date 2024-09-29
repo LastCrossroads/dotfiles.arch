@@ -49,6 +49,7 @@
        "Alacritty",
        "ghostty",
        "kitty",
+       "Wave",
        "warp"
      ],
      "app_ids-mapping": {
@@ -63,77 +64,39 @@
   // Hyprland Window
   "hyprland/window": {
     "rewrite": {
-      "(.*) - Brave": "$1",
       "(.*) - Chromium": "$1",
-      "(.*) - Brave Search": "$1",
-      "(.*) - Outlook": "$1",
-      "(.*) - Microsoft Edge Dev": "$1",
-      "(.*) Microsoft Teams": "$1"
+      "(.*) Zen Browser": "$1 Zen"
     },
     "separate-outputs": true
-  },
-
-  // ML4W Welcome App
-  "custom/ml4w-welcome": {
-    "on-click": "ags -t sidebar",
-    "on-click-right": "sleep 0.1s ; $HOME/.config/ml4w/apps/ML4W_Welcome-x86_64.AppImage",
-    "format": " ",
-    "tooltip": true,
-    "tooltip-format": "Open Sidebar"
-  },
-
-  // Empty
-  "custom/empty": {
-    "format": ""
-  },
-
-  // Youtube Subscriber Count
- "custom/youtube": {
-   "format": " {}",
-   "exec": "python ~/private/youtube.py",
-   "restart-interval": 600,
-   "on-click": "chromium https://studio.youtube.com",
-   "tooltip": false
   },
 
   // Cliphist
   "custom/cliphist": {
     "format": "",
-    "on-click": "sleep 0.1s ;  ~/.config/ml4w/scripts/cliphist.sh",
-    "on-click-right": "sleep 0.1s ; ~/.config/ml4w//scripts/cliphist.sh d",
-    "on-click-middle": "sleep 0.1s ; ~/.config/ml4w//scripts/cliphist.sh w",
+    "on-click": "sleep 0.1s ; $HOME/.config/hypr/scripts/cliphist.sh",
+    "on-click-right": "sleep 0.1s ; $HOME/.config/hypr/scripts/cliphist.sh d",
+    "on-click-middle": "sleep 0.1s ; $HOME/.config/hypr/scripts/cliphist.sh w",
     "tooltip": true,
     "tooltip-format": "Clip history"
   },
 
-  // Hyprshade
-  "custom/hyprshade": {
-    "format": "󱩫",
-    "on-click": "sleep 0.1s ; ~/.config/hypr/scripts/hyprshade.sh",
-    "on-click-right": "sleep 0.1s ; ~/.config/hypr/scripts/hyprshade.sh rofi",
-    "tooltip": false
-  },
-
   // Updates Count
   "custom/updates": {
-    // "format": "  {}",
     "format": "󰣇 {}",
     "tooltip-format": "{}",
     "escape": true,
     "return-type": "json",
     "exec": "~/.config/ml4w/scripts/updates.sh",
     "restart-interval": 60,
-    "on-click": "alacritty --class dotfiles-floating -e ~/.config/ml4w/scripts/installupdates.sh",
-    "on-click-right": "~/.config/ml4w/settings/software.sh",
     "tooltip": true,
-    "tooltip-format": "System update"
+    "tooltip-format": "System updates"
   },
 
   // Wallpaper
   "custom/wallpaper": {
     "format": "",
-    "on-click": "~/.config/hypr/scripts/wallpaper.sh select",
-    "on-click-right": "~/.config/hypr/scripts/wallpaper-effects.sh",
+    "on-click": "waypaper",
+    // "on-click-right": "~/.config/hypr/scripts/wallpaper-effects.sh",
     "tooltip": true,
     "tooltip-format": "Change wallpaper"
   },
@@ -141,17 +104,9 @@
   // Waybar Themes
   "custom/waybarthemes": {
     "format": "",
-    "on-click": "~/.config/waybar/themeswitcher.sh",
+    "on-click": "$HOME/.config/waybar/themeswitcher.sh",
     "tooltip": true,
     "tooltip-format": "Change theme"
-  },
-
-  // Settings
-  "custom/settings": {
-    "format": "",
-    "on-click": "~/.config/ml4w/apps/ML4W_Dotfiles_Settings-x86_64.AppImage",
-    "tooltip": true,
-    "tooltip-format": "Settings"
   },
 
   // Keybindings
@@ -161,38 +116,10 @@
     "tooltip": false
   },
 
-  // Filemanager Launcher
-  "custom/filemanager": {
-    "format": "",
-    "on-click": "~/.config/ml4w/settings/filemanager.sh",
-    "tooltip": false
-  },
-
-  // Outlook Launcher
-  "custom/outlook": {
-    "format": "",
-    "on-click": "chromium --app=https://outlook.office.com/mail/",
-    "tooltip": false
-  },
-
-  // Teams Launcher
-  "custom/teams": {
-    "format": "",
-    "on-click": "chromium --app=https://teams.microsoft.com/go",
-    "tooltip": false
-  },
-
   // Browser Launcher
   "custom/browser": {
     "format": "",
-    "on-click": "~/.config/ml4w/settings/browser.sh",
-    "tooltip": false
-  },
-
-  // ChatGPT Launcher
-  "custom/chatgpt": {
-    "format": " ",
-    "on-click": "chromium --app=https://chat.openai.com",
+    "on-click": "$HOME/.config/ml4w/settings/browser.sh",
     "tooltip": false
   },
 
@@ -231,7 +158,7 @@
   // Reload hyprland and waybar configuration
   "custom/reload": {
     "format": "󰑓",
-    "on-click": "hyprctl reload ; ~/.config/waybar/launch.sh",
+    "on-click": "hyprctl reload ; $HOME/.config/waybar/launch.sh",
     "tooltip": true,
     "tooltip-format": "Reload WM"
   },
@@ -255,16 +182,8 @@
       "custom/reload",
       "custom/brightness",
       "custom/wallpaper",
-      "custom/waybarthemes",
-      "custom/ml4w-welcome"
+      "custom/waybarthemes"
     ]
-  },
-
-  // Windows VM
-  "custom/windowsvm": {
-    "format": "",
-    "on-click": "~/.config/ml4w/scripts/launchvm.sh",
-    "tooltip": false
   },
 
   // Rofi Application Launcher
@@ -273,7 +192,7 @@
     "format": "Apps",
     // END APPS LABEL
     "on-click": "sleep 0.2;rofi -show drun -replace",
-    "on-click-right": "~/.config/hypr/scripts/keybindings.sh",
+    "on-click-right": "$HOME/.config/hypr/scripts/keybindings.sh",
     "tooltip": false
   },
 
@@ -281,7 +200,7 @@
   "custom/appmenuicon": {
     "format": "",
     "on-click": "rofi -show drun -replace",
-    "on-click-right": "~/.config/hypr/scripts/keybindings.sh",
+    "on-click-right": "$HOME/.config/hypr/scripts/keybindings.sh",
     "tooltip": false
   },
 
@@ -346,12 +265,7 @@
     "tooltip": false
   },
 
-  // System
-  "custom/system": {
-    "format": "",
-    "tooltip": false
-  },
-
+  // System meters
   "cpu": {
     "states": {
       "warning": 75,
@@ -413,14 +327,6 @@
     "tooltip-format": "GPU temperature: {}°C"
   },
 
-  // Harddisc space used
-  "disk": {
-    "interval": 30,
-    "format": "D {percentage_used}% ",
-    "path": "/",
-    "on-click": "alacritty -e htop"
-  },
-
   "hyprland/language": {
     "format": "{short}"
   },
@@ -441,57 +347,13 @@
     ]
   },
 
-  // Group Subsystem
-  "group/subsystem": {
-    "orientation": "inherit",
-    "drawer": {
-      "transition-duration": 250,
-      "children-class": "not-memory",
-      "transition-left-to-right": true,
-    },
-    "modules": [
-      "memory",
-      "network",
-      "bluetooth",
-    ]
-  },
-
-  // Group Hardware
-  "group/hardware": {
-    "orientation": "inherit",
-    "drawer": {
-      "transition-duration": 300,
-      "children-class": "not-memory",
-      "transition-left-to-right": false
-    },
-    "modules": [
-      "custom/system",
-      "disk",
-      "cpu",
-      "memory",
-      "hyprland/language"
-    ]
-  },
-
   // Group Settings
   "group/settings": {
     "orientation": "horizontal",
     "modules": [
-      // START CHATGPT TOOGLE
-      //"custom/chatgpt",
-      // END CHATGPT TOOGLE
       "custom/settings",
       "custom/waybarthemes",
       "custom/wallpaper"
-    ]
-  },
-
-  // Group Quicklinks
-  "group/quicklinks": {
-    "orientation": "horizontal",
-    "modules": [
-      "custom/browser",
-      "custom/filemanager",
     ]
   },
 
@@ -549,10 +411,10 @@
     "format": "{format_source}",
     "format-source": " {volume}%",
     "format-source-muted": "",
-//    "on-click": "~/.config/hypr/scripts/Volume.sh --toggle-mic",
+//    "on-click": "$HOME/.config/hypr/scripts/Volume.sh --toggle-mic",
 //    "on-click-right": "pavucontrol -t 4",
-//    "on-scroll-up": "~/.config/hypr/scripts/Volume.sh --mic-inc",
-//    "on-scroll-down": "~/.config/hypr/scripts/Volume.sh --mic-dec",
+//    "on-scroll-up": "$HOME/.config/hypr/scripts/Volume.sh --mic-inc",
+//    "on-scroll-down": "$HOME/.config/hypr/scripts/Volume.sh --mic-dec",
 //	  "tooltip-format": "{source_desc} | {source_volume}%",
     "scroll-step": 5
   },
@@ -587,34 +449,34 @@
 
   // Custom cava module
   "custom/cava": {
-    "exec": "~/.scripts/waybarCava.sh",
+    "exec": "$HOME/.scripts/waybarCava.sh",
     "format": "{}"
   },
 
-  "cava": {
+  // "cava": {
     // "cava_config": "$XDG_CONFIG_HOME/cava/cava.conf",
     // "cava_config": "~/.config/cava/config",
-    "framerate": 30,
-    "autosens": 1,
-    "sensitivity": 100,
-    "bars": 14,
-    "lower_cutoff_freq": 50,
-    "higher_cutoff_freq": 12000,
-    "method": "pipewire",
-    "source": "auto",
-    "stereo": true,
-    "reverse": false,
-    "bar_delimiter": 0,
-    "monstercat": false,
-    "waves": true,
-    "noise_reduction": 0.77,
-    "input_delay": 0,
-    "format": "{}",
-    "format-icons" : ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█" ],
-    "actions": {
-      "on-click-right": "mode"
-    }
-  },
+    // "framerate": 30,
+    // "autosens": 1,
+    // "sensitivity": 100,
+    // "bars": 14,
+    // "lower_cutoff_freq": 50,
+    // "higher_cutoff_freq": 16000,
+    // "method": "pipewire",
+    // "source": "auto",
+    // "stereo": true,
+    // "reverse": false,
+    // "bar_delimiter": 0,
+    // "monstercat": false,
+    // "waves": true,
+    // "noise_reduction": 0.77,
+    // "input_delay": 0,
+    // "format": "{}",
+    // "format-icons" : ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█" ],
+    // "actions": {
+    //   "on-click-right": "mode"
+    // }
+  // },
 
   // Bluetooth
   "bluetooth": {
@@ -635,13 +497,13 @@
     "format": "{work_d}:{work_H}:{work_M}",
     "interval": 60,
     "icon": false,
-    "on-click": "~/.config/ml4w/settings/filemanager.sh",
+    "on-click": "$HOME/.config/ml4w/settings/filemanager.sh",
   },
 
   // Monitor systemd failed units
   "systemd-failed-units": {
 	  "hide-on-ok": false, // Do not hide if there is zero failed units.
-	  "format": "✗ {nr_failed_system}",
+	  "format": "✗{nr_failed_system}",
 	  "format-ok": "✓",
 	  "system": true, // Monitor failed systemwide units.
 	  "user": false // Ignore failed user units.
@@ -670,24 +532,12 @@
   
   // Idle Inhibator
   "idle_inhibitor": {
-     "format": "{icon}",
-     "tooltip": true,
-     "format-icons":{
+    "format": "{icon}",
+    "tooltip": true,
+    "format-icons":{
         "activated": "󰌿",
         "deactivated": "󰌾"
       },
     "on-click-right": "hyprlock"
-  },
-
-  // Segment definitions
-  "custom/segment_ll": {
-    "format": " ",
-    "interval": "once",
-    "tooltip": false
-  },
-  "custom/segment_lr": {
-    "format": " ",
-    "interval": "once",
-    "tooltip": false
   }
 }
