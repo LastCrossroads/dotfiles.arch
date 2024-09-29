@@ -8,7 +8,7 @@ elif [[ "$status" == "connecting" ]]; then
   printf "󱍸 "
 elif [[ "$status" == "connected" ]]; then
   # strength="$(nmcli -f IN-USE,SIGNAL device wifi | grep '*' | awk '{print $2}')"
-  strength="$(python ~/.config/waybar/themes/lc-bar/wifi-conn-strength.py)"
+  strength="$(python $HOME/.scripts/wifi-conn-strength.py)"
   if [[ "$?" == "0" ]]; then
     if [[ "$strength" -eq "0" ]]; then
       printf "󰤯"
