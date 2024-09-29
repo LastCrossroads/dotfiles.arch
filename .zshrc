@@ -118,7 +118,7 @@ fi
 function in {
   local pkg="$1"
   if pacman -Si "$pkg" &>/dev/null ; then
-    sudo pacman -S "$pkg"
+    doas pacman -S "$pkg"
   else
     "$aurhelper" -S "$pkg"
   fi
