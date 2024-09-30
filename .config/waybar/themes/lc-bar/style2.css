@@ -200,85 +200,22 @@ tooltip label {
 }
 
 @keyframes rotateBorder {
-   0% {
-     border-color: darker(@bordercolor);
-   }
-   50% {
-     border-color: @bordercolor;
-   }
-   100% {
-     border-color: lighter(@bordercolor);
-   }
-}
-
-@keyframes rotateRed {
-   0% {
-     border-color: @textcolor1;
-   }
-   50% {
-     border-color: @textcolor2;
-   }
-   100% {
-     border-color: @textcolor3;
-   }
-}
-
-  @keyframes glowing {
     0% {
-      text-shadow: 0 0 10px #fff; /* Start with a white glow */
-    }
-    50% {
-      text-shadow: 0 0 20px #4caf50; /* Medium glow */
-    }
-    100% {
-      text-shadow: 0 0 10px #fff; /* End with a white glow */
-    }
-  }
-
-  @keyframes slideText {
-    0% {
-      opacity: 0; /* Start with opacity 0 */
-    }
-    50% {
-      opacity: 1; /* Middle of the animation */
-    }
-    100% {
-      opacity: 0; /* End with opacity 0 */
-    }
-  }
-
-  @keyframes glowingText {
-    0% {
-      color: #4caf50; /* Start color */
-      text-shadow: 0 0 10px #4caf50; /* Start glowing effect */
-    }
-    50% {
-      color: #fff; /* Middle color */
-      text-shadow: 0 0 20px #4caf50; /* Stronger glowing effect */
-    }
-    100% {
-      color: #4caf50; /* End color */
-      text-shadow: 0 0 10px #4caf50; /* End glowing effect */
-    }
-  }
-
-  @keyframes rotateBorder {
-    0% {
-      border: 2px solid @bordercolor; /* Start color */
+        border: 2px solid @bordercolor; /* Start color */
     }
     25% {
-      border: 2px solid @bordercolor; /* Quarter rotation color */
+        border: 2px solid @bordercolor; /* Quarter rotation color */
     }
     50% {
-      border: 2px solid @textcolor1; /* Half rotation color */
+        border: 2px solid @textcolor1; /* Half rotation color */
     }
     75% {
-      border: 2px solid @textcolor1; /* Three-quarter rotation color */
+        border: 2px solid @textcolor1; /* Three-quarter rotation color */
     }
     100% {
-      border: 2px solid @bordercolor; /* End color */
+        border: 2px solid @bordercolor; /* End color */
     }
-  }
+}
 
 
 window#waybar.empty #window {
@@ -323,19 +260,13 @@ window#waybar.empty #window {
  * ----------------------------------------------------- */
 
 #keyboard-state,
-#custom-browser,
 #custom-calculator,
-#custom-chatgpt,
 #custom-cliphist,
 #custom-code,
 #custom-colorpicker,
 #custom-filemanager,
 #custom-keybindings, 
-#custom-outlook, 
-#custom-teams,
-#custom-windowsvm,
-#custom-wireshark,
-#custom-vm {
+#custom-wireshark {
     margin-right: 15px;
     font-size: 20px;
     font-weight: bold;
@@ -380,22 +311,6 @@ window#waybar.empty #window {
     color: @iconcolor;
 }
 
-#custom-chatgpt {
-    margin-right: 15px;
-    background-image: url("../assets/lc.png");
-    background-repeat: no-repeat;
-    background-position: center;
-    padding-right: 20px;
-}
-
-#custom-ml4w-welcome {
-    margin-right: 15px;
-    background-image: url("../assets/ml4w-icon-20.png");
-    background-repeat: no-repeat;
-    background-position: center;
-    padding-right: 20px;
-}
-
 /* -----------------------------------------------------
  * Idle Inhibator
  * ----------------------------------------------------- */
@@ -418,7 +333,7 @@ window#waybar.empty #window {
 }
 
 /* -----------------------------------------------------
- * Custom Modules
+ * Custom Application Menus
  * ----------------------------------------------------- */
 
 #custom-appmenu, #custom-appmenuwlr {
@@ -429,13 +344,13 @@ window#waybar.empty #window {
     color: @textcolor1;
     border-radius: 24px;
     padding: 0px 10px 0px 10px;
-    margin: 3px 25px 3px 15px;
+    margin: 3px 20px 3px 15px;
     opacity:0.8;
     border:5px solid lighter(@bordercolor);
 }
 
 /* -----------------------------------------------------
- * Custom Exit
+ * Custom Modules
  * ----------------------------------------------------- */
 
 #custom-exit, #custom-hypr, #custom-reload, #custom-settings, #custom-system, #custom-wallpaper, #custom-waybarthemes {
@@ -487,44 +402,9 @@ window#waybar.empty #window {
     opacity:0.8;
 }
 
-/*
-
-#custom-segment_ll,custom-segment_lr {
-    background-color: darker(@backgroundlight);
-    border: solid;
-    border-color: @border-color;
-    color: @textcolor1;
-    opacity: 0.8;
-    animation: rotateBorder 5s infinite;
-}
-
-#custom-segment_ll {
-    border-radius: 20px 10px 20px 10px;
-    margin-left: 0px;
-    padding-left: 0px;
-    border-left-width: 5px;
-    border-top-width: 5px;
-    border-bottom-width: 5px;
-}
-
-#custom-segment_lr {
-    border-radius: 20px 10px 20px 10px;
-    margin-right: 0px;
-    padding-right: 0px;
-    border-right-width: 5px;
-    border-top-width: 5px;
-    border-bottom-width: 5px;
-}
-
-*/
-
 /* -----------------------------------------------------
  * Hardware Group
  * ----------------------------------------------------- */
-
-/*
-
-*/
 
 #cpu,#custom-gpuinfo,#custom-gputemp,#memory,#temperature {
     background-color: darker(@backgroundlight);

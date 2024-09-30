@@ -115,6 +115,7 @@ wal_tpl=$(cat $HOME/.config/ml4w/settings/hyprpaper.tpl)
 output=${wal_tpl//WALLPAPER/$used_wallpaper}
 echo "$output" > $HOME/.config/hypr/hyprpaper.conf
 hyprpaper & > /dev/null 2>&1
+# swww img $used_wallpaper & > /dev/null 2>&1
 
 # ----------------------------------------------------- 
 # Reload Waybar
@@ -124,8 +125,8 @@ hyprpaper & > /dev/null 2>&1
 # ----------------------------------------------------- 
 # Reload AGS
 # -----------------------------------------------------
-killall ags
-ags &
+# killall ags
+# ags &
 
 # ----------------------------------------------------- 
 # Created blurred wallpaper
