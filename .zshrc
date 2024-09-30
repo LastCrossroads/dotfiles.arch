@@ -118,7 +118,7 @@ fi
 function in {
   local pkg="$1"
   if pacman -Si "$pkg" &>/dev/null ; then
-    doas pacman -S "$pkg"
+    sudo pacman -S "$pkg"
   else
     "$aurhelper" -S "$pkg"
   fi
@@ -142,7 +142,7 @@ alias df='df -B M'
 # WARNING: Force CFLAGS for aggressive AMD Ryzen optimizations
 # alias gcc='/usr/bin/gcc "$@" -O3 -march=znver4 -mtune=znver4'
 alias hx='helix'
-alias ls='lsd'
+alias ls='lsd -a'
 alias nano='nano -i -l -q -x -_ --tabsize=2 --tabstospaces'
 alias rm='trash'
 alias rmdir='trash'
