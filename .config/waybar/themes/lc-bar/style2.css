@@ -418,16 +418,46 @@ window#waybar.empty #window {
     animation: rotateBorder 5s infinite;
 }
 
-#cpu.warning, #memory.warning {
-    background-color: #e7bc40;
+#memory {
+    background-color: darker(@backgroundlight);
+    font-size: 22px;
     color: @textcolor1;
+    border-radius: 20px 20px 20px 20px;
+    padding: 1px 10px 0px 10px;
+    margin: 3px 15px 3px 0px;
+    opacity: 0.8;
+    border: 5px solid @bordercolor;
+    animation: rotateBorder 5s infinite;    
+}
+
+#cpu.warning, #memory.warning, #temperature.warning {
+    background-color: #e7bc40;
     animation: blink 2s linear infinite alternate;
 }
 
-#cpu.critical, #memory.critical {
+#cpu.critical, #memory.critical, #temperature.critical {
     background-color: #f53c3c;
-    color: @textcolor1;
     animation: blink 0.5s linear infinite alternate;
+}
+
+#cpu, #custom-gpuinfo {
+    background-color: darker(@backgroundlight);
+    font-size: 22px;
+    color: @textcolor1;
+    border-radius: 999em 20px 20px 999em;
+    padding: 1px 5px 0px 10px;
+    margin: 3px 0px 3px 0px;
+    opacity: 0.8;
+}
+
+#custom-gputemp, #temperature {
+    background-color: darker(@backgroundlight);
+    font-size: 22px;
+    color: @textcolor1;
+    border-radius: 20px 999em 999em 20px;
+    padding: 1px 10px 0px 5px;
+    margin: 3px 15px 3px 0px;
+    opacity: 0.8;    
 }
 
 /* -----------------------------------------------------
@@ -606,13 +636,22 @@ window#waybar.empty #window {
  * ----------------------------------------------------- */
 
 #systemd-failed-units {
-    background-color: @backgroundlight;
-    font-size: 22px;
+    background-color: #f53c3c;
+    font-size: 20px;
     color: @textcolor1;
     border-radius: 20px 10px 20px 10px;
     padding: 2px 10px 0px 10px;
-    margin: 5px 15px 5px 0px;
+    margin: 7px 15px 7px 0px;
     opacity: 0.8;
+}
+
+#systemd-failed-units.degraded {
+    background-color: #e7bc40;
+}
+
+#systemd-failed-units.ok {
+    background-color: #5fa052;
+    color: @textcolor1;
 }
 
 /* -----------------------------------------------------

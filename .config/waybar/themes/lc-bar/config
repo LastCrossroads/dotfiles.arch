@@ -27,12 +27,12 @@
         "custom/notification",
         "user",
         "hyprland/language",
-        // "systemd-failed-units",
         "cpu",
         "temperature",
         "custom/gpuinfo",
         "custom/gputemp",
-        "memory"
+        "memory",
+        "systemd-failed-units"
     ],
 
    // Modules Center

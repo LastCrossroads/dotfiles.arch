@@ -119,7 +119,8 @@
   // Browser Launcher
   "custom/browser": {
     "format": "",
-    "on-click": "$HOME/.config/ml4w/settings/browser.sh",
+    // "on-click": "$HOME/.config/ml4w/settings/browser.sh",
+    "on-click": "$BROWSER",
     "tooltip": false
   },
 
@@ -302,7 +303,8 @@
     // "thermal-zone": 2,
     "hwmon-path": "/sys/class/hwmon/hwmon4/temp3_input",
     "critical-threshold": 80,
-    // "format-critical": "{temperatureC}°C {icon}",
+    "warning-threshold": 70,
+    // "format-critical": "{icon}&#8239;{temperatureC}°C",
     "format": "{icon}&#8239;{temperatureC}°C",
     "format-icons": ["", "", ""],
     "tooltip": true,
@@ -497,16 +499,16 @@
     "format": "{work_d}:{work_H}:{work_M}",
     "interval": 60,
     "icon": false,
-    "on-click": "$HOME/.config/ml4w/settings/filemanager.sh",
+    "on-click": "$FILEMANAGER",
   },
 
   // Monitor systemd failed units
   "systemd-failed-units": {
 	  "hide-on-ok": false, // Do not hide if there is zero failed units.
-	  "format": "✗{nr_failed_system}",
+	  "format": "{nr_failed_system} {nr_failed_user}",
 	  "format-ok": "✓",
 	  "system": true, // Monitor failed systemwide units.
-	  "user": false // Ignore failed user units.
+	  "user": true // Ignore failed user units.
   },
 
   // Hypridle inhibitor
