@@ -51,7 +51,7 @@
             "style": "folder"
           },
           "style": "powerline",
-          "template": " {{ .Path }} ",
+          "template": " {{ .Path }} ",
           "type": "path"
         },
         {
