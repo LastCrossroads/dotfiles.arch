@@ -9,11 +9,11 @@
         "break",
           {
             "type": "custom",
-            "format": "                     システム詳細"
+            "format": "                      システム詳細"
           },  
                 {
             "type": "custom",
-            "format": "\u001b[90m┌──────────────────────────────────────────────────┐"
+            "format": "\u001b[90m┌────────────────────────────────────────────────────┐"
         },
 //  {
 //    "type": "os",
@@ -21,11 +21,11 @@
 //  },
   {
     "type": "kernel",
-    "key": "   Kernel"
+    "key": "   Kernel    "
   },
   {
     "type": "host",
-    "key": "   Host"
+    "key": "   Host      "
   },
 //  {
 //    "type": "uptime",
@@ -35,11 +35,11 @@
 //    "shell",
   {
     "type": "display",
-    "key": "   Display"
+    "key": "   Display   "
   },
   {
     "type": "de",
-    "key": "   DE"
+    "key": "   DE        "
   },
   {
     "type": "wm",
@@ -52,41 +52,41 @@
 //    "cursor",
   {
     "type": "terminal",
-    "key": "   Terminal"
+    "key": "   Terminal  "
   },
   {
     "type": "terminalfont",
-    "key": "   Font"
+    "key": "   Font      "
   },
   {
     "type": "cpu",
-    "key": "   CPU"
+    "key": "   CPU       "
   },
 
   {
     "type": "gpu",
-    "key": "   GPU"
+    "key": "   GPU       "
   },
   {
     "type": "vulkan",
-    "key": "   Vulkan"
+    "key": "   Vulkan    "
   },
   {
     "type": "memory",
-    "key": "   Memory"
+    "key": "   Memory    "
   },
 //    "swap",
   {
     "type": "disk",
-    "key": "   Disk"
+    "key": "   Disk      "
   },
   {
     "type": "localip",
-    "key": "   Local IP"
+    "key": "   Local IP  "
   },
   {
     "type": "wifi",
-    "key": "   Wi-Fi"
+    "key": "   Wi-Fi     "
   },
 //    "localip",
 //  {
@@ -100,12 +100,12 @@
 //    "locale",
         {
             "type": "custom",
-            "format": "\u001b[90m└──────────────────────────────────────────────────┘"
+            "format": "\u001b[90m└────────────────────────────────────────────────────┘"
         },
     "break",
     {
       "type": "colors",
-      "paddingleft": 19,
+      "paddingleft": 20,
       "symbol": "circle"
     }
   ]
