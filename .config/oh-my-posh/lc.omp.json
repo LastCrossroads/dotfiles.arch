@@ -10,27 +10,23 @@
             "macos": "mac"
           },
           "style": "diamond",
-//          "template": "{{ if .WSL }}WSL at {{ end }}{{.Icon}} ",
+          "template": "{{ if .WSL }}WSL at {{ end }}{{.Icon}} ",
           "template": "󰣇 ",
           "type": "os"
         },
         {
-          "type": "session",
-          "style": "diamond",
-          "foreground": "#eed49f",
+          // "type": "session",
+          // "style": "diamond",
+          // "foreground": "#eed49f",
           "template": "{{ if .SSHSession }} {{ end }}"
         },
         {
-//          "background": "#89b4fa",
-          "background": "#939ab7",
+          "background": "#3177e3",
           "foreground": "#000000",
-//          "properties": {
-//            "style": "powerline",
-//            "threshold": 0
-//          },
-          "leading_diamond": "\ue0b0",
-          "style": "diamond",
-          "template": "{{ .UserName }}@{{ .HostName }} ",
+          "powerline_symbol": "\ue0b0",
+          "leading_diamond": "\ue0b6",
+          "style": "powerline",
+          "template": " {{ .UserName }}@{{ .HostName }} ",
           "trailing_diamond": "\ue0b0",
           "type": "session"
         },
@@ -160,13 +156,13 @@
       "newline": true,
       "segments": [
         {
-//          "background": "#939ab7",
-          "background": "#89b4fa",
-          "foreground": "#000000",
-          "leading_diamond": "  \ue0b6",
-          "style": "diamond",
-          "template": "{{ .Name }}",
-          "trailing_diamond": "\ue0b4",
+          // "background": "#89b4fa",
+          // "foreground": "#000000",
+          "foreground": "ffffff",
+          // "leading_diamond": "  \ue0b6",
+          // "style": "diamond",
+          "template": "  {{ .Name }}",
+          // "trailing_diamond": "\ue0b4",
           "type": "shell"
         },
 
