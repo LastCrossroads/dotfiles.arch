@@ -213,7 +213,7 @@ if (( TERMINAL_INSTANCE > 1 )) || (( TMUX_INSTANCE > 1 )) > /dev/null ; then
   hostname | figlet -f Graffiti | lolcat -p 1.5
 else
   hostname | figlet -f Graffiti | tte beams --beam-row-symbols ▂ ▁ _ --beam-column-symbols ▌ ▍ ▎ ▏ --beam-delay 1 --beam-row-speed-range 10-40 --beam-column-speed-range 6-10 --beam-gradient-stops ffffff 00D1FF 8A008A --beam-gradient-steps 2 8 --beam-gradient-frames 2 --final-gradient-stops 8A008A 00D1FF ffffff --final-gradient-steps 12 --final-gradient-frames 5 --final-gradient-direction vertical --final-wipe-speed 1 ;
-  fastfetch --kitty $HOME/Pictures/Logos/arch.png --logo-height 14 --logo-width 28;
+  fastfetch --kitty $HOME/Pictures/Logos/arch-kanji.jpg --logo-padding-left 2 --logo-padding-top 2 --logo-height 14 --logo-width 28;
   fortune -s | tte slide --movement-speed 0.5 --grouping row --final-gradient-stops 833ab4 fd1d1d fcb045 --final-gradient-steps 12 --final-gradient-frames 10 --final-gradient-direction vertical --gap 3 --reverse-direction --merge --movement-easing OUT_QUAD ;
   kusa lastcrossroads
   check_host ares-mobile

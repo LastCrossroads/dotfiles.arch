@@ -68,6 +68,10 @@
     "key": "   GPU"
   },
   {
+    "type": "vulkan",
+    "key": "   Vulkan"
+  },
+  {
     "type": "memory",
     "key": "   Memory"
   },
@@ -75,6 +79,14 @@
   {
     "type": "disk",
     "key": "   Disk"
+  },
+  {
+    "type": "localip",
+    "key": "   Local IP"
+  },
+  {
+    "type": "wifi",
+    "key": "   Wi-Fi"
   },
 //    "localip",
 //  {
