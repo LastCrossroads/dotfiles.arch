@@ -27,6 +27,7 @@
         "custom/notification",
         "user",
         "hyprland/language",
+        "keyboard-state",
         "cpu",
         "temperature",
         "custom/gpuinfo",
@@ -71,9 +72,8 @@
     // Modules Left
     "modules-left": [
         "custom/appmenu",
-        "custom/cliphist",
         "custom/colorpicker",
-        "custom/calculator",
+        // "custom/calculator",
         "custom/code",
         "custom/wireshark",
         "hyprland/window"
@@ -91,7 +91,6 @@
         "pulseaudio",
         "custom/updates",
         "group/hypr"
-        // "idle_inhibitor"
     ]
 
 }

@@ -21,7 +21,7 @@
 
 * {
     font-family: "AR Techni", FontAwesome, Roboto, Helvetica, Arial, sans-serif;
-    font-size: 95%;
+    font-size: 100%;
     border: none;
     border-radius: 0px;
 }
@@ -207,10 +207,10 @@ tooltip label {
         border: 2px solid @bordercolor; /* Quarter rotation color */
     }
     50% {
-        border: 2px solid @textcolor1; /* Half rotation color */
+        border: 2px solid lighter(@bordercolor); /* Half rotation color */
     }
     75% {
-        border: 2px solid @textcolor1; /* Three-quarter rotation color */
+        border: 2px solid lighter(@bordercolor); /* Three-quarter rotation color */
     }
     100% {
         border: 2px solid @bordercolor; /* End color */
@@ -259,7 +259,14 @@ window#waybar.empty #window {
  * Custom Quicklinks
  * ----------------------------------------------------- */
 
-#keyboard-state,
+#keyboard-state {
+    margin-right: 10px;
+    font-size: 24px;
+    font-weight: bold;
+    opacity: 0.8;
+    color: @iconcolor;    
+}
+
 #custom-calculator,
 #custom-cliphist,
 #custom-code,
@@ -301,11 +308,9 @@ window#waybar.empty #window {
  * ----------------------------------------------------- */
 
 #custom-notification {
-    margin-top: 3px;
-    margin-right: 10px;
-    margin-left: 10px;
     font-size: 24px;
     font-weight: bold;
+    margin: 5px 5px 0px 5px;
     padding: 0px 10px 0px 10px;
     opacity:  0.8;
     color: @iconcolor;
@@ -410,24 +415,16 @@ window#waybar.empty #window {
     background-color: darker(@backgroundlight);
     font-size: 22px;
     color: @textcolor1;
-    border-radius: 20px 10px 20px 10px;
-    padding: 1px 10px 0px 10px;
-    margin: 3px 15px 3px 0px;
+    padding: 1px 5px 0px 7px;
+    margin: 3px 10px 3px 0px;
     opacity: 0.8;
     border: 5px solid @bordercolor;
-    animation: rotateBorder 5s infinite;
+    animation: rotateBorder 8s infinite;
 }
 
 #memory {
-    background-color: darker(@backgroundlight);
-    font-size: 22px;
-    color: @textcolor1;
     border-radius: 20px 20px 20px 20px;
-    padding: 1px 10px 0px 10px;
-    margin: 3px 15px 3px 0px;
-    opacity: 0.8;
-    border: 5px solid @bordercolor;
-    animation: rotateBorder 5s infinite;    
+    margin: 3px 15px 3px 5px;
 }
 
 #cpu.warning, #memory.warning, #temperature.warning {
@@ -441,23 +438,12 @@ window#waybar.empty #window {
 }
 
 #cpu, #custom-gpuinfo {
-    background-color: darker(@backgroundlight);
-    font-size: 22px;
-    color: @textcolor1;
     border-radius: 999em 20px 20px 999em;
-    padding: 1px 5px 0px 10px;
-    margin: 3px 0px 3px 0px;
-    opacity: 0.8;
+    margin: 3px 0px 3px 7px;
 }
 
 #custom-gputemp, #temperature {
-    background-color: darker(@backgroundlight);
-    font-size: 22px;
-    color: @textcolor1;
     border-radius: 20px 999em 999em 20px;
-    padding: 1px 10px 0px 5px;
-    margin: 3px 15px 3px 0px;
-    opacity: 0.8;    
 }
 
 /* -----------------------------------------------------
@@ -467,7 +453,7 @@ window#waybar.empty #window {
 #load {
     background: darker(@backgroundlight);
     padding: 3px 10px 0px 10px;
-    margin: 7px 15px 7px 0px;
+    margin: 7px 15px 7px 15px;
     border-radius: 10px 20px 10px 20px;
     border: 0px;
     opacity: 0.8;
@@ -480,8 +466,8 @@ window#waybar.empty #window {
  * ----------------------------------------------------- */
  
 #language {
-    padding: 3px 0px 3px 0px;
-    margin: 7px 15px 7px 0px;
+    padding: 1px 0px 3px 0px;
+    margin: 7px 7px 7px 0px;
     border: 0px;
     font-size: 22px;
     color: @textcolor1;

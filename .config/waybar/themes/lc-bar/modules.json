@@ -86,7 +86,7 @@
     "tooltip-format": "{}",
     "escape": true,
     "return-type": "json",
-    "exec": "~/.config/ml4w/scripts/updates.sh",
+    "exec": "~/.config/hypr/scripts/updates.sh",
     "restart-interval": 60,
     "tooltip": true,
     "tooltip-format": "System updates"
@@ -119,7 +119,6 @@
   // Browser Launcher
   "custom/browser": {
     "format": "",
-    // "on-click": "$HOME/.config/ml4w/settings/browser.sh",
     "on-click": "$BROWSER",
     "tooltip": false
   },
@@ -215,13 +214,15 @@
   // Keyboard State
   "keyboard-state": {
     "capslock": true,
-    // "numlock": true,
+    "numlock": true,
+    "scrollback": false,
     "format": {
-      "capslock": "{icon}"
+      "capslock": "{icon}",
+      "numlock": "{icon}"
     },
     "format-icons": {
       "locked": "",
-      "unlocked": ""
+      "unlocked": ""
     }
   },
 
@@ -505,8 +506,8 @@
   // Monitor systemd failed units
   "systemd-failed-units": {
 	  "hide-on-ok": false, // Do not hide if there is zero failed units.
-	  "format": "{nr_failed_system} {nr_failed_user}",
-	  "format-ok": "✓",
+	  "format": "{nr_failed_system} {nr_failed_user}",
+	  "format-ok": "",
 	  "system": true, // Monitor failed systemwide units.
 	  "user": true // Ignore failed user units.
   },
