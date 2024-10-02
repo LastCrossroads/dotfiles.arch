@@ -59,7 +59,7 @@
           "type": "path"
         },
         {
-          "background": "#8087a2",
+          "background": "#eed49f",
           "foreground": "#000000",
           "powerline_symbol": "\ue0b0",
           "properties": {
@@ -201,8 +201,8 @@
         "g"
       ],
       "style": "diamond",
-      "foreground": "#193549",
-      "background": "#fffb38",
+      "foreground": "#000000",
+      "background": "#eed49f",
       "leading_diamond": "",
       "trailing_diamond": "",
       "template": "{{ .HEAD }}{{ if .Staging.Changed }}  {{ .Staging.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Working.Changed }}  {{ .Working.String }}{{ end }}",

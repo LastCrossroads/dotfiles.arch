@@ -15,8 +15,10 @@
             "type": "custom",
             "format": "\u001b[90m┌──────────────────────────────────────────────────┐"
         },
-
-//    "os",
+//  {
+//    "type": "os",
+//    "key": "   os"
+//  },
   {
     "type": "kernel",
     "key": "   Kernel"
@@ -48,11 +50,14 @@
 //    "icons",
 //    "font",
 //    "cursor",
-//  {
-//    "type": "terminal",
-//    "key": "   Terminal"
-//  },
-//    "terminalfont",
+  {
+    "type": "terminal",
+    "key": "   Terminal"
+  },
+  {
+    "type": "terminalfont",
+    "key": "   Font"
+  },
   {
     "type": "cpu",
     "key": "   CPU"
@@ -72,14 +77,14 @@
     "key": "   Disk"
   },
 //    "localip",
-  {
-    "type": "battery",
-    "key": "   Battery"
-  },
-  {
-    "type": "poweradapter",
-    "key": "   Poweradapter"
-  },
+//  {
+//    "type": "battery",
+//    "key": "   Battery"
+//  },
+//  {
+//    "type": "poweradapter",
+//    "key": "   Poweradapter"
+//  },
 //    "locale",
         {
             "type": "custom",
