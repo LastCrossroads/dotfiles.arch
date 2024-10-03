@@ -1,20 +1,45 @@
-# Directory for all zsh shell packages
-ZSH=~/.zsh/
-
-# Install plugins from oh-my-zsh repository
-# source $ZSH/plugins/catimg/catimg.plugin.zsh
-# source $ZSH/plugins/fzf/fzf.plugin.zsh
-# source $ZSH/plugins/safe-paste/safe-paste.plugin.zsh
-# source $ZSH/plugins/sudo/sudo.plugin.zsh
-# source $ZSH/plugins/zoxide/zoxide.plugin.zsh
-# Plugins from repository
+# Deprecated
 # source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
-# source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh
 
-# For machines I haven't bothered to switch over
-# ZSH=/usr/share/oh-my-zsh/
-# plugins=(catimg git kate safe-paste sudo ufw zsh-256color zsh-autosuggestions zsh-syntax-highlighting)
-# source $ZSH/oh-my-zsh.sh
+# Syntax highlighting
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh
+ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern)
+ZSH_HIGHLIGHT_STYLES[arg0]=fg=cyan
+ZSH_HIGHLIGHT_STYLES[assign]=none
+ZSH_HIGHLIGHT_STYLES[autodirectory]=fg=green,underline
+ZSH_HIGHLIGHT_STYLES[back-dollar-quoted-argument]=fg=magenta,bold
+ZSH_HIGHLIGHT_STYLES[back-double-quoted-argument]=fg=magenta,bold
+ZSH_HIGHLIGHT_STYLES[bracket-error]=fg=red,bold
+ZSH_HIGHLIGHT_STYLES[bracket-level-1]=fg=blue,bold
+ZSH_HIGHLIGHT_STYLES[bracket-level-2]=fg,green,bold
+ZSH_HIGHLIGHT_STYLES[bracket-level-3]=fg=magenta,bold
+ZSH_HIGHLIGHT_STYLES[bracket-level-4]=fg=yellow,bold
+ZSH_HIGHLIGHT_STYLES[bracket-level-5]=fg=cyan,bold
+ZSH_HIGHLIGHT_STYLES[command-substitution]=none
+ZSH_HIGHLIGHT_STYLES[command-substitution-delimiter]=fg=magenta,bold
+ZSH_HIGHLIGHT_STYLES[commandseparator]=fg=blue,bold
+ZSH_HIGHLIGHT_STYLES[comment]=fg=black,bold
+ZSH_HIGHLIGHT_STYLES[cursor-matchingbracket]=standout
+ZSH_HIGHLIGHT_STYLES[default]=none
+ZSH_HIGHLIGHT_STYLES[dollar-double-quoted-argument]=fg=magenta,bold
+ZSH_HIGHLIGHT_STYLES[dollar-quoted-argument]=fg=yellow
+ZSH_HIGHLIGHT_STYLES[double-qouted-argument]=fg=yellow
+ZSH_HIGHLIGHT_STYLES[global-alias]=fg=green,bold
+ZSH_HIGHLIGHT_STYLES[globbing]=fg=blue,bold
+ZSH_HIGHLIGHT_STYLES[history-expansion]=fg=blue,bold
+ZSH_HIGHLIGHT_STYLES[named-fd]=none
+ZSH_HIGHLIGHT_STYLES[numeric-fd]=none
+ZSH_HIGHLIGHT_STYLES[path]=bold
+ZSH_HIGHLIGHT_STYLES[path_prefix_pathseparator]=
+ZSH_HIGHLIGHT_STYLES[precommand]=fg=green,underline
+ZSH_HIGHLIGHT_STYLES[process-substitution]=none
+ZSH_HIGHLIGHT_STYLES[process-substitution]=fg=magenta,bold
+ZSH_HIGHLIGHT_STYLES[rc-quote]=fg=magenta
+ZSH_HIGHLIGHT_STYLES[redirection]=fg=blue,bold
+ZSH_HIGHLIGHT_STYLES[reserved-word]=fg=cyan,bold
+ZSH_HIGHLIGHT_STYLES[single-quoted-argument]=fg=yellow
+ZSH_HIGHLIGHT_STYLES[suffix-alias]=fg=green,underline
+ZSH_HIGHLIGHT_STYLES[unknown-token]=underline
 
 # Save history across all sessions
 HISTDUP=erase
@@ -22,11 +47,13 @@ HISTFILE=~/.zsh_persistent_history
 HISTSIZE=5000
 SAVEHIST=5000
 setopt APPENDHISTORY
+setopt HIST_EXPIRE_DUPS_FIRST
 setopt HIST_FIND_NO_DUPS
 setopt HIST_IGNORE_ALL_DUPS
 setopt HIST_IGNORE_DUPS
 setopt HIST_IGNORE_SPACE
 setopt HIST_SAVE_NO_DUPS
+setopt HIST_VERIFY
 setopt INC_APPEND_HISTORY
 setopt SHARE_HISTORY
 
@@ -34,11 +61,23 @@ export PROMPT_EOL_MARk=''
 setopt PROMPT_SP
 
 # Auto-completion (case insensitive)
-autoload -Uz compinit; compinit
+autoload -Uz compinit
+compinit -d ~/.zcompdump
 source ~/git/fzf-tab/fzf-tab.plugin.zsh
+zstyle ':completion:*:*:*:*:*' menu select
+zstyle ':completion:*' auto-description 'specify: %d'
+zstyle ':completion:*' completer_expand_complete
+zstyle ':completion:*' format 'Completing %d'
+zstyle ':completion:*' group-name ''
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
-zstyle ':completion:*' menu no
+zstyle ':completion:*' menu yes
+zstyle ':completion:*' rehash true
+zstyle ':completion:*' select-prompt %SScrolling active: currect selection at %p%s
+zstyle ':completion:*' use-compctl false
+zstyle ':completion:*' verbose true
+zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 zstyle ':fzf-tab-complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 zstyle ':fzf-tab-complete:cd:*' fzf-preview 'ls --color $realpath'
 
@@ -139,9 +178,13 @@ alias chown='chown --preserve-root'
 alias iid='identify -format "%wx%h"'
 alias diff='colordiff'
 alias df='df -B M'
+alias egrep='egrep --color=auto'
+alias fgrep='fgrep --color=auto'
 # WARNING: Force CFLAGS for aggressive AMD Ryzen optimizations
 # alias gcc='/usr/bin/gcc "$@" -O3 -march=znver4 -mtune=znver4'
+alias grep='grep --color=auto'
 alias hx='helix'
+alias ip='ip --color=auto'
 alias ls='lsd -a'
 alias nano='nano -i -l -q -x -_ --tabsize=2 --tabstospaces'
 alias rm='trash'
@@ -172,6 +215,13 @@ export EDITOR="helix"
 export FILEMANAGER="nautilus"
 export GHREPOS="$REPOS/github.com/$GITUSER"
 export GITUSER="lastcrossroads"
+export LESS_TERMCAP_mb=$"\e[1;31m"
+export LESS_TERMCAP_md=$"\e[1;36m"
+export LESS_TERMCAP_me=$"\e[0m"
+export LESS_TERMCAP_so=$"\e[1;33m"
+export LESS_TERMCAP_se=$"\e[0m"
+export LESS_TERMCAP_us=$"\e[1;32m"
+export LESS_TERMCAP_ue=$"\e[0m"
 export LIBVIRT_DEFAULT_URI="qemu:///system"
 export PATH="$HOME/.scripts:$HOME/.bin:$PATH"
 export PROMPT_EOL_MARKER="\n"
@@ -205,7 +255,7 @@ monitor () {
 }
 
 # Terminal start
-clear
+# clear
 TERMINAL_PROGRAM="kitty"
 TERMINAL_INSTANCE=$(pgrep -x "$TERMINAL_PROGRAM" | wc -l)
 

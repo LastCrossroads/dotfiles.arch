@@ -133,20 +133,20 @@
           "template": "\uf253 {{ .FormattedMs }}",
           "trailing_diamond": "\ue0b4",
           "type": "executiontime"
-        },
-
-        {
-          "type": "sysinfo",
-          "foreground": "#000000",
-          "background": "#c6a0f6",
-          "leading_diamond": "\ue0b6",
-          "trailing_diamond": "\ue0b4",
-          "template": " {{ round .Load5 .Precision }}",
-          "properties": {
-            "precision": 2
-          },
-          "style": "diamond"
         }
+
+//        {
+//          "type": "sysinfo",
+//          "foreground": "#000000",
+//          "background": "#c6a0f6",
+//          "leading_diamond": "\ue0b6",
+//          "trailing_diamond": "\ue0b4",
+//          "template": " {{ round .Load5 .Precision }}",
+//          "properties": {
+//            "precision": 2
+//          },
+//          "style": "diamond"
+//        },
 
 //        {
 //          "type": "wakatime",
