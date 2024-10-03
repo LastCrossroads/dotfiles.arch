@@ -19,6 +19,10 @@
 //    "type": "os",
 //    "key": "   os"
 //  },
+//  {
+//    "type": "title",
+//    "key": "   User      "
+//  },
   {
     "type": "kernel",
     "key": "   Kernel    "
@@ -26,6 +30,10 @@
   {
     "type": "host",
     "key": "   Host      "
+  },
+  {
+    "type": "board",
+    "key": "   Hardware  "
   },
 //  {
 //    "type": "uptime",
