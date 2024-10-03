@@ -193,10 +193,11 @@ alias iid='identify -format "%wx%h"'
 alias diff='colordiff'
 alias df='df -B M'
 alias egrep='egrep --color=auto'
-alias fastfetch='fastfetch --kitty $HOME/Pictures/Logos/arch-kanji.jpg --logo-height 14 --logo-padding-left 2 --logo-padding-top 2 --logo-width 28'
+alias fastfetch='fastfetch --kitty $HOME/Pictures/Logos/arch-kanji.jpg --logo-height 14 --logo-padding-left 2 --logo-padding-top 3 --logo-width 28'
 alias fgrep='fgrep --color=auto'
 # WARNING: Force CFLAGS for aggressive AMD Ryzen optimizations
 # alias gcc='/usr/bin/gcc "$@" -O3 -march=znver4 -mtune=znver4'
+alias gcc='/usr/bin/gcc "$@" -O3 -march-znver2 -mtune=znver2 -fdiagnostics-color=always'
 alias grep='grep --color=auto'
 alias hx='helix'
 alias iid='identify -format "%wx%h"'
@@ -223,7 +224,7 @@ export ASAN_OPTIONS=abort_on_error=1:halt_on_error=1
 export AVATAR="$HOME/Pictures/Logos/lc.png"
 export AVATAR_HYPRLOCK="$HOME/Pictures/Logos/lc_black.png"
 export BROWSER="zen-browser"
-export CFLAGS="-O2 -march=znver2 -mtune=znver2 -D_FORTIFY_SOURCE=2 -D_GLIBCXX_ASSERTIONS -fasynchronous-unwind-tables -fexceptions -fpie -Wl,-pie -fpic -shared -fplugin-annobin -fstack-clash-protection -fstack-protector-strong -g -grecord-gcc-switches -mcet -fcf-protection -Wall -Werror -Werror=format-security -Werror=implicit-function-declaration -Wl,-z,defs -Wl,-z,now -Wl,-z,relro -Wpedantic"
+export CFLAGS="-O2 -march=znver2 -mtune=znver2 -D_FORTIFY_SOURCE=2 -D_GLIBCXX_ASSERTIONS -fasynchronous-unwind-tables -fdiagnostics-color=always -fexceptions -fpie -Wl,-pie -fpic -shared -fplugin-annobin -fstack-clash-protection -fstack-protector-strong -g -grecord-gcc-switches -mcet -fcf-protection -Wall -Werror -Werror=format-security -Werror=implicit-function-declaration -Wl,-z,defs -Wl,-z,now -Wl,-z,relro -Wpedantic"
 export DOCKER_CONTEXT="sigma13"
 export DOTFILES="$GHREPOS/dotfiles"
 export EDITOR="helix"
