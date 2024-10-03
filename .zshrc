@@ -1,5 +1,5 @@
 # Auto-complete plug-in
-source /usr/share/zsh/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+# source /usr/share/zsh/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 
 # Auto-suggestions plug-in
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
@@ -43,6 +43,16 @@ ZSH_HIGHLIGHT_STYLES[reserved-word]=fg=cyan,bold
 ZSH_HIGHLIGHT_STYLES[single-quoted-argument]=fg=yellow
 ZSH_HIGHLIGHT_STYLES[suffix-alias]=fg=green,underline
 ZSH_HIGHLIGHT_STYLES[unknown-token]=underline
+
+# GCC Colors
+GCC_COLORS=''
+GCC_COLORS+="error=${c[raw_bold]};${c[raw_red]}"
+GCC_COLORS+=":warning=${c[raw_bold]};${c[raw_yellow]}"
+GCC_COLORS+=":note=${c[raw_bold]};${c[raw_white]}"
+GCC_COLORS+=":caret=${c[raw_bold]};${c[raw_white]}"
+GCC_COLORS+=":locus=${c[raw_bg_black]};${c[raw_bold]};${c[raw_magenta]}"
+GCC_COLORS+=":quote=${c[raw_bold]};${c[raw_yellow]}"
+export GCC_COLORS
 
 # Save history across all sessions
 HISTDUP=erase
@@ -178,15 +188,18 @@ alias cat='bat'
 alias chgrp='chgrp --preserve-root'
 alias chmod='chmod --preserve-root'
 alias chown='chown --preserve-root'
+alias cwal='$HOME/.config/hypr/scripts/wallpaper.sh'
 alias iid='identify -format "%wx%h"'
 alias diff='colordiff'
 alias df='df -B M'
 alias egrep='egrep --color=auto'
+alias fastfetch='fastfetch --kitty $HOME/Pictures/Logos/arch-kanji.jpg --logo-height 14 --logo-padding-left 2 --logo-padding-top 2 --logo-width 28'
 alias fgrep='fgrep --color=auto'
 # WARNING: Force CFLAGS for aggressive AMD Ryzen optimizations
 # alias gcc='/usr/bin/gcc "$@" -O3 -march=znver4 -mtune=znver4'
 alias grep='grep --color=auto'
 alias hx='helix'
+alias iid='identify -format "%wx%h"'
 alias ip='ip --color=auto'
 alias ls='lsd -a'
 alias nano='nano -i -l -q -x -_ --tabsize=2 --tabstospaces'
@@ -195,7 +208,6 @@ alias rmdir='trash'
 alias sudo='doas '
 alias syslog='journalctl -f -x --no-full --no-hostname --output=short-precise'
 alias vc='code --disable-gpu'
-alias cwal='$HOME/.config/hypr/scripts/wallpaper.sh'
 
 # History search rebinds
 bindkey '^[[A' history-search-backward
@@ -267,7 +279,7 @@ if (( TERMINAL_INSTANCE > 1 )) || (( TMUX_INSTANCE > 1 )) > /dev/null ; then
   hostname | figlet -f Graffiti | lolcat -p 1.5
 else
   hostname | figlet -f Graffiti | tte beams --beam-row-symbols ▂ ▁ _ --beam-column-symbols ▌ ▍ ▎ ▏ --beam-delay 1 --beam-row-speed-range 10-40 --beam-column-speed-range 6-10 --beam-gradient-stops ffffff 00D1FF 8A008A --beam-gradient-steps 2 8 --beam-gradient-frames 2 --final-gradient-stops 8A008A 00D1FF ffffff --final-gradient-steps 12 --final-gradient-frames 5 --final-gradient-direction vertical --final-wipe-speed 1 ;
-  fastfetch --kitty $HOME/Pictures/Logos/arch-kanji.jpg --logo-padding-left 2 --logo-padding-top 2 --logo-height 14 --logo-width 28;
+  fastfetch
   fortune -s | tte slide --movement-speed 0.5 --grouping row --final-gradient-stops 833ab4 fd1d1d fcb045 --final-gradient-steps 12 --final-gradient-frames 10 --final-gradient-direction vertical --gap 3 --reverse-direction --merge --movement-easing OUT_QUAD ;
   kusa lastcrossroads
   check_host ares-mobile
