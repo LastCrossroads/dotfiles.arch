@@ -26,7 +26,8 @@
           "powerline_symbol": "\ue0b0",
           "leading_diamond": "\ue0b6",
           "style": "powerline",
-          "template": " {{ .UserName }}@{{ .HostName }} ",
+//          "template": " {{ .UserName }}@{{ .HostName }} ",
+          "template": " {{ .UserName }} ",
           "trailing_diamond": "\ue0b0",
           "type": "session"
         },
@@ -51,7 +52,7 @@
             "style": "folder"
           },
           "style": "powerline",
-          "template": " {{ .Path }} ",
+          "template": "  {{ .Path }} ",
           "type": "path"
         },
         {
@@ -64,7 +65,19 @@
           },
           "style": "powerline",
           "template": " {{ .UpstreamIcon }}{{ .HEAD }}{{ if gt .StashCount 0 }} \ueb4b {{ .StashCount }}{{ end }} ",
+          "properties": {
+            "fetch_status": true,
+            "fetch_upstream_icon": true
+          },
           "type": "git"
+        },
+        {
+          "background": "#3177e3",
+          "foreground": "#000000",
+          "style": "powerline",
+          "powerline_symbol": "\ue0b0",
+          "template": "  {{ .Context }} ",
+          "type": "docker"
         },
         {
           "background": "#6CA35E",
@@ -133,21 +146,21 @@
             "precision": 2
           },
           "style": "diamond"
-        },
-
-        {
-          "type": "wakatime",
-          "style": "diamond",
-          "leading_diamond": "\ue0b6",
-          "trailing_diamond": "\ue0b4",
-          "foreground": "#000000",
-          "background": "#89b4fa",
-          "properties": {
-            "url": "https://wakatime.com/api/v1/users/current/summaries?start=today&end=today&api_key={{ .Env.WAKATIME_API_KEY }}",
-            "cache_timeout": 10,
-            "http_timeout": 500
-          }
         }
+
+//        {
+//          "type": "wakatime",
+//          "style": "diamond",
+//          "leading_diamond": "\ue0b6",
+//          "trailing_diamond": "\ue0b4",
+//          "foreground": "#000000",
+//          "background": "#89b4fa",
+//          "properties": {
+//            "url": "https://wakatime.com/api/v1/users/current/summaries?start=today&end=today&api_key={{ .Env.WAKATIME_API_KEY }}",
+//            "cache_timeout": 10,
+//            "http_timeout": 500
+//          }
+//        }
       ],
       "type": "prompt"
     },
