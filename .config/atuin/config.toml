@@ -60,7 +60,7 @@ filter_mode = "host"
 
 ## which style to use
 ## possible values: auto, full, compact
-style = "auto"
+# style = "auto"
 
 ## the maximum number of lines the interface should take up
 ## set it to 0 to always go full screen
@@ -196,7 +196,6 @@ ignored_commands = [
   "ls",
   "pacman",
   "tmux",
-  "up",
   "yay"
 ]
 
