@@ -506,7 +506,7 @@
   // Monitor systemd failed units
   "systemd-failed-units": {
 	  "hide-on-ok": false, // Do not hide if there is zero failed units.
-	  "format": " {nr_failed_system} {nr_failed_user}",
+	  "format": "  {nr_failed_system} {nr_failed_user}",
 	  "format-ok": "",
 	  "system": true, // Monitor failed systemwide units.
 	  "user": true // Ignore failed user units.
