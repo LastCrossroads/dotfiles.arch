@@ -1,0 +1,5 @@
+color.scheme=red,yellow
+gradient=true
+visualizer.spectrum.bar.spacing=0
+visualizer.spectrum.smoothing.mode=monstercat
+#visualizer.spectrum.color=scheme=rainbow

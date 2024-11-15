@@ -1,0 +1,73 @@
+# $EPIC: ignore.txt,v 1.5 2009/05/27 14:10:14 zwhite Exp $
+======Synopsis:======
+__ignore__ [<nick>] [\[-|+|^]<message type(s)>] \\
+__ignore__ [<user@host>] [\[-|+|^]<message type(s)>] \\
+__ignore__ [<nick!user@host>] [\[-|+|^]<message type(s)>] \\
+__ignore__ [<channel>] [\[-|+|^]<message type(s)>] \\
+__ignore__ [<refnum>] [\[-|+|^]<message type(s)>] \\
+__ignore__ [<something>] [<types>] [REASON "<reason>"] \\
+__ignore__ [<something>] [<types>] [REASON "<reason>"]
+
+======Description:======
+The __IGNORE__ command is a client-side filtering mechanism.  You can
+use it to avoid seeing messages you would rather not see.  This does
+not stop someone from flooding you, but it does stop your screen from
+being flooded.  If someone attacks you with a floodnet, you can still
+be knocked off of irc even if you __IGNORE__ it.
+
+Messages can be filtered based on any nick!user@host pattern, (which 
+can be abbreviated to just a nick, or just a user@host) or on any 
+channel.
+
+Messages are filtered by context type.  This allows you to ignore only
+certain types of messages from someone without having to ignore every
+message from that person.  For example, you could ignore [[INVITE]]s 
+from someone who is annoying you without having to ignore his [[MSG]]s.
+
+__IGNORE__ will apply a filter based on the best possible match.  Thus, if
+you are ignoring *!*@*.net and *!*foobar@*.slurpee.net, and someone
+with an nick!user@host mask of BigFoob!foobar@grape.slurpee.net sends
+you a message, __IGNORE__ will use *!*foobar@*.slurpee.net to determine how
+to filter the message.  This will prove useful, as shown in the example
+below.
+
+Using __IGNORE__ with no arguments displays your ignore list.  This will
+include an ignore reference number, the pattern being ignored/highlighted,
+and the type of messages that shall be ignored/highlighted.  Optionally,
+a ignore reason and timeout may be included.
+
+Most, but not every ignore level works with channels.
+
+When you are trying to remove an ignore, you must specify the pattern 
+exactly as it appears in your ignore list.  "Approximate" patterns will
+be treated as NEW patterns and will not supersede existing patterns.
+
+======Message Types:======
+See the [[levels]] help page for details.
+
+======Special Message Types:======
+These are not really message types, but they can be used in your
+message types list.
+REASON "<arg>"    Set a reason you're ignoring the person.
+TIMEOUT <number>  Automatically cancel the message after <number> seconds.
+
+======Examples:======
+To ignore everything from foobar:
+      /ignore foobar all
+
+To ignore everything except public conversation from foobar:
+      /ignore foobar all -publics
+
+To highlight all private messages from foobar (it is displayed
+highlighted with whatever you have set HIGHLIGHT_CHAR to):
+      /ignore foobar +msgs
+
+To ignore all NOTICEs except those from foobar's site:
+      /ignore * notices
+      /ignore *!*@*.slurpee.net ^notices
+
+To remove *!*foobar@*.slurpee.net from your ignore list:
+      /ignore *!*foobar@*.slurpee.net none
+
+To highlight people joining and leaving, mode changes, etc. for a channel:
+      /ignore #channel +crap

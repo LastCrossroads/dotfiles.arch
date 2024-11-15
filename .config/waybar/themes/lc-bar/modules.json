@@ -27,9 +27,9 @@
       "8": "八",
       "9": "九",
       "10": "十",
-      "urgent": "",
-      "focused": "",
-      "default": ""
+      // "urgent": "",
+      // "focused": "",
+      // "default": ""
     },
     "persistent-workspaces": {
       // START WORKSPACES
@@ -80,10 +80,17 @@
     "tooltip-format": "Clip history"
   },
 
+  // Mail unread count
+  "custom/mail": {
+    "exec": "$HOME/.local/scripts/mail-count.sh",
+    "format": "  {}",
+    "return-type": "",
+    "tooltip": "false"
+  },
+
   // Updates Count
   "custom/updates": {
     "format": "󰣇 {}",
-    "tooltip-format": "{}",
     "escape": true,
     "return-type": "json",
     "exec": "~/.config/hypr/scripts/updates.sh",
@@ -92,16 +99,16 @@
     "tooltip-format": "System updates"
   },
 
-  // Wallpaper
+  // Wallpaper changer
   "custom/wallpaper": {
     "format": "",
     "on-click": "waypaper",
-    // "on-click-right": "~/.config/hypr/scripts/wallpaper-effects.sh",
+    "on-click-right": "$HOME/.config/hypr/scripts/wallpaper-effects.sh",
     "tooltip": true,
     "tooltip-format": "Change wallpaper"
   },
 
-  // Waybar Themes
+  // Waybar themes
   "custom/waybarthemes": {
     "format": "",
     "on-click": "$HOME/.config/waybar/themeswitcher.sh",
@@ -114,21 +121,6 @@
     "format": "",
     "on-click": "~/.config/hypr/scripts/keybindings.sh",
     "tooltip": false
-  },
-
-  // Browser Launcher
-  "custom/browser": {
-    "format": "",
-    "on-click": "$BROWSER",
-    "tooltip": false
-  },
-
-  // Calculator
-  "custom/calculator": {
-    "format": "",
-    "on-click": "qalculate-gtk",
-    "tooltip": true,
-    "tooltip-format": "Calculator"
   },
 
   // Visual Studio Code
@@ -147,7 +139,7 @@
     "tooltip-format": "Wireshark"
   },
 
-  // Monitor brightness control
+  // Brightness control
   "custom/brightness": {
     "format": "",
     "on-click": "ddcutil --display=1 setvcp 10 + 25",
@@ -170,7 +162,7 @@
     "tooltip-format": "Hyprland settings"
   },
 
-  // Group hyprland
+  // Hyprland group
   "group/hypr": {
     "orientation": "inherit", "drawer": {
       "transition-duration": 250,
@@ -181,7 +173,7 @@
       "custom/hypr",
       "custom/reload",
       "custom/brightness",
-      "custom/wallpaper",
+      // "custom/wallpaper",
       "custom/waybarthemes"
     ]
   },
@@ -207,7 +199,7 @@
   // Power Menu
   "custom/exit": {
     "format": "󰐥",
-    "on-click": "wlogout",
+    "on-click": "sleep 0.2;wleave",
     "tooltip": false
   },
 
@@ -228,15 +220,13 @@
 
   // System tray
     "tray": {
-    "icon-size": 21,
-    "spacing": 10
+    "icon-size": 22,
+    "spacing": 7
   },
 
-  // Clock
+  // Clock and calendar
   "clock": {
-    // TIMEDATEFORMAT
     "format": "{:%H:%M %Z}",
-    // "timezone": "America/New_York",
     "tooltip-format": "<big>{:%A %D}</big>\n<tt><small>{calendar}</small></tt>",
     "calendar": {
       "mode": "year",
@@ -251,18 +241,16 @@
         "today": "<span color='#ff6699'><b>{}</b></span>"
       }
     },
-    // START CLOCK FORMAT
-    "format-alt": "{:%Y-%m-%d}",
-    // END CLOCK FORMAT
+    "format-alt": "{:%m/%d/%Y}",
     "actions": {
       "on-scroll-up": "shift_up",
       "on-scroll-down": "shift_down"
     }
   },
 
-  // Notifications
+  // Notification replay
   "custom/notification": {
-    "format": "󰂚",
+    "format": "󰍜",
     "on-click": "dunstctl history-pop",
     "tooltip": false
   },
@@ -330,11 +318,12 @@
     "tooltip-format": "GPU temperature: {}°C"
   },
 
+  // Keyboard layout
   "hyprland/language": {
     "format": "{short}"
   },
 
-  // Group System
+  // System hardware group
   "group/sysinfo": {
     "orientation": "inherit",
     "drawer": {
@@ -350,7 +339,7 @@
     ]
   },
 
-  // Group Settings
+  // Hyprland settings group
   "group/settings": {
     "orientation": "horizontal",
     "modules": [
@@ -360,8 +349,13 @@
     ]
   },
 
-  // Network
+  // Network status
   "network": {
+      "states": {
+        "critical": 20,
+        "good": 50,
+        "warning": 40
+      },
     "format": "{ifname}",
     "format-wifi": "󰖩 {signalStrength}%",
     "format-ethernet": " {ifname}:{ipaddr}/{cidr}",
@@ -374,27 +368,26 @@
     "on-click": "nm-connection-editor"
   },
 
-  // Battery
+  // Battery status
   "battery": {
       "states": {
       "good": 90,
       "warning": 30,
       "critical": 15
     },
-    "format": "{icon}{capacity}%",
-    "format-charging": " {capacity}%",
-    "format-plugged": " {capacity}%",
-    "format-alt": "{icon}{time}",
-    // "format-good": "", // An empty format will hide the module
-    // "format-full": "",
-    "format-icons": ["󰁺 ", "󰁻", "󰁼 ", "󰁽", "󰁾 ", "󰁿", "󰂀 ", "󰂁 ", "󰁹 "],
+    "format": "{icon}  {capacity}%",
+    "format-charging": " {capacity}%",
+    "format-plugged": "󰚥 {capacity}%",
+    "format-alt": "{icon} {time}",
+    // "format-good": "",
+    "format-icons": [" ", " ", " ", " ", " "],
     "tooltip": true,
     "tooltip": "(timeTo} {power}w"
   },
 
   // Pulseaudio
   "pulseaudio": {
-    "scroll-step": 1, // %, can be a float
+    "scroll-step": 1,
     "format": "{icon}{volume}% {format_source}",
     "format-bluetooth": " {volume}% {format_source}",
     "format-bluetooth-muted": "󰸈 {volume}%  {format_source}",
@@ -422,7 +415,7 @@
     "scroll-step": 5
   },
 
-  // JACK
+  // JACK audio
   "jack": {
     "format": "DSP {load}% {samplerate}Hz {latency}ms",
     "format-disconnected": "DSP off",
@@ -432,8 +425,8 @@
 
   // Mpris module
   "mpris": {
-    "format": "{player_icon} <i>{title} - {artist} <small>[{position}/{length}]</small></i>",
-    "format-paused": "{status_icon} <i>{title} - {artist} <small>[{position}/{length}]</small></i>",
+    "format": "<i>{title} - {artist} <small>[{position}/{length}]</small></i>",
+    "format-paused": "<i>{title} - {artist} <small>[{position}/{length}]</small></i>",
     "player-icons": {
       "chromium": "",
       "default": "󰐊",
@@ -442,60 +435,58 @@
       "vlc": "󰕼"
     },
     "status-icons": {
-      "paused": "󰏤",
-      "playing": "󰐊",
-      "stopped": "󰓛"
+      "paused": "󰏥",
+      "playing": "",
+      "stopped": ""
     },
     "interval": 1,
     "max-length": 150
   },
 
-  // Custom cava module
+  // Cava module (internal)
+  "cava": {
+    //"cava_config": "$XDG_CONFIG_HOME/cava/cava.conf",
+    "framerate": 30,
+    "autosens": 1,
+    "sensitivity": 100,
+    "bars": 14,
+    "lower_cutoff_freq": 50,
+    "higher_cutoff_freq": 10000,
+    "method": "pulse",
+    "source": "auto",
+    "stereo": true,
+    "reverse": false,
+    "bar_delimiter": 0,
+    "monstercat": false,
+    "waves": false,
+    "noise_reduction": 0.77,
+    "input_delay": 2,
+    "format-icons" : ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█" ],
+    "actions": {
+      "on-click-right": "mode"
+      }
+    },
+
+  // Cava module (external)
   "custom/cava": {
-    "exec": "$HOME/.scripts/waybarCava.sh",
+    "exec": "$HOME/.local/scripts/waybarCava.sh",
     "format": "{}"
   },
 
-  // "cava": {
-    // "cava_config": "$XDG_CONFIG_HOME/cava/cava.conf",
-    // "cava_config": "~/.config/cava/config",
-    // "framerate": 30,
-    // "autosens": 1,
-    // "sensitivity": 100,
-    // "bars": 14,
-    // "lower_cutoff_freq": 50,
-    // "higher_cutoff_freq": 16000,
-    // "method": "pipewire",
-    // "source": "auto",
-    // "stereo": true,
-    // "reverse": false,
-    // "bar_delimiter": 0,
-    // "monstercat": false,
-    // "waves": true,
-    // "noise_reduction": 0.77,
-    // "input_delay": 0,
-    // "format": "{}",
-    // "format-icons" : ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█" ],
-    // "actions": {
-    //   "on-click-right": "mode"
-    // }
-  // },
-
-  // Bluetooth
+  // Bluetooth status
   "bluetooth": {
-    "format": "",
-    "format": " {status}",
-    "format-disabled": "󰂲 ",
-    "format-connected": " {num_connections}",
-    "tooltip-format": " {device_alias}",
+    "format": " 󰘊",
+    "format-disabled": " ",
+    "format-connected": " {num_connections}",
+    "tooltip-format": " {device_alias}",
     "tooltip-format-connected": "{device_enumerate}",
     "tooltip-format-enumerate-connected": " {device_alias} {device_battery_percentage}%",
     "interval": 10,
     "on-click": "blueman-manager",
-    "format-no-controller": "󰂲 -"
+    "format-no-controller": " "
   },
 
-  // Username and uptime
+  // Uptime display
   "user": {
     "format": "{work_d}:{work_H}:{work_M}",
     "interval": 60,
@@ -503,13 +494,14 @@
     "on-click": "$FILEMANAGER",
   },
 
-  // Monitor systemd failed units
+  // Systemd failed units monitor
   "systemd-failed-units": {
-	  "hide-on-ok": false, // Do not hide if there is zero failed units.
-	  "format": "  {nr_failed_system} {nr_failed_user}",
+	  "hide-on-ok": false,
+	  "format": "  {nr_failed_system}",
 	  "format-ok": "",
-	  "system": true, // Monitor failed systemwide units.
-	  "user": true // Ignore failed user units.
+	  "system": true, // Failed systemwide units
+	  // "tooltip-format": "systemctl list-units --type=service --state=running --no-legend --no-pager"
+	  "user": false // Failed user units
   },
 
   // Hypridle inhibitor
@@ -524,7 +516,7 @@
     "on-click-right": "hyprlock"
   },
 
-  // Color picker//
+  // Color picker
   "custom/colorpicker": {
     "format": "",
     "on-click": "sleep 0.1s ; hyprpicker -a -f hex ; notify-send 'Hex color copied to clipboard'",
@@ -542,5 +534,25 @@
         "deactivated": "󰌾"
       },
     "on-click-right": "hyprlock"
-  }
+  },
+
+  // Timer
+  "custom/timer": {
+    "tooltip": true,
+    "return-type": "json",
+    "exec": "$HOME/.local/scripts/waybar-timer.sh check",
+    "on-click": "$HOME/.local/scripts/waybar-timer.sh minute_dialog",
+    "on-click-right": "$HOME/.local/scripts/waybar-timer.sh datetime_dialog",
+    "on-click-middle": "$HOME/.local/scripts/waybar-timer.sh stop",
+    "interval": 1
+  },
+
+  // Weather
+  "custom/weather": {
+    "format": "{}°",
+    "tooltip": true,
+    "interval": 3600,
+    "exec": "wttrbar --fahrenheit --hide-conditions --location Baltimore --mph",
+    "return-type": "json"
+  },
 }

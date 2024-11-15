@@ -8,6 +8,7 @@
 // by Stephan Raabe (2023) 
 // ----------------------------------------------------- 
 //
+
 [
 {
     // General Settings
@@ -71,26 +72,32 @@
 
     // Modules Left
     "modules-left": [
-        "custom/appmenu",
-        "custom/colorpicker",
+        "group/hypr",
+        "custom/updates",
+        "custom/mail",
+        // "custom/test",
+        // "custom/appmenu",
+        // "custom/colorpicker",
         // "custom/calculator",
-        "custom/code",
-        "custom/wireshark",
+        // "custom/code",
+        // "custom/wireshark",
         "hyprland/window"
     ],
 
     // Modules Center
-    "modules-center": [
-        "custom/cava"
-    ],
-
+    //"modules-center": [
+    //    "cava"
+    //    "custom/cava"
+    //],
+    
     // Modules Right    
     "modules-right": [
         "mpris",
         // "jack",
+        "custom/weather",
         "pulseaudio",
-        "custom/updates",
-        "group/hypr"
+        "custom/timer",
+        "idle_inhibitor"
     ]
 
 }

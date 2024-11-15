@@ -2,7 +2,8 @@
 theme[main_bg]="#020204"
 
 # Main text color
-theme[main_fg]="#c4cee4"
+#theme[main_fg]="#8080A6"
+theme[main_fg]="0000FF"
 
 # Title color for boxes
 theme[title]="#c4cee4"

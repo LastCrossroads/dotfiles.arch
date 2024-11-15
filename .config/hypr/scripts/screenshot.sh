@@ -1,4 +1,5 @@
-#!/bin/bash
+#!/usr/bin/env bash
+
 #  ____                               _           _    
 # / ___|  ___ _ __ ___  ___ _ __  ___| |__   ___ | |_  
 # \___ \ / __| '__/ _ \/ _ \ '_ \/ __| '_ \ / _ \| __| 
@@ -18,13 +19,12 @@ prompt='Screenshot'
 mesg="DIR: ~/Screenshots"
 
 # Screenshot Filename
-source ~/.config/ml4w/settings/screenshot-filename.sh
+# source ~/.config/hypr/scripts/screenshot-filename.sh
+NAME="screenshot_$(date +%d%m%Y_%H%M%S).jpg"
 
 # Screenshot Folder
-source ~/.config/ml4w/settings/screenshot-folder.sh
-
-# Screenshot Editor
-export GRIMBLAST_EDITOR="$(cat ~/.config/ml4w/settings/screenshot-editor.sh)"
+# source ~/.config/hypr/scripts/screenshot-folder.sh
+screenshot_folder="$HOME/Pictures"
 
 # Example for keybindings
 # bind = SUPER, p, exec, grimblast save active

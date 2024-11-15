@@ -1,0 +1,78 @@
+# AppArmor profile for Steam
+
+# -----------------------------------------------------------------
+# Path to the Steam executable
+/usr/bin/steam {
+    
+    # Allow execution of Steam and its games
+    /usr/bin/steam rix,
+    /home/**/.local/share/Steam/** rwk,
+    /home/**/Steam/** rwk,
+    /home/**/.steam/** rwk,
+
+    # Allow read access to system files
+    /lib/** r,
+    /usr/lib/** r,
+    /lib32/** r,
+    /lib64/** r,
+    /usr/share/** r,
+
+    # Allow access to graphics, sound, and input devices
+    /dev/nvidiactl rw,
+    /dev/nvidia0 rw,
+    /dev/dri/card0 rw,
+    /dev/snd/* rw,
+    /dev/input/* rw,
+
+    # Access for network usage
+    network inet stream,
+    network inet6 stream,
+
+    # Allow access to necessary system binaries for functionality
+    /bin/bash ix,
+    /usr/bin/env ix,
+    /usr/bin/perl ix,
+    /usr/bin/python* ix,
+
+    # Allow Steam to interact with libraries and system configurations
+    /etc/ld.so.cache r,
+    /etc/alternatives/** r,
+    /etc/ssl/certs/ca-certificates.crt r,
+    /etc/fonts/** r,
+
+    # Temporary files and cache directories
+    /tmp/** rwk,
+    owner /var/tmp/** rwk,
+    owner /home/*/.cache/** rwk,
+
+    # Deny access to sensitive files
+    deny /etc/passwd r,
+	deny /etc/shadow r,
+	deny /etc/shadow- r,
+
+    # Allow game downloads, saves, and other files
+    owner /home/*/Steam/** rwk,
+
+    # Steam runtime libraries and processes
+    /home/*/.steam/steam/ubuntu12_32/steam-runtime/** rw,
+    /home/*/.steam/steam/ubuntu12_64/steam-runtime/** rw,
+
+    # Steam games execution
+    /home/*/.steam/steam/steamapps/** rwx,
+
+    # Miscellaneous permissions for Proton and Wine if used for game compatibility
+    /usr/bin/proton* ix,
+    /usr/bin/wine* ix,
+    /usr/lib/wine/** ixr,
+    /usr/share/wine/** r,
+
+    # Allow access to system logging for debugging
+    /var/log/** w,
+    
+    # Capabilities needed by Steam and games
+    capability sys_admin,
+    capability sys_ptrace,
+
+    # Prevent access to all unspecified paths
+    deny /** rwk,
+}

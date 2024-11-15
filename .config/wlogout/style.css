@@ -1,0 +1,93 @@
+/* Import Pywal colors */
+
+@import '../../.cache/wal/colors-wlogout.css';
+
+/* General */
+
+* {
+    font-family: "AR Techni", FontAwesome, Roboto, Helvetica, Arial, sans-serif;
+		background-image: none;
+		transition: 20ms;
+}
+
+window {
+	background: url("../wallpaper/cache/blurred_wallpaper.png");
+	background-size: cover;
+}
+
+button {
+	background-color: rgba(12, 12, 12, 0.3);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: 25%;
+	border-style: solid;
+	border: 3px solid #FFFFFF;
+	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+	color: #ffffff;
+	font-size: 20px;
+	opacity: 0.5
+}
+
+button:active,
+button:focus {
+	color: #ffffff;
+	background-color: rgba(24, 24, 24, 1.0);
+	box-shadow: rgba(149, 157, 165, 0.4) 0px 8px 24px;
+	font-family: "AR Techni Extrabold";
+	opacity: 0.8;
+	text-shadow:
+		0 0 6px #fff,
+		0 0 10px #fff,
+		0 0 14px #fff,
+		0 0 18px #fff,
+		0 0 22px #0fa,
+		0 0 26px #0fa,
+		0 0 30px #0fa,
+		0 0 34px #0fa;
+	transition: all 0.3s ease-in-out
+}
+
+button:hover {
+	background-color: rgba(12, 12, 12, 0.5);
+	border: 3px solid @color11;
+	color: #ffffff;
+	opacity: 0.9
+}
+
+/* Buttons */
+
+#lock {
+	margin: 10px;
+	border-radius: 20px;
+	background-image: image(url("icons/lock.png"));
+}
+
+#logout {
+	margin: 10px;
+	border-radius: 20px;
+	background-image: image(url("icons/logout.png"));
+}
+
+#suspend {
+	margin: 10px;
+	border-radius: 20px;
+	background-image: image(url("icons/suspend.png"));
+}
+
+#hibernate {
+	margin: 10px;
+	border-radius: 20px;
+	background-image: image(url("icons/hibernate.png"));
+}
+
+#shutdown {
+	margin: 10px;
+	border-radius: 20px;
+	background-image: image(url("icons/shutdown.png"));
+}
+
+#reboot {
+	margin: 10px;
+	border-radius: 20px;
+	background-image: image(url("icons/reboot.png"));
+}

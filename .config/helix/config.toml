@@ -1,4 +1,3 @@
-# theme = "catppuccin_mocha"
 theme = "iroaseta"
 
 [editor]
@@ -20,14 +19,19 @@ hidden = false
 [editor.indent-guides]
 render = true
 
+# [editor.lsp]
+# display-inlay-hints = true
+# display-messages = true
+
 [editor.statusline]
 center = ["file-name"]
-left = ["mode", "spinner"]
-right = ["file-encoding", "file-line-ending", "file-type"]
+left = ["mode", "register", "selections", "spinner"]
+right = ["diagnostics", "version-control", "file-encoding", "file-line-ending", "total-line-numbers", "file-type"]
 mode.insert = "INSERT"
 mode.normal = "NORMAL"
 mode.select = "SELECT"
 separator = "|"
 
 [keys.normal]
+C-g = [":new", ":insert-output lazygit", ":buffer-close!", ":redraw"]
 esc = ["collapse_selection", "keep_primary_selection"]

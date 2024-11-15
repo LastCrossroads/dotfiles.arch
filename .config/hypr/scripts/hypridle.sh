@@ -18,12 +18,8 @@ if [[ "$1" == "status" ]]; then
 fi
 if [[ "$1" == "toggle" ]]; then
     if pgrep -x "$SERVICE" >/dev/null ;then
-        sleep 1
-        notify-send 'Idle inhibitor OFF'
         killall hypridle
     else
-        sleep 1
-        notify-send 'Idle Inhibitor ON'
         hypridle
     fi
 fi

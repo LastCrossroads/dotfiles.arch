@@ -1,5 +1,6 @@
-# Auto-complete plug-in
-# source /usr/share/zsh/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+# Check for tpm installation
+#if "test ! -d ~/.tmux/plugins/tpm" \
+#   "run 'git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm && ~/.tmux/plugins/tpm/bin/install_plugins'"
 
 # Auto-suggestions plug-in
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
@@ -128,18 +129,42 @@ function command_not_found_handler {
 }
 
 # Fuction to cd to 'x' times to previous directory
-function dup {
-  local counter=${1:-1}
-  local dirup="../"
-  local out=""
-  while (( counter > 0)); do
-    let counter--
-    out="$(out)$dirup"
-  done
-  cd $out
+function dup() {
+    # Check if the argument is a number
+    if [[ $1 =~ ^[0-9]+$ ]]; then
+        # Build a path to go up 'x' directories
+        local count=$1
+        local path=""
+        for ((i=1; i<=count; i++)); do
+            path="../$path"
+        done
+        # Use zoxide to cd into that path
+        zoxide cd "$path"
+    else
+        echo "Usage: dup <number of directories>"
+    fi
 }
 
+# git repository greeter
+last_repository=
+check_directory_for_new_repository() {
+	current_repository=$(git rev-parse --show-toplevel 2> /dev/null)
+	
+	if [ "$current_repository" ] && \
+	   [ "$current_repository" != "$last_repository" ]; then
+		onefetch --churn-pool-size=0 --hide-token --nerd-fonts --no-art --no-color-palette --no-title --number-of-authors=0 --number-of-file-churns=0
+	fi
+	last_repository=$current_repository
+}
+chpwd() {
+	check_directory_for_new_repository
+}
+
+# optional, greet also when opening shell directly in repository directory
+# adds time to startup
+check_directory_for_new_repository
 # Function to display non-localhost IP addresses with their network interfaces
+
 function show_local_ips {
   # For IPv4
   ip -4 addr show | awk '
@@ -194,21 +219,26 @@ alias iid='identify -format "%wx%h"'
 alias diff='colordiff'
 alias df='df -B M'
 alias egrep='egrep --color=auto'
-alias fastfetch='fastfetch --kitty $HOME/Pictures/Logos/arch-kanji.jpg --logo-height 14 --logo-padding-left 2 --logo-padding-top 3 --logo-width 28'
+alias fastfetch='fastfetch --kitty $HOME/Pictures/Logos/kappa10-cyan.png --logo-height 14 --logo-padding-left 2 --logo-padding-top 2 --logo-width 28'
 alias fgrep='fgrep --color=auto'
+alias fps="mangohud /usr/bin/steam"
 # WARNING: Force CFLAGS for aggressive AMD Ryzen optimizations
 # alias gcc='/usr/bin/gcc "$@" -O3 -march=znver4 -mtune=znver4'
-alias gcc='/usr/bin/gcc "$@" -O3 -march-znver2 -mtune=znver2 -fdiagnostics-color=always'
+# alias gcc='/usr/bin/gcc "$@" -O3 -march-znver2 -mtune=znver2 -fdiagnostics-color=always'
 alias grep='grep --color=auto'
 alias hx='helix'
 alias iid='identify -format "%wx%h"'
 alias ip='ip --color=auto'
+alias kmon='sudo kmon -a cyan'
+alias less='moar'
 alias ls='lsd -a'
 alias nano='nano -i -l -q -x -_ --tabsize=2 --tabstospaces'
 alias rm='trash'
 alias rmdir='trash'
 alias sudo='doas '
 alias syslog='journalctl -f -x --no-full --no-hostname --output=short-precise'
+alias ticker='ticker --config $HOME/.config/ticker.yaml'
+alias tmux='tmux -f $HOME/.config/tmux/tmux.conf'
 alias vc='code --disable-gpu'
 
 # History search rebinds
@@ -225,26 +255,26 @@ export ASAN_OPTIONS=abort_on_error=1:halt_on_error=1
 export AVATAR="$HOME/Pictures/Logos/lc.png"
 export AVATAR_HYPRLOCK="$HOME/Pictures/Logos/lc_black.png"
 export BROWSER="zen-browser"
-export CFLAGS="-O2 -march=znver2 -mtune=znver2 -D_FORTIFY_SOURCE=2 -D_GLIBCXX_ASSERTIONS -fasynchronous-unwind-tables -fdiagnostics-color=always -fexceptions -fpie -Wl,-pie -fpic -shared -fplugin-annobin -fstack-clash-protection -fstack-protector-strong -g -grecord-gcc-switches -mcet -fcf-protection -Wall -Werror -Werror=format-security -Werror=implicit-function-declaration -Wl,-z,defs -Wl,-z,now -Wl,-z,relro -Wpedantic"
-export DOCKER_CONTEXT="sigma13"
+#export CFLAGS="-O2 -march=znver2 -mtune=znver2 -D_FORTIFY_SOURCE=2 -D_GLIBCXX_ASSERTIONS -fasynchronous-unwind-tables -fdiagnostics-color=always -fexceptions -fpie -Wl,-pie -fpic -shared -fplugin-annobin -fstack-clash-protection -fstack-protector-strong -g -grecord-gcc-switches -mcet -fcf-protection -Wall -Werror -Werror=format-security -Werror=implicit-function-declaration -Wl,-z,defs -Wl,-z,now -Wl,-z,relro -Wpedantic"
+#export CPPFLAGS=" -march=znver2 -mtune=znver2 -O2 -Wp,-D_FORTIFY_SOURCE=3 -fasynchronous-unwind-tables -fexceptions -fno-plt -fsanitize=thread -fsanitize=integer-divide-by-zero -fsanitize=null -Wl,--as-needed -Wl,-z,now -Wl,-z,pack-relative-relocs, -Wl,-z,relco"
+export DOCKER_CONTEXT="setec31"
 export DOTFILES="$GHREPOS/dotfiles"
 export EDITOR="helix"
 export FILEMANAGER="nautilus"
+#export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS
+#  --color fg:7,bg:0,hl:1,fg+:232,bg+:1,hl+:255
+#  --color info:7,prompt:2',spinner:1,pointer:232,marker:1"
 export GHREPOS="$REPOS/github.com/$GITUSER"
 export GITUSER="lastcrossroads"
-export LESS_TERMCAP_mb=$"\e[1;31m"
-export LESS_TERMCAP_md=$"\e[1;36m"
-export LESS_TERMCAP_me=$"\e[0m"
-export LESS_TERMCAP_so=$"\e[1;33m"
-export LESS_TERMCAP_se=$"\e[0m"
-export LESS_TERMCAP_us=$"\e[1;32m"
-export LESS_TERMCAP_ue=$"\e[0m"
+# Kernel flags. (and yes, I know CPPFLAGS should suffice. blow me)
+# export KCFLAGS=" -march=znver2 -mtune=znver2 -O2 -fsanitize=kernel-address -Wp,-D_FORTIFY_SOURCE=3 -fno-plt"
+# export KCPPFLAGS=" -march=znver2 -mtune=znver2 -O2 -fsanitize=kernel-address -Wp,-D_FORTIFY_SOURCE=3 -fno-plt"
 export LIBVIRT_DEFAULT_URI="qemu:///system"
-export PATH="$HOME/.scripts:$HOME/.bin:$PATH"
+export PATH="$HOME/.local/scripts:$HOME/.local/bin:$PATH"
 export PROMPT_EOL_MARKER="\n"
 export QT_QPA_PLATFORM="xcb" # Deal with OBS/Wayland fuckery
 export QT_QPA_PLATFORMTHEME="qt6ct"
-export REPOS="$HOME/repos"
+export REPOS="$HOME/git"
 export SCRIPTS="$DOTFILES/scripts"
 export TERM="tmux-256color"
 export UBSAN_OPTIONS=abort_on_error=1:halt_on_error=1
@@ -287,8 +317,8 @@ else
   check_host ares-mobile
   check_host enchiridion
   check_host entropy
+  check_host epsilon11
   check_host ereshkigal
-  check_host kappa10
   # check_host systemXI
   check_host XXII
   nmcli connection show
@@ -301,3 +331,5 @@ else
   curl 'wttr.in/Tokyo?u&format=%l:+%c+%w+%t+%h\n'
   # tmux
 fi
+
+# [[ $commands[kubectl] ]] && source <(kubectl completion zsh) # add autocomplete permanently to your zsh shell
