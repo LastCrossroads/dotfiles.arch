@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-cp -r ~/.local/bin ./.local/bin/
+cp -r ~/.local/bin ./.local/
 
 cp -r ~/.config/amn ./.config/
 cp -r ~/.config/atuin ./.config/
