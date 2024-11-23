@@ -1,2 +1,2 @@
-yay -Sy base-devel devtools
+yay -Sy base-devel devtools iotop
 
