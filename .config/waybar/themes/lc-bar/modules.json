@@ -82,8 +82,9 @@
 
   // Mail unread count
   "custom/mail": {
-    "exec": "$HOME/.local/scripts/mail-count.sh",
+    "exec": "mv /var/spool/mail/root/new/* /var/spool/mail/lc/new/ ; $HOME/.local/scripts/mail-count.sh",
     "format": "  {}",
+    "restart-:interval": 600,
     "return-type": "",
     "tooltip": "false"
   },
