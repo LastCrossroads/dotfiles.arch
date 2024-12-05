@@ -156,8 +156,11 @@ echo "option kvm_amd nested=1" | sudo tee /etc/modprobe.d/kvm-amd.conf
 # Hyprland stuff
 hyprshade install
 systemctl --user enable --now hyprshade.timer
+
+hyprpm add https://github.com/micha4w/Hypr-DarkWindow
 hyprpm add https://github.com/pyt0xic/hyprfocus
 hyprpm add https://github.com/hyprwm/hyprland-plugins
+hyprpm add https://github.com/KZDKM/Hyprspace
 
 git clone https://github.com/Aloxaf/fzf-tab ~/git
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
