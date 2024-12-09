@@ -16,7 +16,10 @@ config_file="/tmp/bar_cava_config"
 cat >"$config_file" <<EOF
 [general]
 bars = 13
+bar_spacing = 0
 framerate = 30
+lower_cutoff_freq = 20
+higher_cutoff_freq = 20000
 
 [input]
 method = pulse
@@ -32,7 +35,10 @@ raw_target = /dev/stdout
 show_idle_bar_heads = 0
 
 [smoothing]
+gravity = 150
 monstercat = 1
+noise_reduction = 66
+waves = 1
 waveform = 1
 EOF
 

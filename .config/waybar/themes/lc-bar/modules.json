@@ -426,8 +426,10 @@
 
   // Mpris module
   "mpris": {
-    "format": "<i>{title} - {artist} <small>[{position}/{length}]</small></i>",
-    "format-paused": "<i>{title} - {artist} <small>[{position}/{length}]</small></i>",
+    // "format": "<i>{title} - {artist} <small>[{position}/{length}]</small></i>",
+    // "format-paused": "<i>{title} - {artist} <small>[{position}/{length}]</small></i>",
+    "format": "<i>{title} - {artist}</i>",
+    "format-paused": "<i>{title} - {artist}</i>",
     "player-icons": {
       "chromium": "",
       "default": "󰐊",
