@@ -136,7 +136,7 @@ window#waybar.empty #window {
     border-radius: 24px;
     color: @textcolor1;
     font-size: 22px;
-    margin: 0px 15px 0px 15px;
+    margin: 0px 15px 0px 0px;
     opacity: 0.8;
     padding: 0px 10px 0px 10px
 }
@@ -218,8 +218,9 @@ window#waybar.empty #window {
 
 /* Cava Audio Visualizer */
 
+#cava,
 #custom-cava {
-    color: @textcolor1;
+    color: @textcolor3;
     font-size: 24px;
     margin: 0px 0px 0px 0px;
     min-width: 420px;
@@ -230,8 +231,8 @@ window#waybar.empty #window {
         0 0 10px #fff,
         0 0 21px #fff,
         0 0 42px #0fa,
-        0 0 82px #0fa,
-        0 0 92px #0fa
+        0 0 82px #0fa
+        /* 0 0 92px #0fa */
 }
 
 /* Clock and Calendar */
@@ -310,7 +311,7 @@ color: @iconcolor;
     border-radius: 10px 20px 10px 20px;
     color: @textcolor1;
     font-size: 22px;
-    margin: 0px 15px 0px 10px;
+    margin: 0px 15px 0px 0px;
     opacity: 0.8;
     padding: 0px 10px 0px 10px
 }

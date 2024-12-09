@@ -85,10 +85,10 @@
     ],
 
     // Modules Center
-    //"modules-center": [
-    //    "cava"
-    //    "custom/cava"
-    //],
+    "modules-center": [
+        // "cava"
+        "custom/cava"
+    ],
     
     // Modules Right    
     "modules-right": [

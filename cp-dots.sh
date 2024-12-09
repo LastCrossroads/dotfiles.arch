@@ -22,7 +22,7 @@ cp -r ~/.config/waybar ./.config/
 cp -r ~/.config/waypaper ./.config/
 cp -r ~/.config/wlogout ./.config/
 
-cp -r ~/Documents/fresh_install ./Documents/fresh_install/
+# cp -r ~/Documents/fresh_install ./Documents/fresh_install/
 
 cp -r ~/Pictures/Logos ./Pictures/Logos/
 
