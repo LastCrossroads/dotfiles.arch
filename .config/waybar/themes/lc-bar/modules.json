@@ -65,7 +65,7 @@
   "hyprland/window": {
     "rewrite": {
       "(.*) - Chromium": "$1",
-      "(.*) Zen Browser": "$1 Zen"
+      "(.*) ─ Zen Browser": "$1"
     },
     "separate-outputs": true
   },

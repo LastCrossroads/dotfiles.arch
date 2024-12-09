@@ -1,6 +1,6 @@
 #!/bin/env bash
 
-bar=" ▂▃▄▅▆▇█"
+bar="▁▂▃▄▅▆▇█"
 dict="s/;//g"
 
 # Calculate the length of the bar outside the loop
