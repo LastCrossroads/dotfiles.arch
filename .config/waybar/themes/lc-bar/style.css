@@ -31,6 +31,10 @@ window#waybar {
     transition-property: background-color
 }
 
+window#waybar.empty #window {
+    opacity: 0
+}
+
 /* Workspaces */
 
 #workspaces {
