@@ -68,7 +68,6 @@
       "~": "Terminal",
       "(.*) - Chromium": "$1",
       "(.*) — Zen Browser": "$1"
-      /* "(.*) Zen Browser": "$1 Zen" */
     },
     "separate-outputs": true
   },
