@@ -24,9 +24,9 @@ cp -r ~/.config/wlogout ./.config/
 
 # cp -r ~/Documents/fresh_install ./Documents/fresh_install/
 
-cp -r ~/Pictures/Logos ./Pictures/Logos/
+cp -r ~/Pictures/Logos ./Pictures/
 
-cp -r ~/.local/scripts ./.local/scripts/
+cp -r ~/.local/scripts ./.local/
 
 cp -r ~/.tmux ./
 
