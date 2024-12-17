@@ -149,6 +149,7 @@ window#waybar.empty #window {
 
 #tray {
     color: @textcolor1;
+    -gtk-icon-transform: scale( 0.5 );
     padding: 0px 0px 0px 10px
 }
 
