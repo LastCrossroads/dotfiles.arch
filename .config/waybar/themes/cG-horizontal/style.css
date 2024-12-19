@@ -113,7 +113,7 @@ window#waybar.empty #window {
 
 #window {
     /* animation: gradient-right-to-left 6s ease infinite; */
-    animation: rotateBorder 4s ease infinite;
+    animation: rotateBorder 8s ease infinite;
     background: linear-gradient(-45deg, darker(darker(@backgrounddark)) 0%, darker(@backgroundlight) 50%, darker(@backgrounddark) 100%);
     background-size: 200% 200%;
     border: 3px solid lighter(@bordercolor);
@@ -309,7 +309,7 @@ color: @iconcolor;
 
 #mpris {
     /* animation: gradient-left-to-right 6s ease infinite; */
-    animation: rotateBorder 4s ease infinite;
+    animation: rotateBorder 8s ease infinite;
     background: linear-gradient(225deg, darker(darker(@backgrounddark)) 0%, darker(@backgroundlight) 50%, darker(@backgrounddark) 100%);
     background-size: 200% 200%;
     border: 3px solid lighter(@bordercolor);
@@ -640,18 +640,18 @@ tooltip label {
 
 @keyframes rotateBorder {
     0% {
-        border: 2px solid @bordercolor
+        border: 4px double @workspacesbackground2
     }
     25% {
-        border: 2px solid @bordercolor
+        border: 4px double @workspacesbackground2
     }
     50% {
-        border: 2px solid lighter(@bordercolor)
+        border: 4px double lighter(@bordercolor)
     }
     75% {
-        border: 2px solid lighter(@bordercolor)
+        border: 4px double lighter(@bordercolor)
     }
     100% {
-        border: 2px solid @bordercolor
+        border: 4px double @workspacesbackground2
     }
 }
