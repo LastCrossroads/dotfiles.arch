@@ -33,7 +33,7 @@
         "custom/notification",
         // "user",
         // "hyprland/language",
-        // "keyboard-state",
+        "keyboard-state",
         "cpu",
         // "temperature",
         "custom/gpuinfo",
