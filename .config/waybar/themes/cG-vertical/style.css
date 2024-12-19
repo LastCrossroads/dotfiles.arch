@@ -24,8 +24,8 @@
 }
 
 window#waybar {
-    background: rgba(22, 22, 22, 0.2);
-    background-color: rgba(22, 22, 22, 0.2);
+    background: rgba(11, 11, 11, 0.2);
+    background-color: rgba(11, 11, 11, 0.2);
     border: 22px solid transparent;
     transition-duration: 0.5s;
     transition-property: background-color
@@ -258,7 +258,7 @@ window#waybar.empty #window {
 #custom-exit {
     color: @iconcolor;
     font-size: 30px;
-    margin: 0px 0px 40px 5px
+    margin: 0px 0px 50px 5px
 }
 #custom-hypr,
 #custom-reload,
