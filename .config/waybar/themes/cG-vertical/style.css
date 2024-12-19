@@ -405,7 +405,7 @@ color: @iconcolor;
     font-size: 20px;
     margin: 5px 0px 5px 7px;
     opacity: 0.8;
-    padding: 10px 0px 10px 0px
+    padding: 7px 0px 7px 0px
 }
 
 #cpu {
@@ -417,7 +417,7 @@ color: @iconcolor;
     font-size: 20px;
     margin: 5px 0px 5px 7px;
     opacity: 0.8;
-    padding: 10px 0px 10px 0px
+    padding: 7px 0px 7px 0px
 }
 
 /*
