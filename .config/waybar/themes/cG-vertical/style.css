@@ -373,7 +373,7 @@ color: @iconcolor;
 }
 
 #pulseaudio.muted {
-    background-color: @backgrounddark;
+    background-color: darker(@backgroundlight);
     color: @textcolor1
 }
 
