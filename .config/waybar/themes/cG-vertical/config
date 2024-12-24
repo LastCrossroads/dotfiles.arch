@@ -17,6 +17,7 @@
 
     "gtk-layer-shell": true,
     "layer": "top",
+    "margin-bottom": 45,
     "margin-left": 0,
     "margin-right": 0,
     "mode": "dock",
