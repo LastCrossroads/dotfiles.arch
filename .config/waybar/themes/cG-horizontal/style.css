@@ -257,8 +257,22 @@ window#waybar.empty #window {
 
 /* Hyprland Modules */
 
-#custom-exit,
-#custom-hypr,
+#custom-exit {
+    color: @iconcolor;
+    font-size: 30px;
+    font-weight: bold;
+    margin: 2px 15px 0px 15px;
+    padding: 0px
+}
+
+#custom-hypr {
+    color: @iconcolor;
+    font-size: 24px;
+    font-weight: bold;
+    margin: 2px 20px 0px 15px;
+    padding: 0px
+}
+
 #custom-reload,
 #custom-settings,
 #custom-system,
@@ -351,7 +365,7 @@ color: @iconcolor;
 
 #custom-notification {
     color: @iconcolor;
-    font-size: 24px;
+    font-size: 26px;
     font-weight: bold;
     margin: 5px 5px 0px 5px;
     opacity: 0.8;
