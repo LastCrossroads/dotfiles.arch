@@ -308,7 +308,8 @@ TERMINAL_INSTANCE=$(pgrep -x "$TERMINAL_PROGRAM" | wc -l)
 
 TMUX_INSTANCE=$(pgrep -x tmux | wc -l)
 if (( TERMINAL_INSTANCE > 1 )) || (( TMUX_INSTANCE > 1 )) > /dev/null ; then
-  hostname | figlet -f Graffiti | lolcat -p 1.5
+  # hostname | figlet -f Graffiti | lolcat -p 1.5
+  hostname | figlet -f Graffiti | tte expand
 else
   hostname | figlet -f Graffiti | tte beams --beam-row-symbols ▂ ▁ _ --beam-column-symbols ▌ ▍ ▎ ▏ --beam-delay 1 --beam-row-speed-range 10-40 --beam-column-speed-range 6-10 --beam-gradient-stops ffffff 00D1FF 8A008A --beam-gradient-steps 2 8 --beam-gradient-frames 2 --final-gradient-stops 8A008A 00D1FF ffffff --final-gradient-steps 12 --final-gradient-frames 5 --final-gradient-direction vertical --final-wipe-speed 1 ;
   fastfetch
