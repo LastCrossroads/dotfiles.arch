@@ -322,7 +322,7 @@ else
   check_host ereshkigal
   # check_host systemXI
   check_host XXII
-  nmcli connection show
+  nmcli connection show | tte rain
   echo -n "    "
   curl 'wttr.in/Baltimore?u&format=%l:+%c+%w+%t+%h+%m+%S+%s\n'
   echo -n "    "

@@ -1,0 +1,109 @@
+// __        __          _                 
+// \ \      / /_ _ _   _| |__   __ _ _ __  
+//  \ \ /\ / / _` | | | | '_ \ / _` | '__| 
+//   \ V  V / (_| | |_| | |_) | (_| | |    
+//    \_/\_/ \__,_|\__, |_.__/ \__,_|_|    
+//                 |___/                   
+//  
+// by Stephan Raabe (2023) 
+// ----------------------------------------------------- 
+//
+
+[
+{
+    // General Settings
+
+    // Position TOP
+
+    "gtk-layer-shell": true,
+    "layer": "top",
+    "margin-left": 0,
+    "margin-right": 0,
+    "mode": "dock",
+    "reload_style_on_change": true,
+    "spacing": 0,
+
+    // Load Modules
+    "include": ["$HOME/.config/waybar/themes/cG-horizontal-circle/modules.json"],
+
+    // Modules Left
+    "modules-left": [
+        "custom/notification",
+        "user",
+        "hyprland/language",
+        "keyboard-state",
+        "cpu",
+        "temperature",
+        "custom/gpuinfo",
+        "custom/gputemp",
+        "memory",
+        "systemd-failed-units"
+    ],
+
+   // Modules Center
+    "modules-center": [
+        "hyprland/workspaces"
+    ],
+
+    // Modules Right    
+    "modules-right": [
+        "load",
+        "battery",
+        "bluetooth",
+        "network",
+        "tray",
+        "clock",
+        "custom/exit"
+    ]
+
+},
+
+{
+    // Position BOTTOM
+
+    "position": "bottom",
+    "gtk-layer-shell": true,
+    "layer": "bottom",
+    "margin-bottom": 7,
+    "margin-left": 20,
+    "margin-right": 20,
+    "margin-top": 0,
+    "mode": "dock",
+    "reload_style_on_change": true,
+    "spacing": 0,
+
+    // Load Modules
+    "include": ["$HOME/.config/waybar/themes/cG-horizontal-circle/modules.json"],
+
+    // Modules Left
+    "modules-left": [
+        "group/hypr",
+        "custom/updates",
+        "custom/mail",
+        // "custom/test",
+        // "custom/appmenu",
+        // "custom/colorpicker",
+        // "custom/calculator",
+        // "custom/code",
+        // "custom/wireshark",
+        "hyprland/window"
+    ],
+
+    // Modules Center
+    "modules-center": [
+        // "cava"
+        "custom/cava"
+    ],
+    
+    // Modules Right    
+    "modules-right": [
+        "mpris",
+        // "jack",
+        "custom/weather",
+        "pulseaudio",
+        "custom/timer",
+        "idle_inhibitor"
+    ]
+
+}
+]
