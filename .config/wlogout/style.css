@@ -6,6 +6,7 @@
 
 * {
     font-family: "AR Techni", FontAwesome, Roboto, Helvetica, Arial, sans-serif;
+    background-color: rgba(22, 22, 22, 0.8);
 		background-image: none;
 		transition: 20ms;
 }
@@ -16,7 +17,7 @@ window {
 }
 
 button {
-	background-color: rgba(12, 12, 12, 0.3);
+	background-color: rgba(22, 22, 22, 0.3);
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: 25%;

@@ -248,7 +248,7 @@ bindkey '^n' history-search-forward
 bindkey '^p' history-search-backward
 
 # Load secret exports
-source ~/.zsh_secrets
+# source ~/.zsh_secrets
 
 # Exports
 export ASAN_OPTIONS=abort_on_error=1:halt_on_error=1

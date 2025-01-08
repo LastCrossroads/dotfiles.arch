@@ -92,10 +92,10 @@
     "type": "localip",
     "key": "   Local IP  "
   },
-  {
-    "type": "wifi",
-    "key": "   Wi-Fi     "
-  },
+//  {
+//    "type": "wifi",
+//    "key": "   Wi-Fi     "
+//  },
 //    "localip",
 //  {
 //    "type": "battery",
