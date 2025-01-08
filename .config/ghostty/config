@@ -1,0 +1,16 @@
+background = 111111
+background-opacity = 0.7
+cursor-style = block
+#custom-shader = /home/lc/.config/ghostty/shaders/bettercrt.glsl
+#custom-shader = /home/lc/.config/ghostty/shaders/inside-the-matrix.glsl
+#custom-shader = /home/lc/.config/ghostty/shaders/matrix-hallway.glsl
+custom-shader = /home/lc/.config/ghostty/shaders/starfield-colors.glsl
+#custom-shader = /home/lc/.config/ghostty/shaders/underwater.glsl
+custom-shader-animation = always
+font-family = "0xProto"
+font-size = 10
+gtk-titlebar = false
+mouse-hide-while-typing = true
+mouse-shift-capture = true
+window-padding-x = 10
+window-padding-y = 5

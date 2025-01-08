@@ -7,6 +7,7 @@ cp -r ~/.config/atuin ./.config/
 cp -r ~/.config/bottom ./.config/
 cp -r ~/.config/dunst ./.config/
 cp -r ~/.config/fastfetch ./.config/
+cp -r ~/.config/ghostty ./.config/
 cp -r ~/.config/gtk-4.0 ./.config/
 cp -r ~/.config/helix ./.config/
 cp -r ~/.config/hypr ./.config/
