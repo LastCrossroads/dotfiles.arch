@@ -308,7 +308,7 @@
   },
 
   "custom/gpuinfo": {
-    "exec": "cat /sys/class/hwmon/hwmon6/device/gpu_busy_percent",
+    "exec": "cat /sys/class/hwmon/hwmon4/device/gpu_busy_percent",
     "format": "󰡁 {}%",
     "return-type": "",
     "interval": 10,
@@ -318,7 +318,7 @@
   },
 
   "custom/gputemp": {
-    "exec": "cat /sys/class/hwmon/hwmon6/temp1_input | bc -l | awk '{print $1/1000}'",
+    "exec": "cat /sys/class/hwmon/hwmon4/temp1_input | bc -l | awk '{print $1/1000}'",
     "format": " {}°C",
     "return-type": "",
     "interval": 10,
