@@ -419,9 +419,9 @@ color: @iconcolor;
     padding: 0px 7px 0px 7px
 }
 
-#memory {
+#custom-gpuinfo,#memory {
     border-radius: 20px 20px 20px 20px;
-    margin: 3px 15px 3px 5px
+    margin: 3px 10px 3px 5px
 }
 
 #cpu.warning,
@@ -438,8 +438,7 @@ color: @iconcolor;
     background-color: #f53c3c
 }
 
-#cpu,
-#custom-gpuinfo {
+#cpu {
     border-radius: 999em 20px 20px 999em;
     margin: 3px 0px 3px 7px
 }
