@@ -16,7 +16,7 @@ cp -r ~/.config/oh-my-posh ./.config/
 # cp -r ~/.config/qt6ct ./.config/
 cp -r ~/.config/rofi ./.config/
 cp -r ~/.config/ticker.yaml ./.config/
-cp -r ~/.config/tmux ./.config/
+# cp -r ~/.config/tmux ./.config/
 cp -r ~/.config/vis ./.config/
 cp -r ~/.config/wal ./.config/
 cp -r ~/.config/waybar ./.config/
@@ -29,6 +29,6 @@ cp -r ~/Pictures/Logos ./Pictures/
 
 cp -r ~/.local/scripts ./.local/
 
-cp -r ~/.tmux ./
+# cp -r ~/.tmux ./
 
 cp -r ~/.zshrc ./
