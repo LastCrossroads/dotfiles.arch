@@ -206,9 +206,9 @@ window#waybar.empty #window {
     border-radius: 10px 20px 10px 20px;
     color: @textcolor1;
     font-size: 20px;
-    margin: 5px 15px 5px 0px;
+    margin: 2px 15px 0px 0px;
     opacity: 0.8;
-    padding: 0px 13px 0px 10px
+    padding: 0px 15px 0px 10px
 }
 
 /* Brightness Control */
@@ -458,7 +458,7 @@ color: @iconcolor;
     font-size: 20px;
     margin: 7px 15px 7px 15px;
     opacity: 0.8;
-    padding: 3px 10px 0px 10px
+    padding: 5px 10px 0px 10px
 }
 
 /* System Uptime */
