@@ -6,7 +6,7 @@
 threshhold_green=0
 threshhold_yellow=15
 threshhold_red=50
-aur_helper=yay
+aur_helper=paru
 
 # Calculate available updates pacman and aur (with trizen)
 if ! updates_arch=$(checkupdates 2> /dev/null | wc -l ); then
