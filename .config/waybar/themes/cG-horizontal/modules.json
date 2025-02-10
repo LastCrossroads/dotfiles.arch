@@ -202,7 +202,7 @@
   // Power Menu
   "custom/exit": {
     "format": "󰐥",
-    "on-click": "sleep 0.2;wleave",
+    "on-click": "sleep 0.2;wlogout",
     "tooltip": false
   },
 
