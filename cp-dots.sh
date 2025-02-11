@@ -15,6 +15,8 @@ cp -r ~/.config/kitty ./.config/
 cp -r ~/.config/oh-my-posh ./.config/
 # cp -r ~/.config/qt6ct ./.config/
 cp -r ~/.config/rofi ./.config/
+cp -r ~/.config/swaync ./.config/
+cp -r ~/.config/swaync-widgets ./.config/
 cp -r ~/.config/ticker.yaml ./.config/
 # cp -r ~/.config/tmux ./.config/
 cp -r ~/.config/vis ./.config/

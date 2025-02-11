@@ -111,3 +111,9 @@ echo "* { current-image: url(\"$blurred_wallpaper\", height); }" > "$rasi_file"
 echo ":: Generate new cached wallpaper square-$wallpaper_filename"
 magick $tmp_wallpaper -gravity Center -extent 1:1 $square_wallpaper
 cp $square_wallpaper $generated_versions/square-$wallpaper_filename.png
+
+echo ":: Copy current wallpaper $tmp_wallpaper"
+magick $tmp_wallpaper -background black -vignette 0x05+5+5% current.png
+cp current.png $generated_versions/current.png
+
+swaync-client -rs
