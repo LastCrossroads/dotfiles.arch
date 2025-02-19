@@ -1,0 +1,99 @@
+{
+  "$schema": "/etc/xdg/swaync/configSchema.json",
+  "positionX": "left",
+  "positionY": "top",
+  "layer": "overlay",
+  "layer-shell": true,
+  "cssPriority": "application",
+
+  "control-center-layer": "top",
+  "control-center-width": 380,
+  "control-center-height": 840,
+  "control-center-margin-top": 8,
+  "control-center-margin-bottom": 8,
+  "control-center-margin-right": 8,
+  "control-center-margin-left": 8,
+
+  "notification-2fa-action": true,
+  "notification-inline-replies": true,
+  "notification-window-width": 400,
+  "notification-icon-size": 48,
+  "notification-body-image-height": 160,
+  "notification-body-image-width": 200,
+
+  "transition-time": 200,
+  "timeout": 6,
+  "timeout-low": 3,
+  "timeout-critical": 0,i
+  "hide-on-action": true,
+  "hide-on-clear": false,
+  "image-visibility": "when-available",
+  "keyboard-shortcuts": true,
+  "script-fail-notify": true,
+  
+  "widgets": [
+    "buttons-grid",
+    "title",
+    "dnd",
+    "notifications",
+    "mpris",
+    "volume",
+    "backlight"
+  ],
+  "widget-config": {
+    "title": {
+      "text": "Notifications",
+      "clear-all-button": true,
+      "button-text": "Clear All"
+    },
+    "dnd": {
+      "text": "Do Not Disturb"
+    },
+    "label": {
+      "max-lines": 1,
+      "text": " "
+    },
+    "mpris": {
+      "image-size": 60,
+      "image-radius": 12
+    },
+    "buttons-grid": {
+      "actions": [
+	      {
+          "label": "  Connected",
+          "active": true,
+          "command": "swaync-widgets wifi"
+          // "command": "nm-connection-editor"
+        },
+        {
+          "label": "󰕾  Mute",
+          "active": true,
+          "command": "swaync-widgets mute"
+          // "command": "blueman-manager"
+	      },
+	      {
+          "label": "󰂲  Bluetooth",
+          "active", true,
+          "command": "swaync-widgets bluetooth"
+          // "command": "nwg-look"
+        },
+        {
+          "label": "  VPN",
+          "active": true,
+          "command": "swaync-widgets vpn"
+          // "command": "wlogout"
+        }
+      ]
+    },
+    "volume": {
+      "label": "󰕾 ",
+      "active": true
+    },
+    "backlight": {
+      "label": "󰃟 ",
+      "active": true,
+      "device": "amdgpu_bl1",
+      "min": 10
+    }
+  }
+}

@@ -1,0 +1,322 @@
+@import '../../.cache/wal/colors-waybar.css';
+
+@define-color text            @foreground;
+@define-color bg              @color1;
+@define-color selected        @color6;
+@define-color hover           alpha(@selected, .4);
+
+@import url("widgets.css");
+
+* {
+    font-family: AR Techni;
+    opacity: 0.98;
+    outline: none;
+    transition: 200ms;
+}
+
+.notification-row {
+    outline: none;
+    margin: 0;
+    padding: 0px;
+}
+
+.notification-row .notification-background .close-button {
+    /* The notification Close Button */
+    background: transparent;
+    color: @text;
+    text-shadow: none;
+    box-shadow: none;
+    margin-top: 2px;
+    margin-right: 2px;
+    padding: 0;
+    border: none;
+    border-radius: 100%;
+    min-width: 24px;
+    min-height: 24px;
+}
+
+.notification-row .notification-background .close-button:hover {
+    box-shadow: none;
+    background: @hover;
+    transition: background 0.15s ease-in-out;
+    border: 0px;
+}
+
+.notification-row .notification-background .notification {
+    /* The actual notification */
+    background: @background;
+}
+
+.notification-row .notification-background .notification .notification-action, .notification-row .notification-background .notification .notification-default-action {
+    color: @text;
+}
+
+.notification-row .notification-background .notification .notification-action:hover, .notification-row .notification-background .notification .notification-default-action:hover {
+    -gtk-icon-effect: none;
+    background: @hover;
+}
+
+.notification-group .notification-group-headers {
+    /* Notficiation Group Headers */
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.notification-group .notification-group-headers .notification-group-header {
+    font-size: 20px;
+    margin-left: 3px;
+}
+
+.notification-group.collapsed .notification-row .notification {
+    background-color: @background;
+}
+
+.notification-group.collapsed:hover .notification-row:not(:only-child) .notification {
+    /* Notification Group collapsed, hovered */
+    box-shadow: 0 0 0 1px alpha(@hover, 0.3), 0 1px 3px 1px alpha(@hover, 0.3), 0 2px 6px 2px alpha(@hover, 0.3);
+}
+
+.control-center {
+    /* The Control Center which contains the old notifications + widgets */
+    box-shadow: 0px 2px 5px black;
+    background: alpha(@background, .55);
+    border: 2px solid @selected;
+}
+
+.control-center-clear-all {
+    /* Clear All button */
+    background: @bg;
+}
+
+.control-center-clear-all:hover {
+    background: @hover;
+}
+
+.control-center-clear-all:active {
+    background: @selected;
+}
+
+/*** Widgets ***/
+
+/* Title widget */
+.widget-title {
+    background: none;
+    margin-top: 15px;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+/* Do Not Disturb widget */
+.widget-dnd {
+    background: none;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+.widget-dnd > switch {
+    background: @bg;
+    font-size: initial;
+    border-radius: 12px;
+    box-shadow: none;
+    padding: 2px;
+}
+
+.widget-dnd > switch:hover {
+    background: @hover;
+}
+
+.widget-dnd > switch:checked {
+    background: @selected;
+}
+
+.widget-dnd > switch slider {
+    background: @text;
+    border-radius: 12px;
+}
+
+/* Media Player widget */
+@define-color mpris-album-art-overlay rgba(0, 0, 0, 0.55);
+@define-color mpris-button-hover rgba(0, 0, 0, 0.50);
+.widget-mpris {
+}
+
+.widget-mpris .widget-mpris-player {
+    padding: 10px;
+    margin: 8px 15px;
+    background-color: @mpris-album-art-overlay;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.75);
+    border: 2px;
+}
+
+.widget-mpris .widget-mpris-player .widget-mpris-title {
+    font-size: 16px;
+}
+
+.widget-mpris .widget-mpris-player .widget-mpris-subtitle {
+    font-size: 14px;
+}
+
+.widget-volume {
+    background-color: alpha(@background, 0);
+    border-radius: 20px 20px 0px 0px;
+    font-size: 24px;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding-bottom: 5px;
+    border: 0px solid transparent;
+}
+
+.widget-backlight {
+    padding-left: 5px;
+    background-color: alpha(@background, 0);
+    font-size: 24px;
+    margin-top: -8px;
+    margin-left: 10px;
+    margin-right: 10px;
+    border-radius: 0px 0px 20px 20px;
+    border: 0px solid transparent;
+}
+
+/* Buttons widget */
+.widget-buttons-grid {
+    font-size: 15px;
+    background: alpha(@background, 0.9);
+    font-family: "JetBrains Mono Nerd Font";
+    padding-left: 5px;
+    margin-left: 10px;
+    margin-right: 10px;
+    border-radius: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: alpha(@background, 0.9);
+}
+
+
+.widget-buttons-grid>flowbox>flowboxchild>button:hover>label { color: @pink; }
+/* changed by script. do not change it manually */
+/* DEFAULT VALUES */
+/*.widget-buttons-grid>XXXflowbox>flowboxchild:nth-child(2)>button>label {}*/
+/*.widget-buttons-grid>XXXflowbox>flowboxchild:nth-child(2)>button {}*/
+/*.widget-buttons-grid>XXXflowbox>flowboxchild>button:hover>label { color: @pink; }*/
+
+.widget-buttons-grid>flowbox>flowboxchild>button {
+    padding: 10px;
+    background: transparent;
+    color: @color7;
+    border-radius: 20px;
+    border: 2px solid @surface0;
+    margin: 2px;
+}
+
+.widget-buttons-grid>flowbox>flowboxchild>button:hover {
+    border: 2px solid @pink;
+    color: @pink;
+    transition: all 0.2s ease-in-out;
+}
+
+
+/* Menubar widget */
+.widget-menubar>box>.menu-button-bar>button {
+    border: none;
+    background: transparent;
+    background: red;
+}
+
+.topbar-buttons>button {
+    /* Name defined in config after # */
+    border: none;
+    background: transparent;
+    background: rgba(69, 133, 136, 1);
+}
+
+/* Volume widget */
+trough {
+    border-radius: 20px;
+    background: @surface0;
+    border: 1px solid transparent;
+}
+
+trough highlight {
+    /* ´trough´ is the background of the slider, ´highlight´ is the actual slider */
+    padding-top: 1px;
+    background: @pink;
+    border: 1px solid @pink;
+    border-radius: 20px;
+}
+
+trough slider {
+    padding: 1px;
+    background: transparent;
+    border: 1px solid transparent;
+}
+
+trough slider:hover {
+    padding: 1px;
+    background: @pink;
+    border: 1px solid @transparent;
+}
+
+.widget-volume {
+    background-color: alpha(@background, 0);
+    border-radius: 20px 20px 0px 0px;
+    font-size: 24px;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding-bottom: 5px;
+    border: 0px solid transparent;
+}
+
+.widget-backlight {
+    padding-left: 5px;
+    background-color: alpha(@background, 0);
+    font-size: 24px;
+    margin-top: -8px;
+    margin-left: 10px;
+    margin-right: 10px;
+    border-radius: 0px 0px 20px 20px;
+    border: 0px solid transparent;
+}
+
+/* Title widget */
+.widget-inhibitors {
+    margin: 8px;
+    font-size: 1.5rem;
+}
+
+.widget-inhibitors>button {
+    font-size: initial;
+    color: white;
+    text-shadow: none;
+    background: @noti-bg;
+    border: 1px solid @noti-border-color;
+    box-shadow: none;
+    border-radius: 12px;
+}
+
+.widget-inhibitors>button:hover {
+    background: @noti-bg-hover;
+}
+
+/* Buttons widget */
+.widget-buttons-grid {
+    background-color: alpha(@color2, 0.5);
+}
+
+.widget-buttons-grid > flowbox > flowboxchild > button {
+    background: alpha(@color2, 0.5);
+    border-radius: 12px;
+    min-width: 45px;
+}
+
+.widget-buttons-grid > flowbox > flowboxchild > button:hover {
+    background: @hover;
+}
+
+.widget-buttons-grid > flowbox > flowboxchild > button:active {
+    background: @selected;
+}
+
+.widget-buttons-grid > flowbox > flowboxchild > button.toggle:checked {
+    /* style given to the active toggle button */
+    background: red;
+}
