@@ -238,6 +238,7 @@ alias rmdir='trash'
 alias sudo='doas '
 alias syslog='journalctl -f -x --no-full --no-hostname --output=short-precise'
 alias ticker='ticker --config $HOME/.config/ticker.yaml'
+alias tmatrix='tmatrix -C blue -t ""'
 alias tmux='tmux -f $HOME/.config/tmux/tmux.conf'
 alias vc='code --disable-gpu'
 
