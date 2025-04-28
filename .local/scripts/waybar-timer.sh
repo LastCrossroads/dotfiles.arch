@@ -39,7 +39,7 @@ if [ "$cmd" == "check" ]; then
         # Remove seconds
         DATE_TIME_TARGET_SHORT="${DATE_TIME_TARGET::-3}"
 
-        echo '{"text": "'"<span font='$ICON_SIZE' rise='$RISE'>󰔛</span> $REMAINING"'", "class": "active", "tooltip": "'"$DATE_TIME_TARGET_TITLE\n\n$DATE_TIME_TARGET_SHORT"'"}'
+        echo '{"text": "'"<span font='$ICON_SIZE' rise='$RISE'>󰔛 </span> $REMAINING"'", "class": "active", "tooltip": "'"$DATE_TIME_TARGET_TITLE\n\n$DATE_TIME_TARGET_SHORT"'"}'
     else
         if [ -f "$TFILE" ]; then
             echo "FINISHED" > "$TFILE"
