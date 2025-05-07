@@ -1,1 +1,1 @@
-/cG-horizontal;/cG-horizontal
+/cG-vertical;/cG-vertical

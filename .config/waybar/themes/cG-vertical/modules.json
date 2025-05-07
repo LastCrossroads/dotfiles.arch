@@ -26,7 +26,7 @@
       "7": "七",
       "8": "八",
       "9": "九",
-      "10": "十"
+      "10": "十",
       // "urgent": "",
       // "focused": "",
       // "default": ""
@@ -41,7 +41,7 @@
   // Taskbar
   "wlr/taskbar": {
      "format": "{icon}",
-     "icon-size": 18,
+     "icon-size": 14,
      "tooltip-format": "{title}",
      "on-click": "activate",
      "on-click-middle": "close",
@@ -85,7 +85,7 @@
 
   // Mail unread count
   "custom/mail": {
-    "exec": "mv /var/spool/mail/root/new/* /var/spool/mail/lc/new/ ; $HOME/.local/scripts/mail-count.sh",
+    "exec": "$HOME/.local/scripts/mail-count.sh",
     "format": "  {}",
     "restart-:interval": 600,
     "return-type": "",
@@ -203,7 +203,7 @@
   // Power Menu
   "custom/exit": {
     "format": "󰐥",
-    "on-click": "sleep 0.2;wleave",
+    "on-click": "sleep 0.2;wlogout",
     "tooltip": false
   },
 
@@ -220,7 +220,7 @@
       "locked": "",
       "unlocked": ""
     },
-    "rotate": 0
+    "rotate": 90
   },
 
   // System tray
@@ -255,8 +255,24 @@
 
   // Notification replay
   "custom/notification": {
-    "format": "󰍜",
-    "on-click": "dunstctl history-pop",
+    // "format": "󰍜",
+    "format": "{icon}",
+    "format-icons": {
+      "notification": "<span foreground='red'><sup></sup></span>",
+      "none": "",
+      "dnd-notification": "<span foreground='red'><sup></sup></span>",
+      "dnd-none": "",
+      "inhibited-notification": "<span foreground='red'><sup></sup></span>",
+      "inhibited-none": "",
+      "dnd-inhibited-notification": "<span foreground='red'><sup></sup></span>",
+      "dnd-inhibited-none": ""
+    },
+    "return-type": "json",
+    "exec-if": "which swaync-client",
+    "exec": "swaync-client -swb",
+    "on-click": "swaync-client -t -sw",
+    "on-click-right": "swaync-client -d -sw",
+    "escape": true,
     "tooltip": false
   },
 
@@ -267,10 +283,10 @@
       "critical": 90
     },
     "interval": 5,
-    "format": "󰍛 {usage:2}%",
+    "format": "󰍛 {usage}%",
     "format-alt": "{icon0}{icon1}{icon2}{icon3}",
     "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"],
-    "rotate": 90,
+    "rotate": 90
   },
 
   "load": {
@@ -286,7 +302,7 @@
       "critical": 90
     },
     "interval": 10,
-    "format": "󰘚 {percentage:2}%",
+    "format": "󰘚 {percentage}%",
     "format-alt": "󰘚 {used}GB",
     "max-length": 10,
     "rotate": 90,
@@ -355,7 +371,7 @@
       "custom/settings",
       "custom/waybarthemes",
       "custom/wallpaper"
-    ],
+    ]
   },
 
   // Network status
@@ -520,7 +536,7 @@
 
   // Hypridle inhibitor
   "custom/hypridle": {
-    "format": "󰌾",
+    "format": "󰍁",
     "return-type": "json",
     "escape": true,
     "exec-on-event": true,
@@ -544,8 +560,8 @@
     "format": "{icon}",
     "tooltip": true,
     "format-icons":{
-        "activated": "󰌿",
-        "deactivated": "󰌾"
+        "activated": "󱚴",
+        "deactivated": "󰍁"
       },
     "on-click-right": "hyprlock"
   },

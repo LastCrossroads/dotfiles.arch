@@ -17,6 +17,7 @@ window {
 }
 
 button {
+	/* animation: pulse 10s ease-in infinite; */
 	background-color: rgba(22, 22, 22, 0.3);
 	background-position: center;
 	background-repeat: no-repeat;
@@ -26,11 +27,13 @@ button {
 	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 	color: #ffffff;
 	font-size: 20px;
-	opacity: 0.5
+	opacity: 0.5;
+	transition: all 0.3s cubic-bezier(0.55, 0.0, 0.28, 1.682), box-shadow 0.2s ease-in-out, background-color 0.2s ease-in-out
 }
 
 button:active,
 button:focus {
+	animation: pulse 2s ease-in infinite;
 	color: #ffffff;
 	background-color: rgba(24, 24, 24, 1.0);
 	box-shadow: rgba(149, 157, 165, 0.4) 0px 8px 24px;
@@ -91,4 +94,19 @@ button:hover {
 	margin: 10px;
 	border-radius: 20px;
 	background-image: image(url("icons/reboot.png"));
+}
+
+@keyframes pulse {
+	from {
+		box-shadow: 0 0 8px 4px rgb(0, 96, 192);
+	}
+	to {
+		box-shadow: 0 0 12px 6px rgb(0, 96, 192);
+	}
+	from {
+		box-shadow: 0 0 12px 6px rgb(0, 96, 192);
+	}
+	to {
+		box-shadow: 0 0 8px 4px rgb(0, 96, 192);
+	}
 }
