@@ -13,6 +13,13 @@
 @define-color surface0 #313244;
 @define-color subtext1 rgb(92, 95, 119);
 
+@import '../../.cache/wal/colors-waybar.css';
+@define-color backgrounddark @color11;
+@define-color backgroundlight @color5;
+@define-color bordercolor @color1;
+
+@define-color pink darker(@backgroundlight);
+
 * {
     font-family: "AR Techni";
     opacity: 0.98;
@@ -114,7 +121,7 @@ label {
 
 /* Mpris widget */
 .widget-mpris {
-    font-family: "JetBrains Mono Nerd Font";
+    font-family: "AR Techni";
     /* The parent to all players */
     border: 0px;
 }
@@ -144,13 +151,13 @@ label {
 }
 
 .widget-mpris-title {
-    font-family: "JetBrains Mono Nerd Font";
+    font-family: "AR Techni";
     font-weight: bold;
     font-size: 1.25rem;
 }
 
 .widget-mpris-subtitle {
-    font-family: "JetBrains Mono Nerd Font";
+    font-family: "AR Techni";
     font-size: 1.1rem;
 }
 
@@ -158,7 +165,7 @@ label {
 .widget-buttons-grid {
     font-size: 15px;
     background: alpha(@background, 0.9);
-    font-family: "JetBrains Mono Nerd Font";
+    font-family: "AR Techni";
     padding-left: 5px;
     margin-left: 10px;
     margin-right: 10px;
@@ -552,7 +559,7 @@ trough slider:hover {
     color: @subtext1;
 }
 .notification-group .notification-group-buttons>button:hover{
-    color: @pink;
+    color: @bordercolor;
 }
 
 .notification-group.collapsed .notification-row .notification {

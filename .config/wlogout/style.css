@@ -1,6 +1,8 @@
 /* Import Pywal colors */
 
 @import '../../.cache/wal/colors-wlogout.css';
+@define-color backgrounddark @color11;
+@define-color backgroundlight @color5;
 
 /* General */
 
@@ -28,7 +30,6 @@ button {
 	color: #ffffff;
 	font-size: 20px;
 	opacity: 0.5;
-	transition: all 0.3s cubic-bezier(0.55, 0.0, 0.28, 1.682), box-shadow 0.2s ease-in-out, background-color 0.2s ease-in-out
 }
 
 button:active,
@@ -36,7 +37,7 @@ button:focus {
 	animation: pulse 2s ease-in infinite;
 	color: #ffffff;
 	background-color: rgba(24, 24, 24, 1.0);
-	box-shadow: rgba(149, 157, 165, 0.4) 0px 8px 24px;
+	box-shadow: lighter(@backgroundlight) 0px 8px 24px;
 	font-family: "AR Techni Extrabold";
 	opacity: 0.8;
 	text-shadow:
@@ -98,15 +99,15 @@ button:hover {
 
 @keyframes pulse {
 	from {
-		box-shadow: 0 0 8px 4px rgb(0, 96, 192);
+		box-shadow: 0 0 8px 4px lighter(@backgroundlight);
 	}
 	to {
-		box-shadow: 0 0 12px 6px rgb(0, 96, 192);
+		box-shadow: 0 0 12px 6px lighter(@backgroundlight);
 	}
 	from {
-		box-shadow: 0 0 12px 6px rgb(0, 96, 192);
+		box-shadow: 0 0 12px 6px lighter(@backgroundlight);
 	}
 	to {
-		box-shadow: 0 0 8px 4px rgb(0, 96, 192);
+		box-shadow: 0 0 8px 4px lighter(@backgroundlight);
 	}
 }

@@ -1,6 +1,6 @@
 {
     "$schema": "/etc/xdg/swaync/configSchema.json",
-    "positionX": "right",
+    "positionX": "left",
     "positionY": "top",
     "layer": "overlay",
     "control-center-layer": "top",
@@ -8,10 +8,10 @@
     "cssPriority": "application",
     "control-center-width": 480,
     "control-center-height": 695,
-    "control-center-margin-top": 1,
-    "control-center-margin-bottom": 2,
-    "control-center-margin-right": 1,
-    "control-center-margin-left": 0,
+    "control-center-margin-top": 10,
+    "control-center-margin-bottom": 10,
+    "control-center-margin-right": 10,
+    "control-center-margin-left": 10,
     "notification-2fa-action": true,
     "notification-inline-replies": true,
     "notification-window-width": 300,
@@ -72,21 +72,21 @@
                     "command": "swaync-widgets mute"
                 },
                 {
-                    "label": "󰂯  Bluetooth",
+                    "label": "󰂲  Bluetooth",
                     "command": "swaync-widgets bluetooth"
                 },
-                {
-                    "label": "  VPN",
-                    "command": "swaync-widgets vpn"
-                },
-                {
-                    "label": "  Picker",
-                    "command": "/home/tohru/.config/hypr/scripts/hyprpicker.sh"
-                },
-                {
-                    "label": "  Screenshot",
-                    "command": "/home/tohru/.config/hypr/scripts/screenshot.sh"
-                }
+//                {
+//                    "label": "  VPN",
+//                    "command": "swaync-widgets vpn"
+//                },
+//                {
+//                    "label": "  Picker",
+//                    "command": "/home/tohru/.config/hypr/scripts/hyprpicker.sh"
+//                },
+//                {
+//                    "label": "  Screenshot",
+//                    "command": "/home/tohru/.config/hypr/scripts/screenshot.sh"
+//                }
             ]
         }
     }
