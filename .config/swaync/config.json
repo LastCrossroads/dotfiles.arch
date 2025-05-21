@@ -6,12 +6,12 @@
     "control-center-layer": "top",
     "layer-shell": true,
     "cssPriority": "application",
-    "control-center-width": 480,
+    "control-center-width": 380,
     "control-center-height": 695,
-    "control-center-margin-top": 10,
-    "control-center-margin-bottom": 10,
-    "control-center-margin-right": 10,
-    "control-center-margin-left": 10,
+    "control-center-margin-top": 11,
+    "control-center-margin-bottom": 11,
+    "control-center-margin-right": 11,
+    "control-center-margin-left": 11,
     "notification-2fa-action": true,
     "notification-inline-replies": true,
     "notification-window-width": 300,
@@ -74,19 +74,7 @@
                 {
                     "label": "󰂲  Bluetooth",
                     "command": "swaync-widgets bluetooth"
-                },
-//                {
-//                    "label": "  VPN",
-//                    "command": "swaync-widgets vpn"
-//                },
-//                {
-//                    "label": "  Picker",
-//                    "command": "/home/tohru/.config/hypr/scripts/hyprpicker.sh"
-//                },
-//                {
-//                    "label": "  Screenshot",
-//                    "command": "/home/tohru/.config/hypr/scripts/screenshot.sh"
-//                }
+                }
             ]
         }
     }

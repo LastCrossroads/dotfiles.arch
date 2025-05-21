@@ -1,5 +1,5 @@
 @define-color base rgb(30, 30, 46);
-@define-color text rgb(205, 214, 244);
+@define-color text rgb(255, 255, 255);
 /* @define-color pink rgb(245, 194, 231); */
 @define-color pink rgb(0, 96, 192);
 @define-color surface2 rgb(88, 91, 112);
@@ -10,15 +10,20 @@
 @define-color lavender rgb(180, 190, 254);
 @define-color yellow rgb(249, 226, 175);
 @define-color blue rgb(137, 180, 250);
-@define-color surface0 #313244;
-@define-color subtext1 rgb(92, 95, 119);
+/* @define-color surface0 #313244; */
+/* @define-color subtext1 rgb(92, 95, 119); */
 
 @import '../../.cache/wal/colors-waybar.css';
 @define-color backgrounddark @color11;
 @define-color backgroundlight @color5;
 @define-color bordercolor @color1;
 
+@define-color base darker(darker(@backgrounddark));
+@define-color color0 darker(@backgrounddark);
 @define-color pink darker(@backgroundlight);
+@define-color subtext1 darker(@backgrounddark);
+@define-color surface0 darker(@backgrounddark);
+@define-color surface2 darker(@backgrounddark);
 
 * {
     font-family: "AR Techni";

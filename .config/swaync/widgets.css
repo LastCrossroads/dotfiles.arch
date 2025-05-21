@@ -3,7 +3,8 @@
 @define-color backgroundlight @color5;
 @define-color bordercolor @color1;
 
-@define-color surface0 #313244; @define-color text rgb(205, 214, 244);
+/* @define-color surface0 #313244; */
+@define-color text rgb(255, 255, 255);
 
 /* widget vpn */
 .widget-buttons-grid>flowbox>flowboxchild:nth-child(4)>button{background: @transparent; border: 2px solid @surface0}
