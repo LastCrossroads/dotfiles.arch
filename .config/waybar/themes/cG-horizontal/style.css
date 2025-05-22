@@ -120,7 +120,7 @@ window#waybar.empty #window {
     border-radius: 20px 10px 20px 10px;
     color: @textcolor1;
     font-size: 22px;
-    margin: 0px 10px 0px 0px;
+    margin: 0px 0px 0px 0px;
     opacity: 0.8;
     padding: 0px 10px 0px 10px
 }
