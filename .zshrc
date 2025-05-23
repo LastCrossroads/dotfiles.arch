@@ -303,15 +303,15 @@ monitor () {
 }
 
 # Terminal start
-# clear
-# TERMINAL_PROGRAM="kitty"
-# TERMINAL_INSTANCE=$(pgrep -x "$TERMINAL_PROGRAM" | wc -l)
+clear
+TERMINAL_PROGRAM="kitty"
+TERMINAL_INSTANCE=$(pgrep -x "$TERMINAL_PROGRAM" | wc -l)
 
-# TMUX_INSTANCE=$(pgrep -x tmux | wc -l)
-# if (( TERMINAL_INSTANCE > 1 )) || (( TMUX_INSTANCE > 1 )) > /dev/null ; then
+TMUX_INSTANCE=$(pgrep -x tmux | wc -l)
+if (( TERMINAL_INSTANCE > 2 )) || (( TMUX_INSTANCE > 1 )) > /dev/null ; then
    # hostname | figlet -f Graffiti | lolcat -p 1.5
    hostname | figlet -f Graffiti | tte expand
-# else
-#   motd.sh
-# fi
+else
+   motd.sh
+fi
 # [[ $commands[kubectl] ]] && source <(kubectl completion zsh) # add autocomplete permanently to your zsh shell
