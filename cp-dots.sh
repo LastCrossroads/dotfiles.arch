@@ -5,6 +5,7 @@ cp -r ~/.local/bin ./.local/
 cp -r ~/.config/amn ./.config/
 cp -r ~/.config/atuin ./.config/
 cp -r ~/.config/bottom ./.config/
+cp -r ~/.config/cava ./.config/
 cp -r ~/.config/dunst ./.config/
 cp -r ~/.config/fastfetch ./.config/
 cp -r ~/.config/ghostty ./.config/
@@ -17,6 +18,7 @@ cp -r ~/.config/oh-my-posh ./.config/
 cp -r ~/.config/rofi ./.config/
 cp -r ~/.config/swaync ./.config/
 cp -r ~/.config/swaync-widgets ./.config/
+cp -r ~/.config/terminal-bg ./.config/
 cp -r ~/.config/ticker.yaml ./.config/
 # cp -r ~/.config/tmux ./.config/
 cp -r ~/.config/vis ./.config/
