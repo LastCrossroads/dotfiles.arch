@@ -288,7 +288,7 @@
 
   "load": {
     "interval": 10,
-    "format": "{load1} {load15}",
+    "format": "{load1} {load5} {load15}",
     "tooltip": true,
     "tooltip-format": "Load average: {load1} {load5} {load15}"
   },

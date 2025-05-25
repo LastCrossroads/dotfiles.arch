@@ -19,7 +19,7 @@
 
 * {
     font-family: "AR Techni", FontAwesome, Roboto, Helvetica, Arial, sans-serif;
-    font-size: 100%;
+    font-size: 120%;
     opacity: 0.97
 }
 
@@ -41,7 +41,7 @@ window#waybar.empty #window {
     color: @textcolor1;
     background: darker(@workspacesbackground1);
     border-radius: 22px;
-    font-size: 20px;
+    font-size: 16px;
     font-weight: bold;
     margin: 2px 7px 0px 7px;
     opacity: 0.9;
