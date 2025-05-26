@@ -20,7 +20,7 @@ cp -r ~/.config/swaync ./.config/
 cp -r ~/.config/swaync-widgets ./.config/
 cp -r ~/.config/terminal-bg ./.config/
 cp -r ~/.config/ticker.yaml ./.config/
-# cp -r ~/.config/tmux ./.config/
+cp -r ~/.config/tmux ./.config/
 cp -r ~/.config/vis ./.config/
 cp -r ~/.config/wal ./.config/
 cp -r ~/.config/waybar ./.config/
