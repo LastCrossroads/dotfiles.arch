@@ -39,6 +39,7 @@
         "custom/gpuinfo",
         "custom/gputemp",
         "memory",
+        "custom/fanspeed",
         "systemd-failed-units"
     ],
 

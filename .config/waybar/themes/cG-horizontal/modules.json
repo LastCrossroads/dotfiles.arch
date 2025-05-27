@@ -287,7 +287,7 @@
   },
 
   "load": {
-    "interval": 10,
+    "interval": 5,
     "format": "{load1} {load5} {load15}",
     "tooltip": true,
     "tooltip-format": "Load average: {load1} {load5} {load15}"
@@ -301,13 +301,13 @@
     "interval": 10,
     "format": "󰘚 {percentage}%",
     "format-alt": "󰘚 {used}GB",
-    "max-length": 10,
+    "max-length": 2,
     "tooltip": true,
     "tooltip-format": "System memory: {used:0.1f}GB/{total:0.1f}GB"
   },
 
   "temperature": {
-    "interval": 10,
+    "interval": 5,
     // "thermal-zone": 2,
     "hwmon-path": "/sys/class/hwmon/hwmon4/temp3_input",
     "critical-threshold": 80,
@@ -319,20 +319,28 @@
     "tooltip-format": "CPU temperature: {temperatureC}°C"
   },
 
+  "custom/fanspeed": {
+    "interval": 5,
+    "exec": "cat /sys/class/hwmon/hwmon1/device/fan_speed_rpm",
+    "format": "󰈐 {} RPM",
+    "tooltip": true,
+    "tooltip-format": "Fan speed: {} RPM"
+  },
+
   "custom/gpuinfo": {
-    "exec": "cat /sys/class/hwmon/hwmon4/device/gpu_busy_percent",
+    "exec": "cat /sys/class/hwmon/hwmon5/device/gpu_busy_percent",
     "format": "󰡁 {}%",
     "return-type": "",
-    "interval": 10,
+    "interval": 5,
     "tooltip": true,
     "tooltip-format": "GPU utilization: {}%"
   },
 
   "custom/gputemp": {
-    "exec": "cat /sys/class/hwmon/hwmon4/temp1_input | bc -l | awk '{print $1/1000}'",
+    "exec": "cat /sys/class/hwmon/hwmon4/temp1_input | bc -l | awk '{print int($1/1000)}'",
     "format": " {}°C",
     "return-type": "",
-    "interval": 10,
+    "interval": 5,
     "tooltip": true,
     "tooltip-format": "GPU temperature: {}°C"
   },

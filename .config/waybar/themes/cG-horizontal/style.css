@@ -409,7 +409,12 @@ color: @iconcolor;
 
 /* Sytem Hardware Group */
 
-#cpu,#custom-gpuinfo,#custom-gputemp,#memory,#temperature {
+#cpu,
+#custom-fanspeed,
+#custom-gpuinfo,
+#custom-gputemp,
+#memory,
+#temperature {
     animation: rotateBorder 8s infinite;
     background-color: darker(@backgroundlight);
     border: 5px solid @bordercolor;
@@ -420,6 +425,7 @@ color: @iconcolor;
     padding: 0px 7px 0px 7px
 }
 
+#custom-fanspeed,
 #memory {
     border-radius: 20px 20px 20px 20px;
     margin: 3px 10px 3px 5px
