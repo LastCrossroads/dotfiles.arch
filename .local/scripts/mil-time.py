@@ -17,6 +17,8 @@ def military_time_to_words(time_str):
     minute_in_words = num2words(minute)
 
     # Handle cases like "zero" minutes (e.g., "1400")
+    if hour < 10 and minute < 10 and minute > 0:
+        return f"zero {hour_in_words} hundred zero {minute_in_words}"
     if hour < 10 and minute == 0:
         return f"zero {hour_in_words} hundred"
     if minute == 0:
@@ -24,6 +26,8 @@ def military_time_to_words(time_str):
     if hour < 10:
         return f"zero {hour_in_words} {minute_in_words}"
     else:
+        if minute < 10 and minute > 0:
+            return f"{hour_in_words} zero {minute_in_words}"
         return f"{hour_in_words} {minute_in_words}"
 
 if __name__ == "__main__":
