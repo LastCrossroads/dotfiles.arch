@@ -95,7 +95,7 @@ echo ":: Generate new cached wallpaper blur-$blur-$wallpaper_filename with blur 
 magick $used_wallpaper -resize 75% $blurred_wallpaper
 echo ":: Resized to 75%"
 if [ ! "$blur" == "0x0" ] ;then
-    magick $blurred_wallpaper -blur $blur $blurred_wallpaper
+    magick $blurred_wallpaper -background none -blur $blur -vignette 0x5 $blurred_wallpaper
     cp $blurred_wallpaper $generated_versions/blur-$blur-$wallpaper_filename.png
     echo ":: Blurred"
 fi
