@@ -39,8 +39,8 @@
         "custom/gpuinfo",
         "custom/gputemp",
         "memory",
-        "custom/fanspeed",
-        "systemd-failed-units"
+        "systemd-failed-units",
+        "custom/fanspeed"
     ],
 
    // Modules Center
@@ -101,10 +101,10 @@
     // Modules Right    
     "modules-right": [
         "mpris",
-        // "jack",
-        "custom/weather",
+        "jack",
         "pulseaudio",
-        "custom/timer",
+        "custom/weather",
+        // "custom/timer",
         "idle_inhibitor"
     ]
 

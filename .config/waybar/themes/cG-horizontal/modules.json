@@ -301,7 +301,7 @@
     "interval": 10,
     "format": "󰘚 {percentage}%",
     "format-alt": "󰘚 {used}GB",
-    "max-length": 2,
+    "max-length": 5,
     "tooltip": true,
     "tooltip-format": "System memory: {used:0.1f}GB/{total:0.1f}GB"
   },
@@ -309,7 +309,7 @@
   "temperature": {
     "interval": 5,
     // "thermal-zone": 2,
-    "hwmon-path": "/sys/class/hwmon/hwmon4/temp3_input",
+    "hwmon-path": "/sys/class/hwmon/hwmon2/temp2_input",
     "critical-threshold": 80,
     "warning-threshold": 70,
     // "format-critical": "{icon}&#8239;{temperatureC}°C",
@@ -337,10 +337,14 @@
   },
 
   "custom/gputemp": {
-    "exec": "cat /sys/class/hwmon/hwmon4/temp1_input | bc -l | awk '{print int($1/1000)}'",
+    "exec": "cat /sys/class/hwmon/hwmon2/temp2_input | bc -l | awk '{print int($1/1000)}'",
     "format": " {}°C",
     "return-type": "",
     "interval": 5,
+    "states": {
+      "critical": 80,
+      "warning": 70
+    },
     "tooltip": true,
     "tooltip-format": "GPU temperature: {}°C"
   },
