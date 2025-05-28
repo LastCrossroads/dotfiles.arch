@@ -29,6 +29,7 @@ cp -r ~/.config/wlogout ./.config/
 
 # cp -r ~/Documents/fresh_install ./Documents/fresh_install/
 
+cp -r ~/Audio ./
 cp -r ~/Pictures/Logos ./Pictures/
 
 cp -r ~/.local/scripts ./.local/
