@@ -430,7 +430,7 @@ color: @iconcolor;
 }
 
 #custom-fanspeed {
-    background-color: darker(@backgrounddark);
+    background-color: darker(@backgroundlight);
     border-radius: 20px 10px 20px 10px;
     font-size: 1.5rem;
     margin: 7px 10px 7px 10px;
