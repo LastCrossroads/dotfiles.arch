@@ -444,6 +444,7 @@ color: @iconcolor;
 #temperature.warning {
     animation: blink 2s linear infinite alternate;
     background-color: #e7bc40;
+    margin: 3px 7px 3px 0px
 }
 
 #custom-gputemp.critical,
@@ -451,7 +452,8 @@ color: @iconcolor;
 #memory.critical,
 #temperature.critical {
     animation: blink 0.5s linear infinite alternate;
-    background-color: #f53c3c
+    background-color: #f53c3c;
+    margin: 3px 7px 3px 0px
 }
 
 #custom-gpuinfo,
