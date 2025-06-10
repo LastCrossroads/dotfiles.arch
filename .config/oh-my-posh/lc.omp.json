@@ -26,8 +26,9 @@
           "powerline_symbol": "\ue0b0",
           "leading_diamond": "\ue0b6",
           "style": "powerline",
-//          "template": " {{ .UserName }}@{{ .HostName }} ",
-          "template": " {{ .UserName }} ",
+          "template": " {{ if .Root}}*{{ .UserName }}@{{ .HostName }}{{ end }}",
+          "template": " {{ .UserName }}@{{ .HostName }} ",
+          // "template": " {{ .UserName }} ",
           "trailing_diamond": "\ue0b0",
           "type": "session"
         },
