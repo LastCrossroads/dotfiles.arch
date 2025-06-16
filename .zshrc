@@ -2,6 +2,9 @@
 #if "test ! -d ~/.tmux/plugins/tpm" \
 #   "run 'git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm && ~/.tmux/plugins/tpm/bin/install_plugins'"
 
+#if ! [[ -d ~/git/fzf-tab ]]; then
+#  git clone https://github.com/Aloxaf/fzf-tab ~/git
+
 # Auto-suggestions plug-in
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
 
