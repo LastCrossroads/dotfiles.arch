@@ -18,7 +18,8 @@
 /* General Settings */
 
 * {
-    font-family: "AR Techni", FontAwesome, Roboto, Helvetica, Arial, sans-serif;
+    /* font-family: "AR Techni", FontAwesome, Roboto, Helvetica, Arial, sans-serif; */
+    font-family: "0xProto Nerd Font Propo";
     font-size: 100%;
     opacity: 0.97
 }
