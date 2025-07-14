@@ -225,7 +225,8 @@ window#waybar.empty #window {
 /* Cava Audio Visualizer */
 
 #cava,
-#custom-cava {
+#custom-cava,
+#custom-cava2 {
     color: @textcolor3;
     font-size: 24px;
     margin: 0px 0px 0px 0px;
