@@ -10,17 +10,27 @@ currency-summary-only: false
 watchlist:
   - AIRI
   - AMD
+  - ARM
+  - AXON
+  - BA
   - BLK
   - CRSP
+  - CW
   - CZGZF
   - GD
+  - HII
   - IBM
   - KCIN
+  - KTOS
+  - LHX
   - LMT
   - LUNR
   - MLHK
   - NOC
+  - PLTR
+  - RTX
   - QBTS
+  - QUBT
   - TDG
   - TSM
   - BTC-USD # Bitcoin price via Yahoo

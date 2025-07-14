@@ -16,9 +16,10 @@ fortune -s | tte slide --movement-speed 0.5 --grouping row --final-gradient-stop
 kusa lastcrossroads
 check_host ares-mobile
 check_host enchiridion
-check_host entropy
 check_host epsilon11
 check_host ereshkigal
+#check_host kappa10
+check_host tiamat
 # check_host systemXI
 check_host XXII
 nmcli connection show | tte rain
