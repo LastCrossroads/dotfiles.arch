@@ -502,6 +502,13 @@
     "format": "{}"
   },
 
+  // Cava module (python)
+  "custom/cava2": {
+    "format": "{text}",
+    "exec": "$HOME/.local/scripts/cava_module.py",
+    "return-type": "json"
+  },
+
   // Bluetooth status
   "bluetooth": {
     "format": " 󰘊",

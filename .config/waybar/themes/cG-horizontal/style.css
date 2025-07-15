@@ -240,6 +240,13 @@ window#waybar.empty #window {
         /* 0 0 92px #0fa */
 }
 
+#custom-cava2 {
+    color: @textcolor3;
+    font-size: 1rem;
+    opacity: 0.8;
+    padding: 15px 0px 10px 0px
+}
+
 /* Clock and Calendar */
 
 #clock {
@@ -263,6 +270,15 @@ window#waybar.empty #window {
     font-weight: bold;
     margin: 0px 20px 0px 15px;
     padding: 0px
+}
+
+#custom-hostname {
+    /* background: darker(@backgroundlight); */
+    /* border-radius: 20px 20px 20px 20px; */
+    color: @textcolor3;
+    font-size: 1.5rem;
+    margin: 10px 0px 15px 0px;
+    padding: 15px 0px 15px 0px    
 }
 
 #custom-hypr {
@@ -493,6 +509,17 @@ color: @iconcolor;
     margin: 3px 15px 2px 0px;
     opacity: 0.8;
     padding: 0px 10px 0px 10px
+}
+
+/* journald display */
+
+#custom-syslog {
+    background-color: darker(@backgroundlight);
+    border-radius: 20px 20px 20px 20px;
+    color: @textcolor1;
+    font-size: 1.8rem;
+    opacity: 0.8;
+    padding: 15px 0px 15px 0px
 }
 
 /* Systemd Unit Failure Alert */

@@ -506,6 +506,14 @@
     "format": "{}"
   },
 
+  // Cava module (python)
+  "custom/cava2": {
+    "format": "{text}",
+    "exec": "~/.local/scripts/cava_module.py",
+    "return-type": "json",
+    "rotate": 90
+  },
+
   // Bluetooth status
   "bluetooth": {
     "format": " 󰘊",
@@ -549,6 +557,13 @@
     "on-click-right": "hyprlock"
   },
 
+  // hostname
+  "custom/hostname": {
+    "exec": "uname -n | tr '[:lower:]' '[:upper:]'",
+    "format": "{}",
+    "rotate": 90
+  },
+
   // Color picker
   "custom/colorpicker": {
     "format": "",
@@ -569,6 +584,14 @@
     "on-click-right": "hyprlock"
   },
 
+  // syslog
+  "custom/syslog": {
+    "exec": "journalctl -f -x --no-full --no-hostname --output=short",
+    // "exec": "journalctl -f | cut -d' ' -f5-",
+    "format": "{}",
+    "rotate": 90
+  },
+  
   // Timer
   "custom/timer": {
     "tooltip": true,

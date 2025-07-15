@@ -18,7 +18,7 @@
     "gtk-layer-shell": true,
     "layer": "top",
     "margin-bottom": 10,
-    "margin-left": 10,
+    "margin-left": 55,
     "margin-right": 10,
     "margin-top": 10,
     "mode": "dock",
@@ -59,6 +59,36 @@
         "custom/exit"
     ]
 
+},
+
+
+{
+    // Position LEFT
+
+    "gtk-layer-shell": true,
+    "layer": "bottom",
+    "margin-bottom": 80,
+    "margin-left": 10,
+    "margin-right": 5,
+    "margin-top": 25,
+    "mode": "dock",
+    "position": "left",
+    "reload_style_on_change": true,
+    "spacing": 0,
+
+    // Load Modules
+    "include": ["$HOME/.config/waybar/themes/cG-horizontal/modules.json"],
+
+    "modules-left": [
+        "custom/cava2"
+    ],
+
+    "modules-center": [
+        "custom/syslog"
+    ],
+    "modules-right": [
+        "custom/hostname"
+    ]
 },
 
 {
