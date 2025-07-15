@@ -41,7 +41,7 @@
   // Taskbar
   "wlr/taskbar": {
      "format": "{icon}",
-     "icon-size": 18,
+     "icon-size": 14,
      "tooltip-format": "{title}",
      "on-click": "activate",
      "on-click-middle": "close",
@@ -84,7 +84,7 @@
 
   // Mail unread count
   "custom/mail": {
-    "exec": "mv /var/spool/mail/root/new/* /var/spool/mail/lc/new/ ; $HOME/.local/scripts/mail-count.sh",
+    "exec": "$HOME/.local/scripts/mail-count.sh",
     "format": "  {}",
     "restart-:interval": 600,
     "return-type": "",
@@ -202,7 +202,7 @@
   // Power Menu
   "custom/exit": {
     "format": "󰐥",
-    "on-click": "sleep 0.2;wleave",
+    "on-click": "sleep 0.2;wlogout",
     "tooltip": false
   },
 
@@ -218,7 +218,7 @@
     "format-icons": {
       "locked": "",
       "unlocked": ""
-    }
+    },
   },
 
   // System tray
@@ -253,8 +253,24 @@
 
   // Notification replay
   "custom/notification": {
-    "format": "󰍜",
-    "on-click": "dunstctl history-pop",
+    // "format": "󰍜",
+    "format": "{icon}",
+    "format-icons": {
+      "notification": "<span foreground='red'><sup></sup></span>",
+      "none": "",
+      "dnd-notification": "<span foreground='red'><sup></sup></span>",
+      "dnd-none": "",
+      "inhibited-notification": "<span foreground='red'><sup></sup></span>",
+      "inhibited-none": "",
+      "dnd-inhibited-notification": "<span foreground='red'><sup></sup></span>",
+      "dnd-inhibited-none": ""
+    },
+    "return-type": "json",
+    "exec-if": "which swaync-client",
+    "exec": "swaync-client -swb",
+    "on-click": "swaync-client -t -sw",
+    "on-click-right": "swaync-client -d -sw",
+    "escape": true,
     "tooltip": false
   },
 
@@ -271,8 +287,8 @@
   },
 
   "load": {
-    "interval": 10,
-    "format": "{load1} {load15}",
+    "interval": 5,
+    "format": "{load1} {load5} {load15}",
     "tooltip": true,
     "tooltip-format": "Load average: {load1} {load5} {load15}"
   },
@@ -283,17 +299,17 @@
       "critical": 90
     },
     "interval": 10,
-    "format": "󰘚 {percentage}%",
-    "format-alt": "󰘚 {used}GB",
-    "max-length": 10,
+    "format-alt": "󰘚 {used:0.1f}GB/{swapUsed:0.1f}GB",
+    "format": "󰘚 {percentage}% {swapPercentage}%",
+    // "max-length": 5,
     "tooltip": true,
-    "tooltip-format": "System memory: {used:0.1f}GB/{total:0.1f}GB"
+    "tooltip-format": "System memory: {used:0.1f}GB/{total:0.1f}GB Swap: {swapUsed}GB/{totalSwap}GB"
   },
 
   "temperature": {
-    "interval": 10,
+    "interval": 5,
     // "thermal-zone": 2,
-    "hwmon-path": "/sys/class/hwmon/hwmon4/temp3_input",
+    "hwmon-path": "/sys/class/hwmon/hwmon2/temp2_input",
     "critical-threshold": 80,
     "warning-threshold": 70,
     // "format-critical": "{icon}&#8239;{temperatureC}°C",
@@ -303,20 +319,32 @@
     "tooltip-format": "CPU temperature: {temperatureC}°C"
   },
 
+  "custom/fanspeed": {
+    "interval": 5,
+    "exec": "cat /sys/class/hwmon/hwmon1/device/fan_speed_rpm",
+    "format": "󰈐 {} RPM",
+    "tooltip": true,
+    "tooltip-format": "Fan speed: {} RPM"
+  },
+
   "custom/gpuinfo": {
-    "exec": "cat /sys/class/hwmon/hwmon6/device/gpu_busy_percent",
+    "exec": "cat /sys/class/hwmon/hwmon5/device/gpu_busy_percent",
     "format": "󰡁 {}%",
     "return-type": "",
-    "interval": 10,
+    "interval": 5,
     "tooltip": true,
     "tooltip-format": "GPU utilization: {}%"
   },
 
   "custom/gputemp": {
-    "exec": "cat /sys/class/hwmon/hwmon6/temp1_input | bc -l | awk '{print $1/1000}'",
+    "exec": "cat /sys/class/hwmon/hwmon2/temp2_input | bc -l | awk '{print int($1/1000)}'",
     "format": " {}°C",
     "return-type": "",
-    "interval": 10,
+    "interval": 5,
+    "states": {
+      "critical": 80,
+      "warning": 70
+    },
     "tooltip": true,
     "tooltip-format": "GPU temperature: {}°C"
   },
@@ -378,7 +406,7 @@
       "warning": 30,
       "critical": 15
     },
-    "format": "{icon}  {capacity}%",
+    "format": "{icon}{capacity}%",
     "format-charging": " {capacity}%",
     "format-plugged": "󰚥 {capacity}%",
     "format-alt": "{icon} {time}",
@@ -482,7 +510,8 @@
   "custom/cava2": {
     "format": "{text}",
     "exec": "~/.local/scripts/cava_module.py",
-    "return-type": "json"
+    "return-type": "json",
+    "rotate": 90
   },
 
   // Bluetooth status
@@ -518,7 +547,7 @@
 
   // Hypridle inhibitor
   "custom/hypridle": {
-    "format": "󰌾",
+    "format": "󰍁",
     "return-type": "json",
     "escape": true,
     "exec-on-event": true,
@@ -526,6 +555,13 @@
     "exec": "$HOME/.config/hypr/scripts/hypridle.sh status",
     "on-click": "$HOME/.config/hypr/scripts/hypridle.sh toggle",
     "on-click-right": "hyprlock"
+  },
+
+  // hostname
+  "custom/hostname": {
+    "exec": "uname -n | tr '[:lower:]' '[:upper:]'",
+    "format": "{}",
+    "rotate": 90
   },
 
   // Color picker
@@ -542,12 +578,20 @@
     "format": "{icon}",
     "tooltip": true,
     "format-icons":{
-        "activated": "󰌿",
-        "deactivated": "󰌾"
+        "activated": "󱚴",
+        "deactivated": "󰍁"
       },
     "on-click-right": "hyprlock"
   },
 
+  // syslog
+  "custom/syslog": {
+    "exec": "journalctl -f -x --no-full --no-hostname --output=short",
+    // "exec": "journalctl -f | cut -d' ' -f5-",
+    "format": "{}",
+    "rotate": 90
+  },
+  
   // Timer
   "custom/timer": {
     "tooltip": true,

@@ -17,14 +17,16 @@
 
     "gtk-layer-shell": true,
     "layer": "top",
-    "margin-left": 0,
-    "margin-right": 0,
+    "margin-bottom": 10,
+    "margin-left": 55,
+    "margin-right": 10,
+    "margin-top": 10,
     "mode": "dock",
     "reload_style_on_change": true,
     "spacing": 0,
 
     // Load Modules
-    "include": ["$HOME/.config/waybar/themes/lc-bar/modules.json"],
+    "include": ["$HOME/.config/waybar/themes/cG-horizontal/modules.json"],
 
     // Modules Left
     "modules-left": [
@@ -37,7 +39,8 @@
         "custom/gpuinfo",
         "custom/gputemp",
         "memory",
-        "systemd-failed-units"
+        "systemd-failed-units",
+        "custom/fanspeed"
     ],
 
    // Modules Center
@@ -58,22 +61,52 @@
 
 },
 
+
+{
+    // Position LEFT
+
+    "gtk-layer-shell": true,
+    "layer": "bottom",
+    "margin-bottom": 80,
+    "margin-left": 10,
+    "margin-right": 5,
+    "margin-top": 25,
+    "mode": "dock",
+    "position": "left",
+    "reload_style_on_change": true,
+    "spacing": 0,
+
+    // Load Modules
+    "include": ["$HOME/.config/waybar/themes/cG-horizontal/modules.json"],
+
+    "modules-left": [
+        "custom/cava2"
+    ],
+
+    "modules-center": [
+        "custom/syslog"
+    ],
+    "modules-right": [
+        "custom/hostname"
+    ]
+},
+
 {
     // Position BOTTOM
 
     "position": "bottom",
     "gtk-layer-shell": true,
     "layer": "bottom",
-    "margin-bottom": 7,
-    "margin-left": 20,
-    "margin-right": 20,
-    "margin-top": 0,
+    "margin-bottom": 5,
+    "margin-left": 10,
+    "margin-right": 10,
+    "margin-top": 5,
     "mode": "dock",
     "reload_style_on_change": true,
     "spacing": 0,
 
     // Load Modules
-    "include": ["$HOME/.config/waybar/themes/lc-bar/modules.json"],
+    "include": ["$HOME/.config/waybar/themes/cG-horizontal/modules.json"],
 
     // Modules Left
     "modules-left": [
@@ -91,18 +124,17 @@
 
     // Modules Center
     "modules-center": [
-        // "cava",
-        "custom/cava",
-        "custom/cava2"
+        // "cava"
+        "custom/cava"
     ],
     
     // Modules Right    
     "modules-right": [
         "mpris",
-        // "jack",
-        "custom/weather",
+        "jack",
         "pulseaudio",
-        "custom/timer",
+        "custom/weather",
+        // "custom/timer",
         "idle_inhibitor"
     ]
 
