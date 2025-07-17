@@ -112,6 +112,7 @@
     "modules-left": [
         "group/hypr",
         "custom/updates",
+        "custom/arch_news",
         "custom/mail",
         // "custom/test",
         // "custom/appmenu",

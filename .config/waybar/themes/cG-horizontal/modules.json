@@ -564,6 +564,16 @@
     "rotate": 90
   },
 
+  // arch news indicator
+  "custom/arch_news": {
+    "exec": "$HOME/.local/scripts/arch_news 30",
+    "interval": 3600,
+    "format": "󱀁 {}",
+    "on-click": "xdg-open https://archlinux.org/news/",
+    "return-type": "json",
+    "tooltip": true
+  },
+
   // Color picker
   "custom/colorpicker": {
     "format": "",

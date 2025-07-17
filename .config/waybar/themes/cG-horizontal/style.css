@@ -241,7 +241,7 @@ window#waybar.empty #window {
 }
 
 #custom-cava2 {
-    color: @textcolor3;
+    color: lighter(@backgroundlight);
     font-size: 1rem;
     opacity: 0.8;
     padding: 15px 0px 10px 0px
@@ -577,6 +577,7 @@ tooltip label {
 
 /* Updates Available Counter */
 
+#custom-arch_news,
 #custom-mail,
 #custom-updates {
     background-color: darker(@backgroundlight);
