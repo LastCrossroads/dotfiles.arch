@@ -26,7 +26,7 @@
     "spacing": 0,
 
     // Load Modules
-    "include": ["$HOME/.config/waybar/themes/cG-horizontal/modules.json"],
+    "include": ["$HOME/.config/waybar/themes/cG-horizontal/modules-top.json"],
 
     // Modules Left
     "modules-left": [
@@ -77,7 +77,7 @@
     "spacing": 0,
 
     // Load Modules
-    "include": ["$HOME/.config/waybar/themes/cG-horizontal/modules.json"],
+    "include": ["$HOME/.config/waybar/themes/cG-horizontal/modules-left.json"],
 
     "modules-left": [
         "custom/cava2"
@@ -106,7 +106,7 @@
     "spacing": 0,
 
     // Load Modules
-    "include": ["$HOME/.config/waybar/themes/cG-horizontal/modules.json"],
+    "include": ["$HOME/.config/waybar/themes/cG-horizontal/modules-bottom.json"],
 
     // Modules Left
     "modules-left": [
@@ -114,18 +114,11 @@
         "custom/updates",
         "custom/arch_news",
         "custom/mail",
-        // "custom/test",
-        // "custom/appmenu",
-        // "custom/colorpicker",
-        // "custom/calculator",
-        // "custom/code",
-        // "custom/wireshark",
         "hyprland/window"
     ],
 
     // Modules Center
     "modules-center": [
-        // "cava"
         "custom/cava"
     ],
     

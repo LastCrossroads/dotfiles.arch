@@ -1,0 +1,208 @@
+{
+
+  // Hyprland Window
+  "hyprland/window": {
+    "icon": true,
+    "rewrite": {
+      "~": "Terminal",
+      "(.*) - Chromium": "$1",
+      "(.*) — Zen Browser": "$1"
+    },
+    "separate-outputs": true
+  },
+
+  // Mail unread count
+  "custom/mail": {
+    "exec": "$HOME/.local/scripts/mail-count.sh",
+    "format": "  {}",
+    "restart-:interval": 600,
+    "return-type": "",
+    "tooltip": "false"
+  },
+
+  // Updates Count
+  "custom/updates": {
+    "format": "󰣇  {}",
+    "escape": true,
+    "return-type": "json",
+    "exec": "~/.config/hypr/scripts/updates.sh",
+    "restart-interval": 60,
+    "tooltip": true,
+    "tooltip-format": "System updates"
+  },
+
+  // Wallpaper changer
+  "custom/wallpaper": {
+    "format": "",
+    "on-click": "waypaper",
+    "on-click-right": "$HOME/.config/hypr/scripts/wallpaper-effects.sh",
+    "tooltip": true,
+    "tooltip-format": "Change wallpaper"
+  },
+
+  // Waybar themes
+  "custom/waybarthemes": {
+    "format": "",
+    "on-click": "$HOME/.config/waybar/themeswitcher.sh",
+    "tooltip": true,
+    "tooltip-format": "Change theme"
+  },
+
+  // Reload hyprland and waybar configuration
+  "custom/reload": {
+    "format": "󰑓",
+    "on-click": "hyprctl reload ; $HOME/.config/waybar/launch.sh",
+    "tooltip": true,
+    "tooltip-format": "Reload WM"
+  },
+
+  // Hyprland settings menu
+  "custom/hypr": {
+    "format": "",
+    "tooltip": true,
+    "tooltip-format": "Hyprland settings"
+  },
+
+  // Hyprland group
+  "group/hypr": {
+    "orientation": "inherit", "drawer": {
+      "transition-duration": 250,
+      "children-class": "not-hypr",
+      "transition-left-to-right": false
+    },
+    "modules": [
+      "custom/hypr",
+      "custom/reload",
+      // "custom/wallpaper",
+      "custom/waybarthemes"
+    ]
+  },
+
+  // Pulseaudio
+  "pulseaudio": {
+    "scroll-step": 1,
+    "format": "{icon} {volume}% {format_source}",
+    "format-bluetooth": " {volume}% {format_source}",
+    "format-bluetooth-muted": "󰸈 {volume}%  {format_source}",
+    "format-muted": "󰸈 {format_source}",
+    "format-source": " {volume}%",
+    "format-source-muted": "󰍭",
+    "format-icons": {
+      "default": ["󰕿 ", "󰖀 ", "󰕾 "]
+    },
+    "on-click": "pavucontrol",
+    "on-click-right": "helvum",
+    "tooltip": true,
+    "tooltip-format": "Left-click: Sources, Right-click: Routing"
+  },
+
+  "pulseaudio#microphone": {
+    "format": "{format_source}",
+    "format-source": " {volume}%",
+    "format-source-muted": "",
+//    "on-click": "$HOME/.config/hypr/scripts/Volume.sh --toggle-mic",
+//    "on-click-right": "pavucontrol -t 4",
+//    "on-scroll-up": "$HOME/.config/hypr/scripts/Volume.sh --mic-inc",
+//    "on-scroll-down": "$HOME/.config/hypr/scripts/Volume.sh --mic-dec",
+//	  "tooltip-format": "{source_desc} | {source_volume}%",
+    "scroll-step": 5
+  },
+
+  // JACK audio
+  "jack": {
+    "format": "DSP {load}% {samplerate}Hz {latency}ms",
+    "format-disconnected": "DSP off",
+    "on-click": "carla",
+    "realtime": true
+  },
+
+  // Mpris module
+  "mpris": {
+    // "format": "<i>{title} - {artist} <small>[{position}/{length}]</small></i>",
+    // "format-paused": "<i>{title} - {artist} <small>[{position}/{length}]</small></i>",
+    "format": "󱑽 <i>{title} - {artist}</i>",
+    "format-paused": "󱑽 <i>{title} - {artist}</i>",
+    "player-icons": {
+      "chromium": "",
+      "default": "󰐊",
+      "firefox": "󰈹",
+      "spotify": "",
+      "vlc": "󰕼"
+    },
+    "status-icons": {
+      "paused": "󰏥",
+      "playing": "",
+      "stopped": ""
+    },
+    "interval": 1,
+    "max-length": 150
+  },
+
+  // Cava module (external)
+  "custom/cava": {
+    "exec": "$HOME/.local/scripts/waybarCava.sh",
+    "format": "{}"
+  },
+
+  // Hypridle inhibitor
+  "custom/hypridle": {
+    "format": "󰍁",
+    "return-type": "json",
+    "escape": true,
+    "exec-on-event": true,
+    "interval": 60,
+    "exec": "$HOME/.config/hypr/scripts/hypridle.sh status",
+    "on-click": "$HOME/.config/hypr/scripts/hypridle.sh toggle",
+    "on-click-right": "hyprlock"
+  },
+
+  // arch news indicator
+  "custom/arch_news": {
+    "exec": "$HOME/.local/scripts/arch_news 30",
+    "interval": 3600,
+    "format": "󱀁 {}",
+    "on-click": "xdg-open https://archlinux.org/news/",
+    "return-type": "json",
+    "tooltip": true
+  },
+
+  // Color picker
+  "custom/colorpicker": {
+    "format": "",
+    "on-click": "sleep 0.1s ; hyprpicker -a -f hex ; notify-send 'Hex color copied to clipboard'",
+    "on-click-right": "sleep 0.1s ; hyprpicker -a -f rgb ; notify-send 'RGB color copied to clipboard'",
+    "tooltip": true,
+    "tooltip-format": "Color Picker"
+  },
+  
+  // Idle Inhibator
+  "idle_inhibitor": {
+    "format": "{icon}",
+    "tooltip": true,
+    "format-icons":{
+        "activated": "󱚴",
+        "deactivated": "󰍁"
+      },
+    "on-click-right": "hyprlock"
+  },
+  
+  // Timer
+  "custom/timer": {
+    "tooltip": true,
+    "return-type": "json",
+    "exec": "$HOME/.local/scripts/waybar-timer.sh check",
+    "on-click": "$HOME/.local/scripts/waybar-timer.sh minute_dialog",
+    "on-click-right": "$HOME/.local/scripts/waybar-timer.sh datetime_dialog",
+    "on-click-middle": "$HOME/.local/scripts/waybar-timer.sh stop",
+    "interval": 1
+  },
+
+  // Weather
+  "custom/weather": {
+    "format": "{}°",
+    "tooltip": true,
+    "interval": 600,
+    "exec": "wttrbar --fahrenheit --hide-conditions --location Baltimore --mph",
+    "return-type": "json"
+  }
+}

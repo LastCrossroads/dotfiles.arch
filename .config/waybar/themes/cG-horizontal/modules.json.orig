@@ -93,7 +93,7 @@
 
   // Updates Count
   "custom/updates": {
-    "format": "󰣇 {}",
+    "format": "󰣇  {}",
     "escape": true,
     "return-type": "json",
     "exec": "~/.config/hypr/scripts/updates.sh",
@@ -310,8 +310,8 @@
     "interval": 5,
     // "thermal-zone": 2,
     "hwmon-path": "/sys/class/hwmon/hwmon2/temp2_input",
-    "critical-threshold": 80,
-    "warning-threshold": 70,
+    "critical-threshold": 85,
+    "warning-threshold": 75,
     // "format-critical": "{icon}&#8239;{temperatureC}°C",
     "format": "{icon}&#8239;{temperatureC}°C",
     "format-icons": ["", "", ""],
@@ -322,7 +322,7 @@
   "custom/fanspeed": {
     "interval": 5,
     "exec": "cat /sys/class/hwmon/hwmon1/device/fan_speed_rpm",
-    "format": "󰈐 {} RPM",
+    "format": "󰈐  {} RPM",
     "tooltip": true,
     "tooltip-format": "Fan speed: {} RPM"
   },
@@ -388,11 +388,11 @@
         "warning": 40
       },
     "format": "{ifname}",
-    "format-wifi": "󰖩 {signalStrength}%",
+    "format-wifi": "󰖩  {signalStrength}%",
     "format-ethernet": " {ifname}:{ipaddr}/{cidr}",
     "format-disconnected": " Disconnected",
     "tooltip-format": " {ifname} via {gwaddr}",
-    "tooltip-format-wifi": "󰖩 {ifname} @ {essid}\nIP: {ipaddr}\nStrength: {signalStrength}%\nFreq: {frequency}MHz\nGateway: {gwaddr}\nUp: {bandwidthUpBits} Down: {bandwidthDownBits}",
+    "tooltip-format-wifi": "󰖩  {ifname} @ {essid}\nIP: {ipaddr}\nStrength: {signalStrength}%\nFreq: {frequency}MHz\nGateway: {gwaddr}\nUp: {bandwidthUpBits} Down: {bandwidthDownBits}",
     "tooltip-format-ethernet": " {ifname}\nIP: {ipaddr}\nGateway: {gwaddr}\n up: {bandwidthUpBits} down: {bandwidthDownBits}",
     "tooltip-format-disconnected": "Disconnected",
     "max-length": 50,
@@ -419,7 +419,7 @@
   // Pulseaudio
   "pulseaudio": {
     "scroll-step": 1,
-    "format": "{icon}{volume}% {format_source}",
+    "format": "{icon} {volume}% {format_source}",
     "format-bluetooth": " {volume}% {format_source}",
     "format-bluetooth-muted": "󰸈 {volume}%  {format_source}",
     "format-muted": "󰸈 {format_source}",
@@ -617,7 +617,7 @@
   "custom/weather": {
     "format": "{}°",
     "tooltip": true,
-    "interval": 3600,
+    "interval": 600,
     "exec": "wttrbar --fahrenheit --hide-conditions --location Baltimore --mph",
     "return-type": "json"
   },

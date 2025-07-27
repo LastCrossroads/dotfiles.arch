@@ -1,0 +1,252 @@
+{
+  // Workspaces
+  "hyprland/workspaces" : {
+		"disable-scroll": true,
+    "all-outputs": false,
+    "active-only": false,
+    "format": "{icon}",
+    "on-click": "activate",
+    "format-icons": {
+      "1": "一",
+      "2": "二",
+      "3": "三",
+      "4": "四",
+      "5": "五",
+      "6": "六",
+      "7": "七",
+      "8": "八",
+      "9": "九",
+      "10": "十",
+      // "urgent": "",
+      // "focused": "",
+      // "default": ""
+    },
+    "persistent-workspaces": {
+      // START WORKSPACES
+      "*": 10
+      // END WORKSPACES
+    }
+  },
+
+  // Power Menu
+  "custom/exit": {
+    "format": "󰐥",
+    "on-click": "sleep 0.2;wlogout",
+    "tooltip": false
+  },
+
+  // Keyboard State
+  "keyboard-state": {
+    "capslock": true,
+    "numlock": true,
+    "scrollback": false,
+    "format": {
+      "capslock": "{icon}",
+      "numlock": "{icon}"
+    },
+    "format-icons": {
+      "locked": "",
+      "unlocked": ""
+    },
+  },
+
+  // System tray
+    "tray": {
+    "icon-size": 22,
+    "spacing": 7
+  },
+
+  // Clock and calendar
+  "clock": {
+    "format": "{:%H:%M %Z}",
+    "tooltip-format": "<big>{:%A %D}</big>\n<tt><small>{calendar}</small></tt>",
+    "calendar": {
+      "mode": "year",
+      "mode-mon-col": 3,
+      "week-pos": "right",
+      "on-scroll": 1,
+      "format": {
+        "months": "<span color='#ffead3'><b>{}</b></span>",
+        "days": "<span color='#ecc6d9'><b>{}</b></span>",
+        "weeks": "<span color='#99ffdd'><b>{}</b></span>",
+        "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
+        "today": "<span color='#ff6699'><b>{}</b></span>"
+      }
+    },
+    "format-alt": "{:%m/%d/%Y}",
+    "actions": {
+      "on-scroll-up": "shift_up",
+      "on-scroll-down": "shift_down"
+    }
+  },
+
+  // Notification replay
+  "custom/notification": {
+    // "format": "󰍜",
+    "format": "{icon}",
+    "format-icons": {
+      "notification": "<span foreground='red'><sup></sup></span>",
+      "none": "",
+      "dnd-notification": "<span foreground='red'><sup></sup></span>",
+      "dnd-none": "",
+      "inhibited-notification": "<span foreground='red'><sup></sup></span>",
+      "inhibited-none": "",
+      "dnd-inhibited-notification": "<span foreground='red'><sup></sup></span>",
+      "dnd-inhibited-none": ""
+    },
+    "return-type": "json",
+    "exec-if": "which swaync-client",
+    "exec": "swaync-client -swb",
+    "on-click": "swaync-client -t -sw",
+    "on-click-right": "swaync-client -d -sw",
+    "escape": true,
+    "tooltip": false
+  },
+
+  // System meters
+  "cpu": {
+    "states": {
+      "warning": 75,
+      "critical": 90
+    },
+    "interval": 5,
+    "format": "󰍛 {usage}%",
+    "format-alt": "{icon0}{icon1}{icon2}{icon3}",
+    "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"]
+  },
+
+  "load": {
+    "interval": 5,
+    "format": "{load1} {load5} {load15}",
+    "tooltip": true,
+    "tooltip-format": "Load average: {load1} {load5} {load15}"
+  },
+
+  "memory": {
+    "states": {
+      "warning": 75,
+      "critical": 90
+    },
+    "interval": 10,
+    "format-alt": "󰘚 {used:0.1f}GB/{swapUsed:0.1f}GB",
+    "format": "󰘚 {percentage}% {swapPercentage}%",
+    // "max-length": 5,
+    "tooltip": true,
+    "tooltip-format": "System memory: {used:0.1f}GB/{total:0.1f}GB Swap: {swapUsed}GB/{totalSwap}GB"
+  },
+
+  "temperature": {
+    "interval": 5,
+    // "thermal-zone": 2,
+    "hwmon-path": "/sys/class/hwmon/hwmon2/temp2_input",
+    "critical-threshold": 85,
+    "warning-threshold": 75,
+    // "format-critical": "{icon}&#8239;{temperatureC}°C",
+    "format": "{icon}&#8239;{temperatureC}°C",
+    "format-icons": ["", "", ""],
+    "tooltip": true,
+    "tooltip-format": "CPU temperature: {temperatureC}°C"
+  },
+
+  "custom/fanspeed": {
+    "interval": 5,
+    "exec": "cat /sys/class/hwmon/hwmon1/device/fan_speed_rpm",
+    "format": "󰈐  {} RPM",
+    "tooltip": true,
+    "tooltip-format": "Fan speed: {} RPM"
+  },
+
+  "custom/gpuinfo": {
+    "exec": "cat /sys/class/hwmon/hwmon5/device/gpu_busy_percent",
+    "format": "󰡁 {}%",
+    "return-type": "",
+    "interval": 5,
+    "tooltip": true,
+    "tooltip-format": "GPU utilization: {}%"
+  },
+
+  "custom/gputemp": {
+    "exec": "cat /sys/class/hwmon/hwmon2/temp2_input | bc -l | awk '{print int($1/1000)}'",
+    "format": " {}°C",
+    "return-type": "",
+    "interval": 5,
+    "states": {
+      "critical": 80,
+      "warning": 70
+    },
+    "tooltip": true,
+    "tooltip-format": "GPU temperature: {}°C"
+  },
+
+  // Keyboard layout
+  "hyprland/language": {
+    "format": "{short}"
+  },
+
+  // Network status
+  "network": {
+      "states": {
+        "critical": 20,
+        "good": 50,
+        "warning": 40
+      },
+    "format": "{ifname}",
+    "format-wifi": "󰖩  {signalStrength}%",
+    "format-ethernet": " {ifname}:{ipaddr}/{cidr}",
+    "format-disconnected": " Disconnected",
+    "tooltip-format": " {ifname} via {gwaddr}",
+    "tooltip-format-wifi": "󰖩  {ifname} @ {essid}\nIP: {ipaddr}\nStrength: {signalStrength}%\nFreq: {frequency}MHz\nGateway: {gwaddr}\nUp: {bandwidthUpBits} Down: {bandwidthDownBits}",
+    "tooltip-format-ethernet": " {ifname}\nIP: {ipaddr}\nGateway: {gwaddr}\n up: {bandwidthUpBits} down: {bandwidthDownBits}",
+    "tooltip-format-disconnected": "Disconnected",
+    "max-length": 50,
+    "on-click": "nm-connection-editor"
+  },
+
+  // Battery status
+  "battery": {
+      "states": {
+      "good": 90,
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "{icon}{capacity}%",
+    "format-charging": " {capacity}%",
+    "format-plugged": "󰚥 {capacity}%",
+    "format-alt": "{icon} {time}",
+    // "format-good": "",
+    "format-icons": [" ", " ", " ", " ", " "],
+    "tooltip": true,
+    "tooltip": "(timeTo} {power}w"
+  },
+
+  // Bluetooth status
+  "bluetooth": {
+    "format": " 󰘊",
+    "format-disabled": " ",
+    "format-connected": " {num_connections}",
+    "tooltip-format": " {device_alias}",
+    "tooltip-format-connected": "{device_enumerate}",
+    "tooltip-format-enumerate-connected": " {device_alias} {device_battery_percentage}%",
+    "interval": 10,
+    "on-click": "blueman-manager",
+    "format-no-controller": " "
+  },
+
+  // Uptime display
+  "user": {
+    "format": "{work_d}:{work_H}:{work_M}",
+    "interval": 60,
+    "icon": false,
+    "on-click": "$FILEMANAGER",
+  },
+
+  // Systemd failed units monitor
+  "systemd-failed-units": {
+	  "hide-on-ok": false,
+	  "format": "  {nr_failed_system}",
+	  "format-ok": "",
+	  "system": true, // Failed systemwide units
+	  // "tooltip-format": "systemctl list-units --type=service --state=running --no-legend --no-pager"
+	  "user": false // Failed user units
+  }
+}
