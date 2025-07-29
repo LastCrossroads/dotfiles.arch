@@ -75,7 +75,7 @@ fi
 
 # Execute pywal
 echo ":: Execute pywal with $used_wallpaper"
-wal -q -i $used_wallpaper
+wal -q --contrast 4 -i $used_wallpaper
 source "$HOME/.cache/wal/colors.sh"
 
 # Write hyprpaper.conf
