@@ -20,6 +20,12 @@
     "tooltip": "false"
   },
 
+  // polycat animation
+  "custom/polycat": {
+    "exec": "/usr/bin/polycat",
+    "format": "{}"
+  },
+
   // Updates Count
   "custom/updates": {
     "format": "󰣇  {}",

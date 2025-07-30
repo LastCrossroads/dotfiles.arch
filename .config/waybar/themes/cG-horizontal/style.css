@@ -511,6 +511,12 @@ color: @iconcolor;
     background-color: #f53c3c;
 }
 
+#custom-polycat {
+    background-color: transparent;
+    color: @textcolor1;
+    margin: 0px 15px 0px 0px
+}
+
 /* Tooltips */
 
 tooltip {

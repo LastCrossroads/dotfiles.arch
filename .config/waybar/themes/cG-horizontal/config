@@ -114,6 +114,7 @@
         "custom/updates",
         "custom/arch_news",
         "custom/mail",
+        "custom/polycat",
         "hyprland/window"
     ],
 
