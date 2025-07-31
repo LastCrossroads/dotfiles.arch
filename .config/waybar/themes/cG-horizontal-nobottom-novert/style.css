@@ -19,13 +19,13 @@
 
 * {
     font-family: "AR Techni", FontAwesome, Roboto, Helvetica, Arial, sans-serif;
-    font-size: 100%;
-    opacity: 0.97
+    font-size: 1.5rem;
+    opacity: 0.95
 }
 
 window#waybar {
-    background: rgba(11, 11, 11, 0.2);
-    background-color: rgba(11, 11, 11, 0.2);
+    background: rgba(11, 11, 11, 0.7);
+    background-color: rgba(11, 11, 11, 0.7);
     border: 48px solid transparent;
     transition-duration: 0.5s;
     transition-property: background-color
@@ -41,10 +41,8 @@ window#waybar.empty #window {
     color: @textcolor1;
     background: darker(@workspacesbackground1);
     border-radius: 22px;
-    font-size: 32px;
     font-weight: bold;
-    margin: 0px 7px 0px 7px;
-    opacity: 0.9;
+    margin: 3px 7px 3px 7px;
     padding: 0px 7px 0px 7px
 }
 
@@ -54,8 +52,7 @@ window#waybar.empty #window {
     color: #000000;
     margin: 2px 2px 2px 2px;
     min-width: 24px;
-    opacity: 0.95;
-    padding: 2px 7px 2px 7px;
+    padding: 3px 7px 3px 7px;
     transition: all 0.3s ease-in-out
 }
 
@@ -119,9 +116,7 @@ window#waybar.empty #window {
     border: 3px solid lighter(@bordercolor);
     border-radius: 20px 10px 20px 10px;
     color: @textcolor1;
-    font-size: 22px;
-    margin: 0px 10px 0px 0px;
-    opacity: 0.8;
+    margin: 0px 0px 0px 0px;
     padding: 0px 10px 0px 10px
 }
 
@@ -137,11 +132,9 @@ window#waybar.empty #window {
     background: linear-gradient(-45deg, darker(@backgrounddark) 0%, @backgroundlight 50%, darker(@backgrounddark) 100%);
     background-size: 200% 200%;
     border: 5px solid lighter(@bordercolor);
-    border-radius: 24px;
+    border-radius: 2.0rem;
     color: @textcolor1;
-    font-size: 22px;
     margin: 0px 15px 0px 0px;
-    opacity: 0.8;
     padding: 0px 10px 0px 10px
 }
 
@@ -149,7 +142,7 @@ window#waybar.empty #window {
 
 #tray {
     color: @textcolor1;
-    -gtk-icon-transform: scale( 0.3 );
+    -gtk-icon-transform: scale( 0.5 );
     padding: 0px 0px 0px 10px
 }
 
@@ -167,10 +160,8 @@ window#waybar.empty #window {
     background-color: @backgroundlight;
     border-radius: 10px 20px 10px 20px;
     color: @textcolor1;
-    font-size: 20px;
-    margin: 5px 15px 5px 0px;
-    opacity: 0.8;
-    padding: 0px 10px 0px 10px
+    margin: 7px 15px 7px 0px;
+    padding: 0px 15px 0px 15px
 }
 
 #battery:not(.charging) {
@@ -205,20 +196,16 @@ window#waybar.empty #window {
     background-color: darker(@backgroundlight);
     border-radius: 10px 20px 10px 20px;
     color: @textcolor1;
-    font-size: 20px;
     margin: 5px 15px 5px 0px;
-    opacity: 0.8;
-    padding: 0px 13px 0px 10px
+    padding: 0px 15px 0px 10px
 }
 
 /* Brightness Control */
 
 #custom-brightness {
     color: @iconcolor;
-    font-size: 20px;
     font-weight: bold;
-    margin: 2px 20px 0px 0px;
-    opacity: 0.8
+    margin: 2px 20px 0px 0px
 }
 
 /* Cava Audio Visualizer */
@@ -226,11 +213,11 @@ window#waybar.empty #window {
 #cava,
 #custom-cava {
     color: @textcolor3;
-    font-size: 24px;
+    font-size: 2rem;
     margin: 0px 0px 0px 0px;
     min-width: 330px;
     opacity: 0.5;
-    padding: 0px 0px 0px 0px;
+    padding: 0px 30px 0px 30px;
     text-shadow:
         0 0 7px #fff,
         0 0 10px #fff,
@@ -238,6 +225,12 @@ window#waybar.empty #window {
         0 0 42px #0fa,
         0 0 82px #0fa
         /* 0 0 92px #0fa */
+}
+
+#custom-cava2 {
+    color: lighter(@textcolor3);
+    font-size: 0.75rem;
+    padding: 15px 0px 10px 0px
 }
 
 /* Clock and Calendar */
@@ -249,9 +242,7 @@ window#waybar.empty #window {
     border: 5px solid lighter(@bordercolor);
     border-radius: 24px;
     color: @textcolor1;
-    font-size: 22px;
     margin: 0px 0px 0px 10px;
-    opacity:0.8;
     padding: 2px 10px 0px 10px
 }
 
@@ -259,17 +250,24 @@ window#waybar.empty #window {
 
 #custom-exit {
     color: @iconcolor;
-    font-size: 30px;
+    font-size: 2.25rem;
     font-weight: bold;
-    margin: 2px 15px 0px 15px;
+    margin: 0px 20px 0px 15px;
     padding: 0px
+}
+
+#custom-hostname {
+    color: @textcolor3;
+    font-size: 1.5rem;
+    margin: 10px 0px 15px 0px;
+    padding: 15px 0px 0px 0px    
 }
 
 #custom-hypr {
     color: @iconcolor;
-    font-size: 24px;
+    font-size: 1.75rem;
     font-weight: bold;
-    margin: 2px 20px 0px 15px;
+    margin: 0px 25px 0px 15px;
     padding: 0px
 }
 
@@ -279,7 +277,6 @@ window#waybar.empty #window {
 #custom-wallpaper,
 #custom-waybarthemes {
 color: @iconcolor;
-    font-size: 24px;
     margin: 0px 20px 0px 15px;
     padding: 0px
 }
@@ -288,10 +285,9 @@ color: @iconcolor;
 
 #idle_inhibitor {
     color: @iconcolor;
-    font-size: 24px;
+    font-size: 1.75rem;
     font-weight: bold;
-    margin: 2px 15px 0px 0px;
-    opacity: 0.8
+    margin: 0px 20px 0px 5px
 }
 
 #idle_inhibitor.activated {
@@ -302,9 +298,7 @@ color: @iconcolor;
  
 #language {
     color: @textcolor1;
-    font-size: 22px;
     margin: 7px 7px 0px 0px;
-    opacity: 0.8;
     padding: 0px 0px 10px 0px
 }
 
@@ -312,10 +306,8 @@ color: @iconcolor;
 
 #keyboard-state {
     color: @iconcolor;
-    font-size: 20px;
     font-weight: bold;
     margin: 0px 10px 0px 0px;
-    opacity: 0.8;
     padding: 0px 0px 0px 0px
 }
 
@@ -329,9 +321,7 @@ color: @iconcolor;
     border: 3px solid lighter(@bordercolor);
     border-radius: 10px 20px 10px 20px;
     color: @textcolor1;
-    font-size: 22px;
     margin: 0px 15px 0px 0px;
-    opacity: 0.8;
     padding: 0px 10px 0px 10px
 }
 
@@ -341,9 +331,7 @@ color: @iconcolor;
     background-color: darker(@backgroundlight);
     border-radius: 10px 20px 10px 20px;
     color: @textcolor1;
-    font-size: 20px;
     margin: 5px 5px 5px 0px;
-    opacity: 0.8;
     padding: 0px 10px 0px 10px
 }
 
@@ -365,10 +353,10 @@ color: @iconcolor;
 
 #custom-notification {
     color: @iconcolor;
-    font-size: 26px;
+    font-family: "AR Techni";
+    /* font-size: 2.2rem; */
     font-weight: bold;
-    margin: 5px 5px 0px 5px;
-    opacity: 0.8;
+    margin: 0px 5px 0px 3px;
     padding: 0px 15px 0px 10px
 }
 
@@ -378,10 +366,8 @@ color: @iconcolor;
     background-color: darker(@backgroundlight);
     border-radius: 10px 20px 10px 20px;
     color: @textcolor1;
-    font-size: 20px;
     margin: 0px 15px 0px 0px;
-    opacity: 0.8;
-    padding: 0px 15px 0px 10px
+    padding: 0px 15px 0px 15px
 }
 
 #pulseaudio.muted {
@@ -389,64 +375,61 @@ color: @iconcolor;
     color: @textcolor1
 }
 
-/* Quicklinks */
-
-#custom-calculator,
-#custom-cliphist,
-#custom-code,
-#custom-colorpicker,
-#custom-filemanager,
-#custom-keybindings,
-#custom-wireshark {
-    color: @iconcolor;
-    font-size: 22px;
-    font-weight: bold;
-    margin-right: 15px;
-    opacity: 0.8;
-    padding: 5px 0px 0px 0px
-}
-
 /* Sytem Hardware Group */
 
-#cpu,#custom-gpuinfo,#custom-gputemp,#memory,#temperature {
+#cpu,
+#custom-gpuinfo,
+#custom-gputemp,
+#memory,
+#temperature {
     animation: rotateBorder 8s infinite;
     background-color: darker(@backgroundlight);
     border: 5px solid @bordercolor;
     color: @textcolor1;
-    font-size: 20px;
-    margin: 3px 7px 3px 0px;
-    opacity: 0.8;
-    padding: 0px 7px 0px 7px
+    margin: 0px 10px 0px 0px;
+    padding: 3px 7px 3px 7px
 }
 
 #memory {
     border-radius: 20px 20px 20px 20px;
-    margin: 3px 15px 3px 5px
+    margin: 3px 10px 3px 5px
 }
 
+#custom-fanspeed {
+    background-color: darker(@backgroundlight);
+    border-radius: 20px 10px 20px 10px;
+    margin: 7px 10px 7px 7px;
+    padding: 2px 15px 0px 15px
+}
+
+#custom-gputemp.warning,
 #cpu.warning,
 #memory.warning,
 #temperature.warning {
     animation: blink 2s linear infinite alternate;
-    background-color: #e7bc40
+    background-color: #e7bc40;
+    margin: 3px 7px 3px 0px
 }
 
+#custom-gputemp.critical,
 #cpu.critical,
 #memory.critical,
 #temperature.critical {
     animation: blink 0.5s linear infinite alternate;
-    background-color: #f53c3c
+    background-color: #f53c3c;
+    margin: 3px 7px 3px 0px
 }
 
-#cpu,
-#custom-gpuinfo {
+#custom-gpuinfo,
+#cpu {
     border-radius: 999em 20px 20px 999em;
     margin: 3px 0px 3px 7px
 }
 
 #custom-gputemp,
 #temperature {
-    border-radius: 20px 999em 999em 20px
+    border-radius: 20px 999em 999em 20px;
+    margin: 3px 7px 3px 0px
 }
 
 /* System Load Monitor */
@@ -455,10 +438,8 @@ color: @iconcolor;
     background: darker(@backgroundlight);
     border-radius: 10px 20px 10px 20px;
     color: @textcolor1;
-    font-size: 20px;
     margin: 7px 15px 7px 15px;
-    opacity: 0.8;
-    padding: 3px 10px 0px 10px
+    padding: 2px 15px 0px 15px
 }
 
 /* System Uptime */
@@ -470,10 +451,17 @@ color: @iconcolor;
     border: 5px solid lighter(@bordercolor);
     border-radius: 24px;
     color: @textcolor1;
-    font-size: 22px;
     margin: 3px 15px 2px 0px;
-    opacity: 0.8;
     padding: 0px 10px 0px 10px
+}
+
+/* journald display */
+
+#custom-syslog {
+    background-color: darker(@backgroundlight);
+    border-radius: 20px 20px 20px 20px;
+    color: @textcolor1;
+    padding: 15px 0px 15px 0px
 }
 
 /* Systemd Unit Failure Alert */
@@ -482,10 +470,8 @@ color: @iconcolor;
     background-color: #f53c3c;
     border-radius: 20px 10px 20px 10px;
     color: @textcolor1;
-    font-size: 20px;
-    margin: 7px 10px 7px 0px;
-    opacity : 0.8;
-    padding: 2px 18px 0px 10px
+    margin: 7px 10px 7px 7px;
+    padding: 0px 10px 0px 10px
 }
 
 #systemd-failed-units.degraded {
@@ -502,9 +488,7 @@ color: @iconcolor;
     background-color: darker(@backgroundlight);
     border-radius: 10px 20px 10px 20px;
     color: @textcolor1;
-    font-size: 18px;
-    margin: 0px 15px 0px 0px;
-    opacity: 0.8;
+    margin: 0px 15px 5px 0px;
     padding: 0px 12px 0px 12px
 }
 
@@ -512,17 +496,20 @@ color: @iconcolor;
     background-color: #f53c3c;
 }
 
+#custom-polycat {
+    background-color: transparent;
+    color: @textcolor1;
+    margin: 0px 15px 0px 0px
+}
+
 /* Tooltips */
 
 tooltip {
     animation: fadeIn 0.75s;
-    border: 2px outset #000;
-    border-radius: 10px;
+    /* border: 2px outset #000; */
     background-color: darker(darker(@backgroundlight));
-    border-radius: 10px;
-    font-size: 24px;
-    opacity: 0.9;
-    padding: 20px
+    border-radius: 20px 20px 20px 20px;
+    padding: 5px
 }
 
 tooltip label {
@@ -531,15 +518,14 @@ tooltip label {
 
 /* Updates Available Counter */
 
+#custom-arch_news,
 #custom-mail,
 #custom-updates {
     background-color: darker(@backgroundlight);
     border-radius: 20px 10px 20px 10px;
     color: @textcolor1;
-    font-size: 20px;
     margin: 0px 15px 0px 0px;
-    opacity: 0.8;
-    padding: 0px 12px 0px 10px
+    padding: 0px 12px 0px 12px
 }
 
 #custom-updates.green {
@@ -560,9 +546,7 @@ tooltip label {
     background-color: darker(@backgroundlight);
     border-radius: 10px 20px 10px 20px;
     color: @textcolor1;
-    font-size: 20px;
     margin: 0px 15px 0px 0px;
-    opacity: 0.8;
     padding: 0px 10px 0px 10px
 }
 
@@ -577,7 +561,7 @@ tooltip label {
 
 @keyframes fadeIn {
     0% { opacity: 0; }
-    100% { opacity: 0.8; }
+    100% { opacity: 0.9; }
 }
 
 @keyframes glowText {

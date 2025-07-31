@@ -375,21 +375,6 @@ color: @iconcolor;
     color: @textcolor1
 }
 
-/* Quicklinks */
-
-#custom-calculator,
-#custom-cliphist,
-#custom-code,
-#custom-colorpicker,
-#custom-filemanager,
-#custom-keybindings,
-#custom-wireshark {
-    color: @iconcolor;
-    font-weight: bold;
-    margin-right: 15px;
-    padding: 5px 0px 0px 0px
-}
-
 /* Sytem Hardware Group */
 
 #cpu,
@@ -521,11 +506,10 @@ color: @iconcolor;
 
 tooltip {
     animation: fadeIn 0.75s;
-    border: 2px outset #000;
-    border-radius: 10px;
+    /* border: 2px outset #000; */
     background-color: darker(darker(@backgroundlight));
-    border-radius: 10px;
-    padding: 20px
+    border-radius: 20px 20px 20px 20px;
+    padding: 5px
 }
 
 tooltip label {

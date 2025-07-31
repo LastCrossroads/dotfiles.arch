@@ -17,14 +17,16 @@
 
     "gtk-layer-shell": true,
     "layer": "top",
-    "margin-left": 0,
-    "margin-right": 0,
+    "margin-bottom": 10,
+    "margin-left": 10,
+    "margin-right": 10,
+    "margin-top": 10,
     "mode": "dock",
     "reload_style_on_change": true,
     "spacing": 0,
 
     // Load Modules
-    "include": ["$HOME/.config/waybar/themes/cG-horizontal-circle/modules.json"],
+    "include": ["$HOME/.config/waybar/themes/cG-horizontal/modules-top.json"],
 
     // Modules Left
     "modules-left": [
@@ -37,7 +39,8 @@
         "custom/gpuinfo",
         "custom/gputemp",
         "memory",
-        "systemd-failed-units"
+        "systemd-failed-units",
+        "custom/fanspeed"
     ],
 
    // Modules Center
@@ -64,44 +67,39 @@
     "position": "bottom",
     "gtk-layer-shell": true,
     "layer": "bottom",
-    "margin-bottom": 7,
-    "margin-left": 20,
-    "margin-right": 20,
-    "margin-top": 0,
+    "margin-bottom": 5,
+    "margin-left": 10,
+    "margin-right": 10,
+    "margin-top": 5,
     "mode": "dock",
     "reload_style_on_change": true,
     "spacing": 0,
 
     // Load Modules
-    "include": ["$HOME/.config/waybar/themes/cG-horizontal-circle/modules.json"],
+    "include": ["$HOME/.config/waybar/themes/cG-horizontal/modules-bottom.json"],
 
     // Modules Left
     "modules-left": [
         "group/hypr",
         "custom/updates",
+        "custom/arch_news",
         "custom/mail",
-        // "custom/test",
-        // "custom/appmenu",
-        // "custom/colorpicker",
-        // "custom/calculator",
-        // "custom/code",
-        // "custom/wireshark",
+        "custom/polycat",
         "hyprland/window"
     ],
 
     // Modules Center
     "modules-center": [
-        // "cava"
         "custom/cava"
     ],
     
     // Modules Right    
     "modules-right": [
         "mpris",
-        // "jack",
-        "custom/weather",
+        "jack",
         "pulseaudio",
-        "custom/timer",
+        "custom/weather",
+        // "custom/timer",
         "idle_inhibitor"
     ]
 
