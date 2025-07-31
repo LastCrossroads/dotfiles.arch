@@ -243,7 +243,7 @@ window#waybar.empty #window {
     border-radius: 24px;
     color: @textcolor1;
     margin: 0px 0px 0px 10px;
-    padding: 2px 10px 0px 10px
+    padding: 0px 10px 0px 10px
 }
 
 /* Hyprland Modules */
