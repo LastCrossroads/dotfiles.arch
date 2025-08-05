@@ -4,6 +4,7 @@ cp -r ~/.local/bin ./.local/
 
 cp -r ~/.config/amn ./.config/
 cp -r ~/.config/atuin ./.config/
+cp ~/.config/bongocat.conf ./.config/
 cp -r ~/.config/bottom ./.config/
 cp -r ~/.config/cava ./.config/
 cp -r ~/.config/dunst ./.config/
