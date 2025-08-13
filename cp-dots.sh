@@ -14,6 +14,7 @@ cp -r ~/.config/gtk-4.0 ./.config/
 cp -r ~/.config/helix ./.config/
 cp -r ~/.config/hypr ./.config/
 cp -r ~/.config/kitty ./.config/
+cp -r ~/.config/mango ./.config/
 cp -r ~/.config/oh-my-posh ./.config/
 # cp -r ~/.config/qt6ct ./.config/
 cp -r ~/.config/rofi ./.config/
