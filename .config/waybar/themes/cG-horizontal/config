@@ -22,6 +22,7 @@
     "margin-right": 10,
     "margin-top": 10,
     "mode": "dock",
+    "position": "top",
     "reload_style_on_change": true,
     "spacing": 0,
 
