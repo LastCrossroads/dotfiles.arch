@@ -182,3 +182,6 @@ TODO: direnv
 
 sudo chown -c root:root /etc/doas.conf
 sudo chmod -c 0400 /etc/doas.conf
+
+Lucas' random issues...
+sudo btrfs rescue zero-log /dev/xxx
