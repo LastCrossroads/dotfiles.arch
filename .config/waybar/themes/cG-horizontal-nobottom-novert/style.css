@@ -19,7 +19,7 @@
 
 * {
     font-family: "AR Techni", FontAwesome, Roboto, Helvetica, Arial, sans-serif;
-    font-size: 1.5rem;
+    font-size: 1.0rem;
     opacity: 0.95
 }
 
@@ -213,7 +213,7 @@ window#waybar.empty #window {
 #cava,
 #custom-cava {
     color: @textcolor3;
-    font-size: 2rem;
+    font-size: 1.5rem;
     margin: 0px 0px 0px 0px;
     min-width: 330px;
     opacity: 0.5;
@@ -230,7 +230,7 @@ window#waybar.empty #window {
 #custom-cava2 {
     color: lighter(@textcolor3);
     font-size: 0.75rem;
-    padding: 15px 0px 10px 0px
+    padding: 35px 0px 10px 0px
 }
 
 /* Clock and Calendar */
@@ -250,7 +250,7 @@ window#waybar.empty #window {
 
 #custom-exit {
     color: @iconcolor;
-    font-size: 2.25rem;
+    font-size: 1.5rem;
     font-weight: bold;
     margin: 0px 20px 0px 15px;
     padding: 0px
@@ -259,13 +259,13 @@ window#waybar.empty #window {
 #custom-hostname {
     color: @textcolor3;
     font-size: 1.5rem;
-    margin: 10px 0px 15px 0px;
+    margin: 10px 0px 35px 0px;
     padding: 15px 0px 0px 0px    
 }
 
 #custom-hypr {
     color: @iconcolor;
-    font-size: 1.75rem;
+    font-size: 1.25rem;
     font-weight: bold;
     margin: 0px 25px 0px 15px;
     padding: 0px
@@ -285,7 +285,7 @@ color: @iconcolor;
 
 #idle_inhibitor {
     color: @iconcolor;
-    font-size: 1.75rem;
+    font-size: 1.25rem;
     font-weight: bold;
     margin: 0px 20px 0px 5px
 }
