@@ -68,7 +68,7 @@
 
     "gtk-layer-shell": true,
     "layer": "top",
-    "margin-bottom": 100,
+    "margin-bottom": 90,
     "margin-left": 10,
     "margin-right": 5,
     "margin-top": 25,
