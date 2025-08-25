@@ -185,3 +185,6 @@ sudo chmod -c 0400 /etc/doas.conf
 
 Lucas' random issues...
 sudo btrfs rescue zero-log /dev/xxx
+
+Steam error 105 fix...
+doas ln -sf /run/systemd/resolve/stub-resolv.conf /etc/resolv.conf
