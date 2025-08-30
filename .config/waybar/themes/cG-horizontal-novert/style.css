@@ -213,7 +213,7 @@ window#waybar.empty #window {
 #cava,
 #custom-cava {
     color: @textcolor3;
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     margin: 0px 0px 0px 0px;
     min-width: 330px;
     opacity: 0.5;
@@ -229,7 +229,7 @@ window#waybar.empty #window {
 
 #custom-cava2 {
     color: lighter(@textcolor3);
-    font-size: 0.75rem;
+    font-size: 0.5rem;
     padding: 35px 0px 10px 0px
 }
 
@@ -258,7 +258,7 @@ window#waybar.empty #window {
 
 #custom-hostname {
     color: @textcolor3;
-    font-size: 1.5rem;
+    font-size: 1.0em;
     margin: 10px 0px 35px 0px;
     padding: 15px 0px 0px 0px    
 }
