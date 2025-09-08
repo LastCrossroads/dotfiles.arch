@@ -27,6 +27,7 @@ window#waybar {
     background: rgba(11, 11, 11, 0.7);
     background-color: rgba(11, 11, 11, 0.7);
     border: 48px solid transparent;
+    border-radius: 15px;
     transition-duration: 0.5s;
     transition-property: background-color
 }

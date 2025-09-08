@@ -27,6 +27,7 @@ window#waybar {
     background: rgba(11, 11, 11, 0.7);
     background-color: rgba(11, 11, 11, 0.7);
     border: 48px solid transparent;
+    border-radius: 15px;
     transition-duration: 0.5s;
     transition-property: background-color
 }
@@ -110,8 +111,9 @@ window#waybar.empty #window {
 
 #window {
     /* animation: gradient-right-to-left 6s ease infinite; */
-    animation: rotateBorder 8s ease infinite;
-    background: linear-gradient(-45deg, darker(darker(@backgrounddark)) 0%, darker(@backgroundlight) 50%, darker(@backgrounddark) 100%);
+    animation: gradient_left_to_right 4s linear infinite;
+    /* background: linear-gradient(-45deg, darker(darker(@backgrounddark)) 0%, darker(@backgroundlight) 50%, darker(@backgrounddark) 100%); */
+    background: linear-gradient(-45deg, darker(@backgrounddark) 0%, darker(@backgroundlight) 50%, darker(darker(@backgrounddark)) 100%);
     background-size: 200% 200%;
     border: 3px solid lighter(@bordercolor);
     border-radius: 20px 10px 20px 10px;
@@ -315,7 +317,7 @@ color: @iconcolor;
 
 #mpris {
     /* animation: gradient-left-to-right 6s ease infinite; */
-    animation: rotateBorder 8s ease infinite;
+    animation: gradient_right_to_left 4s linear infinite;
     background: linear-gradient(225deg, darker(darker(@backgrounddark)) 0%, darker(@backgroundlight) 50%, darker(@backgrounddark) 100%);
     background-size: 200% 200%;
     border: 3px solid lighter(@bordercolor);
