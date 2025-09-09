@@ -9,14 +9,23 @@ $ sudo nano /etc/systemd/resolved.conf
 DNS=1.1.1.1 2606:4700:4700::1111
 FallbackDNS=1.0.0.1 2606:4700:4700::1001
 DNSOverTLS=yes
-LLMNR=no
 DNSSEC=yes
+Domains=~.
+LLMNR=no
 Cache=yes
 DNSStubListener=no
+ReadEtcHosts=yes
 
 # Alternatively or additionally, you can use Google's DNS
 # 8.8.8.8 and 8.8.4.4
 # 2001:4860:4860::8888 and 2001:4860:4860::8844
+
+
+/etc/NetworkManager/NetworkManager.conf
+
+[main]
+plugins=keyfile
+dns=systemd-resolved
 
 $ sudo systemctl restart NetworkManager
 
