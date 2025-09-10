@@ -86,6 +86,7 @@
         "custom/updates#zwc",
         "custom/arch_news",
         "custom/mail",
+        "custom/timer",
         "custom/polycat",
         "hyprland/window"
     ],
