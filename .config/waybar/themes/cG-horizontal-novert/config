@@ -53,6 +53,7 @@
         "load",
         "battery",
         "bluetooth",
+        "custom/hotspot",
         "network",
         "tray",
         "clock",

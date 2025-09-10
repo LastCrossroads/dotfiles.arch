@@ -265,6 +265,14 @@ window#waybar.empty #window {
     padding: 15px 0px 0px 0px    
 }
 
+/* Hotspot Status */
+
+#custom-hotspot {
+    color: @iconcolor;
+    font-size: 1.0em;
+    margin: 0px 25px 0px 0px;
+}
+
 #custom-hypr {
     color: @iconcolor;
     font-size: 1.25rem;
@@ -436,7 +444,8 @@ color: @iconcolor;
 
 /* System Load Monitor */
 
-#load {
+#load,
+#custom-ping#zwc {
     background: darker(@backgroundlight);
     border-radius: 10px 20px 10px 20px;
     color: @textcolor1;

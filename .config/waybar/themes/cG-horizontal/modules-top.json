@@ -1,4 +1,14 @@
 {
+  "include": [
+    "/etc/zig-waybar-contrib/config.jsonc"
+  ],
+  "custom/ping#zwc": {
+    "exec": "/usr/bin/waybar-module-ping-bin",
+    "interval": 0,
+    "return-type": "json",
+    "signal": 13
+  },
+
   // Workspaces
   "hyprland/workspaces" : {
 		"disable-scroll": true,
@@ -181,6 +191,20 @@
   // Keyboard layout
   "hyprland/language": {
     "format": "{short}"
+  },
+
+  // Hotspot indicator
+  "custom/hotspot": {
+    "exec": "$HOME/.config/waybar/modules/waybar-hotspot.sh -a watch",
+    "format": "{icon}",
+    "format-icons": {
+      "active": "󱜠",
+      "notactive": "󱜡",
+    },
+    "interval": 5,
+    "on-click": "$HOME/.config/waybar/modules/waybar-hotspot.sh -a toggle",
+    "return-type": "json",
+    "tooltip": true
   },
 
   // Network status

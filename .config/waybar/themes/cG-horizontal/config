@@ -54,6 +54,8 @@
         "load",
         "battery",
         "bluetooth",
+        // "custom/ping#zwc",
+        "custom/hotspot",
         "network",
         "tray",
         "clock",

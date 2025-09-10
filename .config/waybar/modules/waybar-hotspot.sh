@@ -1,0 +1,282 @@
+#!/usr/bin/env bash
+
+# Define default values
+interval=1
+
+CONFIG_FILE="${CONFIG_FILE:-$HOME/.config/create_ap/create_ap.conf}"
+WIFI_IFACE="${WIFI_IFACE:-wlan0}"
+INTERNET_IFACE="${INTERNET_IFACE:-enp4s0}"
+SSID="${SSID:-MyHotspot}"
+PASSPHRASE="${PASSPHRASE:-1234500000}"
+CHANNEL="${CHANNEL:-default}"
+ACTION="${ACTION:-toggle}"
+HIDDEN="${HIDDEN:-false}"
+ENCRYPTION="${ENCRYPTION:-WPA2}"
+
+# Function to display usage
+usage() {
+    echo "Usage:               waybar-hotspot -c config_file [-a action]"
+    echo "-c config_file:      Path to configuration file"
+    echo "-a action:           Action to perform (start, stop, toggle, showqr, scan, new, watch)"
+    echo "-a status:           Start a new create_ap and display the current status of the Wi-Fi hotspot."
+    echo "-a stop:             Stop all create_ap if any and display status of Wi-Fi Hotspot."
+    echo "-a toggle:           Toggle the Wi-Fi Hotspot on or off."
+    echo "-a new:              Create new config for new Wi-Fi Hotspot."
+    echo "-a showqr:           Display QR code to connect to the Wi-Fi Hotspot."
+    echo "-a scan:             Scan all connected devices and display IP addresses and Hostname."
+    echo "-a watch:            Output the status in JSON format."
+}
+
+# check command exist or not.
+check() {
+  command -v "$1" >/dev/null 2>&1
+}
+
+# notify function
+notify() {
+  check notify-send && {
+    notify-send -a "waybar-Hotspot" "$@"
+    return
+  }
+  echo "$@"
+}
+
+# json formatter function for waybar
+json() {
+  jq --unbuffered --null-input --compact-output \
+    --arg text "$1" \
+    --arg alt "$2" \
+    --arg tooltip "$3" \
+    --arg class "$4" \
+    '{"text": $text, "alt": $alt, "tooltip": $tooltip, "class": $class}'
+}
+
+get_network_interfaces() {
+  interfaces=$(ip -o link show | awk -F': ' '{print $2}')
+  interfaces_formatted=$(echo $interfaces | tr ' ' '|')
+  echo "$interfaces_formatted"
+}
+
+# Function to prompt user with zenity and fill in the details
+prompt_zenity() {
+    form_output=$(zenity --forms --title="Hotspot Configuration" --text="Enter Hotspot Details" \
+      --add-combo="Wi-Fi Interface" --combo-values="$(get_network_interfaces)" \
+        --add-combo="Share Interface (source)" --combo-values="$(get_network_interfaces)" \
+        --add-entry="SSID (Network name)" \
+        --add-entry="Passphrase" \
+        --add-entry="Channel (e.g., default or a number)" \
+        --add-combo="Action" --combo-values="toggle|start|stop")
+
+        if [ $? -eq 0 ]; then
+        IFS="|" read -r WIFI_IFACE INTERNET_IFACE SSID PASSPHRASE CHANNEL ACTION <<< "$form_output"
+    else
+        zenity --error --text="No input provided, exiting."
+        exit 1
+    fi
+}
+
+create_config() {
+  mkdir -p $(dirname $CONFIG_FILE)
+  prompt_zenity
+  cat <<EOL > "$CONFIG_FILE"
+CHANNEL=default
+GATEWAY=10.0.0.1
+WPA_VERSION=2
+ETC_HOSTS=0
+DHCP_DNS=gateway
+NO_DNS=0
+NO_DNSMASQ=0
+HIDDEN=0
+MAC_FILTER=0
+MAC_FILTER_ACCEPT=/etc/hostapd/hostapd.accept
+ISOLATE_CLIENTS=0
+SHARE_METHOD=nat
+IEEE80211N=0
+IEEE80211AC=0
+HT_CAPAB=[HT40+]
+VHT_CAPAB=
+NO_VIRT=0
+COUNTRY=
+FREQ_BAND=2.4
+NEW_MACADDR=
+DAEMONIZE=0
+NO_HAVEGED=0
+WIFI_IFACE=$WIFI_IFACE
+INTERNET_IFACE=$INTERNET_IFACE
+SSID=$SSID
+PASSPHRASE=$PASSPHRASE
+USE_PSK=0
+EOL
+  notify "Configuration saved to $CONFIG_FILE"
+}
+
+# load the config file
+load_config() {
+    if [ -f "$CONFIG_FILE" ]; then
+        source "$CONFIG_FILE"
+    fi
+}
+
+# Function to start the hotspot
+start_hotspot() {
+    if [ -f "$CONFIG_FILE" ]; then
+        source "$CONFIG_FILE"
+    else
+        notify "Configuration file not found!"
+        create_config
+        source "$CONFIG_FILE"
+    fi
+    notify "Starting hotspot..."
+    # Prompt for sudo password using zenity
+    PASSWORD=$(zenity --password --title="Authentication Required")
+    
+    # Check if the password was entered
+    if [ -z "$PASSWORD" ]; then
+        notify "No password entered. Exiting."
+        exit 1
+    fi
+    
+    if [ "$CHANNEL" == "default" ]; then
+        echo "$PASSWORD" | sudo -S create_ap "$WIFI_IFACE" "$INTERNET_IFACE" "$SSID" "$PASSPHRASE" >/dev/null 2>&1 &
+    else
+        echo "$PASSWORD" | sudo -S create_ap -c "$CHANNEL" "$WIFI_IFACE" "$INTERNET_IFACE" "$SSID" "$PASSPHRASE" >/dev/null 2>&1 &
+    fi
+
+    notify "Hotspot started" "$SSID:$PASSPHRASE"
+}
+
+# Function to stop the hotspot
+stop_hotspot() {
+    notify "Stopping hotspot..."
+    PASSWORD=$(zenity --password --title="Authentication Required")
+    echo "$PASSWORD" | sudo -S pkill create_ap >/dev/null 2>&1
+    notify "hotspot stoped"
+}
+
+# Function to toggle the hotspot
+toggle_hotspot() {
+    if pgrep -x "create_ap" > /dev/null; then
+        stop_hotspot
+    else
+        start_hotspot
+    fi
+}
+
+scan() {
+    base_ip=$(ip -4 addr show ap0 | grep -oP '(?<=inet\s)\d+(\.\d+){3}')
+    if [ -z "$base_ip" ]; then
+        interface=$(ip -4 route | grep default | awk '{print $5}' | head -n 1)
+        base_ip=$(ip -4 addr show "$interface" | grep -oP '(?<=inet\s)\d+(\.\d+){3}')
+        if [ -z "$base_ip" ]; then
+            echo "Error: Could not find IP address for any active network interface."
+            exit 1
+        fi
+    fi
+    network_prefix=$(echo $base_ip | sed 's/\.[0-9]*$//')
+    connected_devices=()
+    temp_file=$(mktemp)
+    for ip in $network_prefix.{1..254}; do
+        (
+            if ping -c 1 -W 1 $ip > /dev/null 2>&1; then
+                hostname=$(nslookup $ip 2>/dev/null | grep 'name = ' | awk -F' = ' '{print $2}' | sed 's/\.$//')
+                if [ -z "$hostname" ]; then
+                    hostname="N/A"
+                fi
+                echo "$ip ($hostname)" >> "$temp_file"
+            fi
+        ) &
+    done
+    wait
+    while IFS= read -r line; do
+        connected_devices+=("$line")
+    done < "$temp_file"
+    rm "$temp_file"
+    for device in "${connected_devices[@]}"; do
+        echo "$device"
+    done
+}
+
+
+
+
+
+#generate Qrcode for tooltip: 
+get_qrcode(){
+  load_config
+  QR_CONFIG="WIFI:S:$SSID;w;T:$ENCRYPTION;P:$PASSPHRASE;H:$HIDDEN;;"
+  qr --ascii $QR_CONFIG
+  # echo "$QR_CONFIG"
+}
+
+
+fmt_tooltip() {
+  load_config
+  tooltip+="    NAME:    $SSID\n    PASSWORD: $PASSPHRASE\n"
+  tooltip+=$(get_qrcode)c
+  tooltip+="\nconnected devices\n"
+  tooltip+=$(scan)
+  echo -e "$tooltip"
+}
+
+# Parse command-line options
+while getopts ":c:a:h:" opt; do
+    case ${opt} in
+        c)
+            CONFIG_FILE=$OPTARG
+            ;;
+        a)
+            ACTION=$OPTARG
+            ;;
+        \?)
+            notify "Invalid option: -$OPTARG" >&2
+            usage
+            ;;
+        :)
+            notify "Option -$OPTARG requires an argument." >&2
+            usage
+            ;;
+    esac
+done
+
+# Validate that required options are provided
+if [ -z "$CONFIG_FILE" ]; then
+    usage
+fi
+
+# Execute the action
+case $ACTION in
+    watch)
+        #do nothing
+        ;;
+    showqr)
+      get_qrcode
+        ;;
+    scan)
+      scan
+        ;;
+
+    start)
+        start_hotspot
+        ;;
+    stop)
+        stop_hotspot
+        ;;
+    toggle)
+        toggle_hotspot
+        ;;
+    new)
+      prompt_zenity
+      start_hotspot
+        ;;
+    *)
+        zenity --error --text="Invalid action: $ACTION"
+        exit 1
+        ;;
+esac
+
+# Infinite loop to output JSON status to Waybar
+  if pgrep -x create_ap > /dev/null; then
+    json "" "active" "$(fmt_tooltip)" "active"
+  else
+    json "" "notactive" "Click to start hotspot" "notactive"
+  fi
