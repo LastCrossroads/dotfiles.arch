@@ -1,5 +1,17 @@
 {
 
+  "include": [
+    "/etc/zig-waybar-contrib/config.jsonrc"
+  ],
+
+  "custom/updates#zwc": {
+    "escape": true,
+    "interval": 0,
+    "exec": "/usr/bin/waybar-module-updates-bin",
+    "return-type": "json",
+    "signal": 10
+  },
+
   // Hyprland Window
   "hyprland/window": {
     "icon": true,

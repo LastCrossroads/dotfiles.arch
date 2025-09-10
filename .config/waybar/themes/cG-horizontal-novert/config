@@ -81,7 +81,8 @@
     // Modules Left
     "modules-left": [
         "group/hypr",
-        "custom/updates",
+        // "custom/updates",
+        "custom/updates#zwc",
         "custom/arch_news",
         "custom/mail",
         "custom/polycat",
