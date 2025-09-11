@@ -500,8 +500,8 @@ color: @iconcolor;
     border-radius: 20px 10px 20px 10px;
     color: @textcolor1;
     font-size: 1.00rem;
-    margin: 0px 15px 0px 0px;
-    padding: 0px 20px 3px 15px
+    margin: 0px 10px 0px 0px;
+    padding: 0px 15px 3px 15px
 }
 
 #custom-timer.active {
