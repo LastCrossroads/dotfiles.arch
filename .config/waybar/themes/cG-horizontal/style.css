@@ -501,7 +501,7 @@ color: @iconcolor;
     color: @textcolor1;
     font-size: 1.00rem;
     margin: 0px 10px 0px 0px;
-    padding: 0px 15px 3px 15px
+    padding: 0px 15px 0px 15px
 }
 
 #custom-timer.active {

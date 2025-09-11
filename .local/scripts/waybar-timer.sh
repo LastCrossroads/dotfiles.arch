@@ -5,7 +5,7 @@ cmd="$1"
 TFILE="$HOME/.config/waybar/timer"
 TIME_ZONE="America/New_York"
 ICON_SIZE="12"
-RISE="-2000"
+RISE="+2000"
 
 if [ "$cmd" == "check" ]; then
 
