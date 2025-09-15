@@ -41,6 +41,7 @@ window#waybar.empty #window {
 #workspaces {
     color: @textcolor1;
     background: darker(@workspacesbackground1);
+    border: 2px solid lighter(@bordercolor);
     border-radius: 22px;
     font-weight: bold;
     margin: 3px 7px 3px 7px;
@@ -265,6 +266,14 @@ window#waybar.empty #window {
     padding: 15px 0px 0px 0px    
 }
 
+/* Hotspot Status */
+
+#custom-hotspot {
+    color: @iconcolor;
+    font-size: 1.0em;
+    margin: 0px 25px 0px 0px;
+}
+
 #custom-hypr {
     color: @iconcolor;
     font-size: 1.25rem;
@@ -436,7 +445,8 @@ color: @iconcolor;
 
 /* System Load Monitor */
 
-#load {
+#load,
+#custom-ping#zwc {
     background: darker(@backgroundlight);
     border-radius: 10px 20px 10px 20px;
     color: @textcolor1;
@@ -488,10 +498,11 @@ color: @iconcolor;
 
 #custom-timer {
     background-color: darker(@backgroundlight);
-    border-radius: 10px 20px 10px 20px;
+    border-radius: 20px 10px 20px 10px;
     color: @textcolor1;
-    margin: 0px 15px 5px 0px;
-    padding: 0px 12px 0px 12px
+    font-size: 1.00rem;
+    margin: 0px 10px 0px 0px;
+    padding: 0px 15px 0px 15px
 }
 
 #custom-timer.active {
@@ -522,7 +533,8 @@ tooltip label {
 
 #custom-arch_news,
 #custom-mail,
-#custom-updates {
+#custom-updates,
+#custom-updates#zwc {
     background-color: darker(@backgroundlight);
     border-radius: 20px 10px 20px 10px;
     color: @textcolor1;

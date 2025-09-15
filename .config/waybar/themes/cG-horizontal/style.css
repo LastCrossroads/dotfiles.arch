@@ -41,6 +41,7 @@ window#waybar.empty #window {
 #workspaces {
     color: @textcolor1;
     background: darker(@workspacesbackground1);
+    border: 2px solid lighter(@bordercolor);
     border-radius: 22px;
     font-weight: bold;
     margin: 3px 7px 3px 7px;
