@@ -314,6 +314,7 @@ monitor () {
 # if (( TERMINAL_INSTANCE > 2 )) || (( TMUX_INSTANCE > 1 )) > /dev/null ; then
    # hostname | figlet -f Graffiti | lolcat -p 1.5
    hostname | figlet -f Graffiti | tte expand
+   echo
    kotofetch --source false
    echo
 # else
