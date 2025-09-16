@@ -2,10 +2,15 @@
 * Css Colors
 * Generated with Matugen
 */
-@define-color blur_background rgba(26, 17, 15, 0.3);
-@define-color blur_background8 rgba(26, 17, 15, 0.8);
 
-    @define-color background #1a110f;
+@import '../../.cache/wal/colors-waybar.css';
+@define-color backgrounddark @color11;
+@define-color backgroundlight @color5;
+
+@define-color blur_background @color11;
+@define-color blur_background8 @color5;
+
+    @define-color background darker(darker(@backgrounddark));
 
     @define-color error #ffb4ab;
 
@@ -13,7 +18,7 @@
 
     @define-color inverse_on_surface #392e2b;
 
-    @define-color inverse_primary #8f4c35;
+    @define-color inverse_primary darker(darker(@color3));
 
     @define-color inverse_surface #f1dfda;
 
@@ -39,7 +44,7 @@
 
     @define-color on_secondary_fixed_variant #5d4036;
 
-    @define-color on_surface #f1dfda;
+    @define-color on_surface #dddddd;
 
     @define-color on_surface_variant #d8c2bb;
 
@@ -51,13 +56,13 @@
 
     @define-color on_tertiary_fixed_variant #51461a;
 
-    @define-color outline #a08d87;
+    @define-color outline @color1;
 
-    @define-color outline_variant #53433f;
+    @define-color outline_variant @color2;
 
-    @define-color primary #ffb59d;
+    @define-color primary @color1;
 
-    @define-color primary_container #723520;
+    @define-color primary_container darker(darker(backgroundlight));
 
     @define-color primary_fixed #ffdbd0;
 
@@ -67,7 +72,7 @@
 
     @define-color secondary #e7bdb0;
 
-    @define-color secondary_container #5d4036;
+    @define-color secondary_container darker(@backgrounddark);
 
     @define-color secondary_fixed #ffdbd0;
 
@@ -77,21 +82,21 @@
 
     @define-color source_color #f96732;
 
-    @define-color surface #1a110f;
+    @define-color surface darker(darker(@color1));
 
-    @define-color surface_bright #423733;
+    @define-color surface_bright @backgroundlight;
 
-    @define-color surface_container #271d1b;
+    @define-color surface_container @color2;
 
-    @define-color surface_container_high #322825;
+    @define-color surface_container_high @color1;
 
     @define-color surface_container_highest #3d322f;
 
-    @define-color surface_container_low #231917;
+    @define-color surface_container_low darker(#231917);
 
     @define-color surface_container_lowest #140c0a;
 
-    @define-color surface_dim #1a110f;
+    @define-color surface_dim darker(@color1);
 
     @define-color surface_tint #ffb59d;
 

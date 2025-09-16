@@ -10,7 +10,7 @@
 @define-color hoverbutton alpha(@inverse_primary,0.5);
 @define-color activebutton @inverse_primary;
 
-@define-color bordercolor @primary;
+/* @define-color bordercolor @primary; */
 @define-color fontcolor @on_surface;
 @define-color text @on_surface;
 
@@ -20,9 +20,10 @@
   font-size: 1rem;
   font-weight: 900;
   all: unset;
-  font-family: "Fira Sans Semibold", "Font Awesome 7 Free",
+  /* font-family: "Fira Sans Semibold", "Font Awesome 7 Free",
   "Font Awesome 7 Brands", "Font Awesome 6 Free", "Font Awesome 6 Brands",
-  FontAwesome, Roboto, Helvetica, Arial, sans-serif;
+  FontAwesome, Roboto, Helvetica, Arial, sans-serif; */
+  font-family: "AR Techni";
   transition: 200ms;
 }
 
