@@ -512,7 +512,7 @@ color: @iconcolor;
 #custom-polycat {
     background-color: transparent;
     color: @textcolor1;
-    margin: 0px 15px 0px 0px
+    margin: 0px 20px 0px 5px
 }
 
 /* Tooltips */
