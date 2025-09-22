@@ -18,9 +18,10 @@ check_host ares-mobile
 check_host enchiridion
 check_host epsilon11
 check_host ereshkigal
+check_host gojira-1
 #check_host kappa10
 check_host tiamat
-# check_host systemXI
+check_host systemXI
 check_host XXII
 nmcli connection show | tte rain
 echo -n "    "

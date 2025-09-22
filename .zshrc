@@ -313,9 +313,9 @@ monitor () {
 # TMUX_INSTANCE=$(pgrep -x tmux | wc -l)
 # if (( TERMINAL_INSTANCE > 2 )) || (( TMUX_INSTANCE > 1 )) > /dev/null ; then
    # hostname | figlet -f Graffiti | lolcat -p 1.5
-   hostname | figlet -f Graffiti | tte expand
-   echo
-   kotofetch --source false
+   # hostname | figlet -f Graffiti | tte expand
+   # echo
+   kotofetch --centered false --modes anime,haiku --source false
    echo
 # else
 #   motd.sh
