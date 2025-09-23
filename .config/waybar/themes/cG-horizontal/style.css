@@ -27,9 +27,9 @@ window#waybar {
     /* background: rgba(11, 11, 11, 0.7); */
     /* background-color: rgba(11, 11, 11, 0.7); */
     background-color: alpha(darker(darker(@color1)), .8);
-    /* background: linear-gradient(0deg, @bordercolor 0%, #000000 50%, @backgrounddark 100%); */
-    border: 48px solid transparent;
-    border-radius: 15px;
+    background: linear-gradient(45deg, darker(darker(@bordercolor)) 0%, darker(darker(@backgrounddark)) 100%);
+    /* border: 48px solid transparent; */
+    border-radius: 22px;
     transition-duration: 0.5s;
     transition-property: background-color
 }
@@ -233,7 +233,7 @@ window#waybar.empty #window {
 }
 
 #custom-cava2 {
-    color: lighter(@textcolor3);
+    color: lighter(lighter(@textcolor3));
     font-size: 0.5rem;
     padding: 35px 0px 10px 0px
 }
