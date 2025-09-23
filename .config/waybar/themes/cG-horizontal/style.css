@@ -29,8 +29,9 @@ window#waybar {
     background-color: alpha(darker(darker(@color1)), .8);
     background: linear-gradient(45deg, darker(@textcolor4) 0%, darker(darker(@textcolor5)) 100%);
     /* border: 48px solid transparent; */
+    border: 2px solid darker(@bordercolor);
     border-radius: 22px;
-    opacity: 0.77;
+    opacity: 0.97;
     transition-duration: 0.5s;
     transition-property: background-color
 }
@@ -218,7 +219,7 @@ window#waybar.empty #window {
 
 #cava,
 #custom-cava {
-    color: @textcolor3;
+    color: @color2;
     font-size: 1.25rem;
     margin: 0px 0px 0px 0px;
     min-width: 330px;
@@ -263,10 +264,10 @@ window#waybar.empty #window {
 }
 
 #custom-hostname {
-    color: lighter(@textcolor3);
-    font-size: 1.0em;
+    color: #000000;
+    font-size: 1.1em;
     margin: 10px 0px 30px 0px;
-    padding: 15px 0px 0px 0px    
+    padding: 15px 0px 0px 2px    
 }
 
 /* Hotspot Status */
@@ -474,8 +475,9 @@ color: @iconcolor;
 
 #custom-syslog {
     background-color: darker(@backgroundlight);
-    border-radius: 20px 20px 20px 20px;
+    border-radius: 22px;
     color: @textcolor1;
+    font-size: 0.9rem;
     padding: 15px 0px 15px 0px
 }
 
