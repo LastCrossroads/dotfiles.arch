@@ -197,3 +197,5 @@ sudo btrfs rescue zero-log /dev/xxx
 
 Steam error 105 fix...
 doas ln -sf /run/systemd/resolve/stub-resolv.conf /etc/resolv.conf
+
+# Enable haveged service
