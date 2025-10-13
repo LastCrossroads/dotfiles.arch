@@ -13,6 +13,7 @@ cp -r ~/.config/ghostty ./.config/
 cp -r ~/.config/gtk-4.0 ./.config/
 cp -r ~/.config/helix ./.config/
 cp -r ~/.config/hypr ./.config/
+cp -r ~/.config/hyprfloat ./.config/
 cp -r ~/.config/kitty ./.config/
 cp -r ~/.config/mango ./.config/
 cp -r ~/.config/oh-my-posh ./.config/
