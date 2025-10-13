@@ -1,2 +1,6 @@
 @import "notifications.css";
 @import "control_center.css";
+
+* {
+  font-size: 1.6rem
+}
