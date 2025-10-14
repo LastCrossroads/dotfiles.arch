@@ -1,5 +1,9 @@
 /* Inspired by Stephan Raabe */
 
+/* Import Matugen Colors */
+
+@import '../../colors.css';
+
 /* Import Pywal Colors */
 
 @import '../../../../.cache/wal/colors-waybar.css';
@@ -15,21 +19,29 @@
 @define-color workspacesbackground1 @color5;
 @define-color workspacesbackground2 @color11;
 
+@define-color backgrounddark darker(@source_color);
+@define-color backgroundlight @source_color;
+@define-color bordercolor lighter(@inverse_primary);
+@define-color textcolor1 lighter(@primary_fixed);
+@define-color workspacesbackground1 lighter(@tertiary_container);
+@define-color workspacesbackground2 lighter(@secondary_container);
 /* General Settings */
 
 * {
     font-family: "AR Techni", FontAwesome, Roboto, Helvetica, Arial, sans-serif;
     font-size: 1.4rem;
-    opacity: 0.92
+    opacity: 0.95
 }
 
 window#waybar {
     /* background: rgba(11, 11, 11, 0.7); */
     /* background-color: rgba(11, 11, 11, 0.7); */
     /* background-color: alpha(darker(darker(@color1)), .6); */
-    background: linear-gradient(-45deg, darker(darker(@textcolor4)) 0%, darker(darker(darker(@textcolor5))) 100%);
+    background: linear-gradient(-45deg, darker(@textcolor4) 0%, darker(darker(@textcolor5)) 100%);
+    background: linear-gradient(-45deg, darker(@secondary_fixed_dim) 0%, darker(darker(@tertiary_fixed_dim)) 100%);
     /* border: 48px solid transparent; */
     border: 2px solid darker(@bordercolor);
+    border: 2px solid @outline;
     border-radius: 22px;
     opacity: 0.97;
     /*
@@ -117,10 +129,8 @@ window#waybar.empty #window {
 /* Active Window Title */
 
 #window {
-    /* animation: gradient-right-to-left 6s ease infinite; */
     animation: gradient_left_to_right 4s ease infinite;
-    /* background: linear-gradient(-45deg, darker(darker(@backgrounddark)) 0%, darker(@backgroundlight) 50%, darker(@backgrounddark) 100%); */
-    background: linear-gradient(-45deg, darker(@backgrounddark) 0%, darker(@backgroundlight) 50%, darker(darker(@backgrounddark)) 100%);
+    background: linear-gradient(135deg, darker(@secondary_fixed) 0%, darker(darker(@tertiary_fixed)) 50%, darker(@secondary_fixed) 100%);
     background-size: 200% 200%;
     border: 3px solid lighter(@bordercolor);
     border-radius: 20px 10px 20px 10px;
@@ -247,7 +257,7 @@ window#waybar.empty #window {
 
 #clock {
     animation: gradient_right_to_left 4s ease infinite;
-    background: linear-gradient(225deg, darker(@backgrounddark) 0%, @backgroundlight 50%, darker(@backgrounddark) 100%);
+    background: linear-gradient(135deg, darker(@secondary_fixed) 0%, darker(darker(@tertiary_fixed)) 50%, darker(@secondary_fixed) 100%);
     background-size: 200% 200%;
     border: 5px solid lighter(@bordercolor);
     border-radius: 24px;
@@ -334,13 +344,13 @@ color: @iconcolor;
 #mpris {
     /* animation: gradient-left-to-right 6s ease infinite; */
     animation: gradient_right_to_left 4s ease infinite;
-    background: linear-gradient(135deg, darker(darker(@backgrounddark)) 0%, darker(@backgroundlight) 50%, darker(@backgrounddark) 100%);
+    background: linear-gradient(-45deg, darker(@secondary_fixed) 0%, darker(darker(@tertiary_fixed)) 50%, darker(@secondary_fixed) 100%);
     background-size: 200% 200%;
     border: 3px solid lighter(@bordercolor);
     border-radius: 10px 20px 10px 20px;
     color: @textcolor1;
     margin: 0px 15px 0px 0px;
-    padding: 0px 10px 0px 10px
+    padding: 0px 20px 0px 10px
 }
 
 /* Network Status */
@@ -467,8 +477,8 @@ color: @iconcolor;
 
 #user {
     animation: gradient_left_to_right 4s ease infinite;
-    background: linear-gradient(-45deg, darker(@backgrounddark) 0%, @backgroundlight 50%, darker(@backgrounddark) 100%);
-    background-size: 200% 200%;
+    background: linear-gradient(-45deg, darker(@secondary_fixed) 0%, darker(darker(@tertiary_fixed)) 50%, darker(@secondary_fixed) 100%);
+    background-size: 250% 250%;
     border: 5px solid lighter(@bordercolor);
     border-radius: 24px;
     color: @textcolor1;
@@ -479,7 +489,7 @@ color: @iconcolor;
 /* journald display */
 
 #custom-syslog {
-    background-color: darker(darker(@backgroundlight));
+    background-color: darker(@backgroundlight);
     border: 2px solid darker(@bordercolor);
     border-radius: 22px;
     color: @textcolor1;

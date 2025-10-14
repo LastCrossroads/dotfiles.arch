@@ -6,6 +6,7 @@ set = true
 [templates.btop]
 input_path = './templates/btop.theme'
 output_path = '~/.config/btop/themes/matugen.theme'
+post_hook = 'notify-send "matugen btop"'
 
 [templates.cava]
 input_path = '~/.config/matugen/templates/cava-colors.ini'
@@ -24,16 +25,18 @@ output_path = '~/.config/gtk-4.0/colors.css'
 [templates.hyprland]
 input_path = './templates/hyprland-colors.conf'
 output_path = '~/.config/hypr/colors.conf'
-post_hook = 'hyprctl reload'
+# post_hook = 'hyprctl reload'
+post_hook = 'notify-send "matugen hyprland"'
 
 [templates.kitty]
 input_path = './templates/kitty-colors.conf'
 output_path = '~/.config/kitty/colors.conf'
-post_hook = 'pkill -SIGUSR1 kitty'
+# post_hook = 'pkill -SIGUSR1 kitty'
 
 [templates.rofi]
 input_path = './templates/rofi-colors.conf'
 output_path = '~/.config/rofi/colors.rasi'
+post_hook = 'notify-send "matugen rofi"'
 
 [templates.qt5ct]
 input_path = './templates/qtct-colors.conf'
@@ -46,5 +49,5 @@ output_path = '~/.config/qt6ct/colors/matugen.conf'
 [templates.waybar]
 input_path = './templates/colors.css'
 output_path = '~/.config/waybar/colors.css'
-post_hook = 'pkill -SIGUSR2 waybar'
-
+# post_hook = 'pkill -SIGUSR2 waybar'
+post_hook = 'notify-send "matugen waybar"'
