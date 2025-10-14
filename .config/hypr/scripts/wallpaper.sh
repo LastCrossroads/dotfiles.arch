@@ -76,6 +76,9 @@ fi
 # Execute pywal
 echo ":: Execute pywal with $used_wallpaper"
 wal -q --contrast 4 -i $used_wallpaper
+
+echo ":: Execute matugen with $user_wallpaper"
+matugen --contrast 1 image $user_wallpaper
 source "$HOME/.cache/wal/colors.sh"
 
 # Write hyprpaper.conf
