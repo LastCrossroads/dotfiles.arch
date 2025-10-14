@@ -1,5 +1,6 @@
 # theme = "mutagen"
-theme = "heisenberg"
+# theme = "modus_vivendi_tinted"
+theme = "bogster"
 
 [editor]
 bufferline = "multiple"

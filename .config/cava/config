@@ -1,8 +1,6 @@
 ## Configuration file for CAVA.
 # Remove the ; to change parameters.
 
-theme = 'mutagen'
-
 [general]
 
 # Smoothing mode. Can be 'normal', 'scientific' or 'waves'. DEPRECATED as of 0.6.0
@@ -233,7 +231,7 @@ foreground = '#444444'
 # Gradient mode, only hex defined colors are supported,
 # background must also be defined in hex or remain commented out. 1 = on, 0 = off.
 # You can define as many as 8 different colors. They range from bottom to top of screen
-; gradient = 0
+gradient = 1
 ; gradient_color_1 = '#59cc33'
 ; gradient_color_2 = '#80cc33'
 ; gradient_color_3 = '#a6cc33'
@@ -243,7 +241,7 @@ foreground = '#444444'
 ; gradient_color_7 = '#cc5933'
 ; gradient_color_8 = '#cc3333'
 
-
+theme = 'matugen'
 
 [smoothing]
 
