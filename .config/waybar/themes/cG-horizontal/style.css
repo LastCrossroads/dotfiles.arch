@@ -19,7 +19,7 @@
 
 * {
     font-family: "AR Techni", FontAwesome, Roboto, Helvetica, Arial, sans-serif;
-    font-size: 1.4rem;
+    font-size: 1.0rem;
     opacity: 0.92
 }
 
@@ -117,14 +117,13 @@ window#waybar.empty #window {
 /* Active Window Title */
 
 #window {
-    /* animation: gradient-right-to-left 6s ease infinite; */
     animation: gradient_left_to_right 4s ease infinite;
-    /* background: linear-gradient(-45deg, darker(darker(@backgrounddark)) 0%, darker(@backgroundlight) 50%, darker(@backgrounddark) 100%); */
     background: linear-gradient(-45deg, darker(@backgrounddark) 0%, darker(@backgroundlight) 50%, darker(darker(@backgrounddark)) 100%);
     background-size: 200% 200%;
     border: 3px solid lighter(@bordercolor);
     border-radius: 20px 10px 20px 10px;
     color: @textcolor1;
+    font-size: 1.1rem;
     margin: 0px 0px 0px 0px;
     padding: 0px 10px 0px 10px
 }
@@ -141,7 +140,7 @@ window#waybar.empty #window {
     background: linear-gradient(-45deg, darker(@backgrounddark) 0%, @backgroundlight 50%, darker(@backgrounddark) 100%);
     background-size: 200% 200%;
     border: 5px solid lighter(@bordercolor);
-    border-radius: 2.0rem;
+    border-radius: 1.0rem;
     color: @textcolor1;
     margin: 0px 15px 0px 0px;
     padding: 0px 10px 0px 10px
@@ -222,7 +221,7 @@ window#waybar.empty #window {
 #cava,
 #custom-cava {
     color: @color2;
-    font-size: 2.0rem;
+    font-size: 1.4rem;
     margin: 0px 0px 0px 0px;
     min-width: 350px;
     opacity: 0.5;
@@ -239,7 +238,7 @@ window#waybar.empty #window {
 #custom-cava2 {
     /* color: @workspacecolor2; */
     color: @textcolor1;
-    font-size: 0.75rem;
+    font-size: 0.5rem;
     padding: 35px 0px 10px 0px
 }
 
@@ -260,7 +259,7 @@ window#waybar.empty #window {
 
 #custom-exit {
     color: @iconcolor;
-    font-size: 1.8rem;
+    font-size: 1.4rem;
     font-weight: bold;
     margin: 0px 30px 0px 15px;
     padding: 0px
@@ -283,7 +282,7 @@ window#waybar.empty #window {
 
 #custom-hypr {
     color: @iconcolor;
-    font-size: 1.5rem;
+    font-size: 1.1rem;
     font-weight: bold;
     margin: 0px 25px 0px 20px;
     padding: 0px
@@ -303,7 +302,7 @@ color: @iconcolor;
 
 #idle_inhibitor {
     color: @iconcolor;
-    font-size: 1.4rem;
+    font-size: 1.1rem;
     font-weight: bold;
     margin: 0px 30px 0px 5px
 }
@@ -339,6 +338,7 @@ color: @iconcolor;
     border: 3px solid lighter(@bordercolor);
     border-radius: 10px 20px 10px 20px;
     color: @textcolor1;
+    font-size: 1.0rem;
     margin: 0px 15px 0px 0px;
     padding: 0px 10px 0px 10px
 }
@@ -483,7 +483,7 @@ color: @iconcolor;
     border: 2px solid darker(@bordercolor);
     border-radius: 22px;
     color: @textcolor1;
-    font-size: 1.4rem;
+    font-size: 1.1rem;
     padding: 15px 0px 15px 0px
 }
 
