@@ -15,6 +15,10 @@
 @define-color workspacesbackground1 @color5;
 @define-color workspacesbackground2 @color11;
 
+@define-color alertcolor #520000;
+@define-color goodcolor #005200;
+@define-color warningcolor #d2b55b;
+
 /* General Settings */
 
 * {
@@ -174,25 +178,24 @@ window#waybar.empty #window {
 
 #battery:not(.charging) {
     animation: blink 2s linear infinite alternate;
-    background-color: #e7bc40
+    background-color: @alertcolor
 }
 
 #battery.charging,
 #battery.full,
 #battery.plugged {
     animation: blink 4s linear infinite alternate;
-    background-color: #5fa052
+    background-color: @goodcolor
 }
 
 #battery.critical {
     animation: blink 0.5s linear infinite alternate;
-    background-color: #f53c3c
+    background-color: @alertcolor
 }
 
 #battery.critical:not(.charging) {
     animation: blink 0.5s linear infinite alternate;
-    background-color: #f53c3c;
-    color: @textcolor1
+    background-color: @alertcolor
 }
 
 /* Bluetooth Status */
@@ -427,7 +430,7 @@ color: @iconcolor;
 #memory.warning,
 #temperature.warning {
     animation: blink 2s linear infinite alternate;
-    background-color: #e7bc40;
+    background-color: @warningcolor;
     margin: 3px 7px 3px 0px
 }
 
@@ -436,7 +439,7 @@ color: @iconcolor;
 #memory.critical,
 #temperature.critical {
     animation: blink 0.5s linear infinite alternate;
-    background-color: #f53c3c;
+    background-color: @alertcolor;
     margin: 3px 7px 3px 0px
 }
 
@@ -490,7 +493,7 @@ color: @iconcolor;
 /* Systemd Unit Failure Alert */
 
 #systemd-failed-units {
-    background-color: #f53c3c;
+    background-color: @alertcolor;
     border-radius: 20px 10px 20px 10px;
     color: @textcolor1;
     margin: 7px 10px 7px 7px;
@@ -498,11 +501,11 @@ color: @iconcolor;
 }
 
 #systemd-failed-units.degraded {
-    background-color: #e7bc40
+    background-color: @warningcolor
 }
 
 #systemd-failed-units.ok {
-    background-color: #5fa052
+    background-color: @goodcolor
 }
 
 /* Timer */

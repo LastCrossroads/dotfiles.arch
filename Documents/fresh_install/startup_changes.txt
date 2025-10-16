@@ -171,6 +171,7 @@ hyprpm add https://github.com/micha4w/Hypr-DarkWindow
 hyprpm add https://github.com/hyprwm/hyprland-plugins
 hyprpm add https://github.com/KZDKM/Hyprspace
 hyprpm add https://github.com/daxisunder/hyprfocus
+hyprpm add https://github.com/yz778/hyprview
 
 git clone https://github.com/Aloxaf/fzf-tab ~/git
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm

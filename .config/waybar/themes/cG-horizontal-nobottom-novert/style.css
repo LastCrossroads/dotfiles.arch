@@ -15,19 +15,23 @@
 @define-color workspacesbackground1 @color5;
 @define-color workspacesbackground2 @color11;
 
+@define-color alertcolor #520000;
+@define-color goodcolor #005200;
+@define-color warningcolor #d2b55b;
+
 /* General Settings */
 
 * {
     font-family: "AR Techni", FontAwesome, Roboto, Helvetica, Arial, sans-serif;
-    font-size: 1.4rem;
-    opacity: 0.95
+    font-size: 1.0rem;
+    opacity: 0.92
 }
 
 window#waybar {
     /* background: rgba(11, 11, 11, 0.7); */
     /* background-color: rgba(11, 11, 11, 0.7); */
     /* background-color: alpha(darker(darker(@color1)), .6); */
-    background: linear-gradient(-45deg, darker(@textcolor4) 0%, darker(darker(@textcolor5)) 100%);
+    background: linear-gradient(-45deg, darker(darker(@textcolor4)) 0%, darker(darker(darker(@textcolor5))) 100%);
     /* border: 48px solid transparent; */
     border: 2px solid darker(@bordercolor);
     border-radius: 22px;
@@ -117,14 +121,13 @@ window#waybar.empty #window {
 /* Active Window Title */
 
 #window {
-    /* animation: gradient-right-to-left 6s ease infinite; */
-    animation: gradient_left_to_right 4s linear infinite;
-    /* background: linear-gradient(-45deg, darker(darker(@backgrounddark)) 0%, darker(@backgroundlight) 50%, darker(@backgrounddark) 100%); */
+    animation: gradient_left_to_right 4s ease infinite;
     background: linear-gradient(-45deg, darker(@backgrounddark) 0%, darker(@backgroundlight) 50%, darker(darker(@backgrounddark)) 100%);
     background-size: 200% 200%;
     border: 3px solid lighter(@bordercolor);
     border-radius: 20px 10px 20px 10px;
     color: @textcolor1;
+    font-size: 1.1rem;
     margin: 0px 0px 0px 0px;
     padding: 0px 10px 0px 10px
 }
@@ -141,7 +144,7 @@ window#waybar.empty #window {
     background: linear-gradient(-45deg, darker(@backgrounddark) 0%, @backgroundlight 50%, darker(@backgrounddark) 100%);
     background-size: 200% 200%;
     border: 5px solid lighter(@bordercolor);
-    border-radius: 2.0rem;
+    border-radius: 1.0rem;
     color: @textcolor1;
     margin: 0px 15px 0px 0px;
     padding: 0px 10px 0px 10px
@@ -175,25 +178,24 @@ window#waybar.empty #window {
 
 #battery:not(.charging) {
     animation: blink 2s linear infinite alternate;
-    background-color: #e7bc40
+    background-color: @alertcolor
 }
 
 #battery.charging,
 #battery.full,
 #battery.plugged {
     animation: blink 4s linear infinite alternate;
-    background-color: #5fa052
+    background-color: @goodcolor
 }
 
 #battery.critical {
     animation: blink 0.5s linear infinite alternate;
-    background-color: #f53c3c
+    background-color: @alertcolor
 }
 
 #battery.critical:not(.charging) {
     animation: blink 0.5s linear infinite alternate;
-    background-color: #f53c3c;
-    color: @textcolor1
+    background-color: @alertcolor
 }
 
 /* Bluetooth Status */
@@ -222,7 +224,7 @@ window#waybar.empty #window {
 #cava,
 #custom-cava {
     color: @color2;
-    font-size: 2.0rem;
+    font-size: 1.4rem;
     margin: 0px 0px 0px 0px;
     min-width: 350px;
     opacity: 0.5;
@@ -237,8 +239,8 @@ window#waybar.empty #window {
 }
 
 #custom-cava2 {
-    color: @workspacecolor2;
-    /* color: lighter(lighter(@textcolor3)); */
+    /* color: @workspacecolor2; */
+    color: @textcolor1;
     font-size: 0.5rem;
     padding: 35px 0px 10px 0px
 }
@@ -246,7 +248,7 @@ window#waybar.empty #window {
 /* Clock and Calendar */
 
 #clock {
-    animation: gradient_right_to_left 4s linear infinite;
+    animation: gradient_right_to_left 4s ease infinite;
     background: linear-gradient(225deg, darker(@backgrounddark) 0%, @backgroundlight 50%, darker(@backgrounddark) 100%);
     background-size: 200% 200%;
     border: 5px solid lighter(@bordercolor);
@@ -260,7 +262,7 @@ window#waybar.empty #window {
 
 #custom-exit {
     color: @iconcolor;
-    font-size: 1.8rem;
+    font-size: 1.4rem;
     font-weight: bold;
     margin: 0px 30px 0px 15px;
     padding: 0px
@@ -283,7 +285,7 @@ window#waybar.empty #window {
 
 #custom-hypr {
     color: @iconcolor;
-    font-size: 1.5rem;
+    font-size: 1.1rem;
     font-weight: bold;
     margin: 0px 25px 0px 20px;
     padding: 0px
@@ -303,7 +305,7 @@ color: @iconcolor;
 
 #idle_inhibitor {
     color: @iconcolor;
-    font-size: 1.4rem;
+    font-size: 1.1rem;
     font-weight: bold;
     margin: 0px 30px 0px 5px
 }
@@ -333,12 +335,13 @@ color: @iconcolor;
 
 #mpris {
     /* animation: gradient-left-to-right 6s ease infinite; */
-    animation: gradient_right_to_left 4s linear infinite;
-    background: linear-gradient(225deg, darker(darker(@backgrounddark)) 0%, darker(@backgroundlight) 50%, darker(@backgrounddark) 100%);
+    animation: gradient_right_to_left 4s ease infinite;
+    background: linear-gradient(135deg, darker(darker(@backgrounddark)) 0%, darker(@backgroundlight) 50%, darker(@backgrounddark) 100%);
     background-size: 200% 200%;
     border: 3px solid lighter(@bordercolor);
     border-radius: 10px 20px 10px 20px;
     color: @textcolor1;
+    font-size: 1.0rem;
     margin: 0px 15px 0px 0px;
     padding: 0px 10px 0px 10px
 }
@@ -382,6 +385,7 @@ color: @iconcolor;
 
 #pulseaudio, #jack {
     background-color: darker(@backgroundlight);
+    border: 2px solid darker(@bordercolor);
     border-radius: 10px 20px 10px 20px;
     color: @textcolor1;
     margin: 0px 15px 0px 0px;
@@ -416,6 +420,7 @@ color: @iconcolor;
 #custom-fanspeed {
     background-color: darker(@backgroundlight);
     border-radius: 20px 10px 20px 10px;
+    color: @textcolor1;
     margin: 7px 10px 7px 7px;
     padding: 2px 15px 0px 15px
 }
@@ -425,7 +430,7 @@ color: @iconcolor;
 #memory.warning,
 #temperature.warning {
     animation: blink 2s linear infinite alternate;
-    background-color: #e7bc40;
+    background-color: @warningcolor;
     margin: 3px 7px 3px 0px
 }
 
@@ -434,7 +439,7 @@ color: @iconcolor;
 #memory.critical,
 #temperature.critical {
     animation: blink 0.5s linear infinite alternate;
-    background-color: #f53c3c;
+    background-color: @alertcolor;
     margin: 3px 7px 3px 0px
 }
 
@@ -464,7 +469,7 @@ color: @iconcolor;
 /* System Uptime */
 
 #user {
-    animation: gradient_left_to_right 4s linear infinite;
+    animation: gradient_left_to_right 4s ease infinite;
     background: linear-gradient(-45deg, darker(@backgrounddark) 0%, @backgroundlight 50%, darker(@backgrounddark) 100%);
     background-size: 200% 200%;
     border: 5px solid lighter(@bordercolor);
@@ -477,17 +482,18 @@ color: @iconcolor;
 /* journald display */
 
 #custom-syslog {
-    background-color: darker(@backgroundlight);
+    background-color: darker(darker(@backgroundlight));
+    border: 2px solid darker(@bordercolor);
     border-radius: 22px;
     color: @textcolor1;
-    font-size: 1.4rem;
+    font-size: 1.1rem;
     padding: 15px 0px 15px 0px
 }
 
 /* Systemd Unit Failure Alert */
 
 #systemd-failed-units {
-    background-color: #f53c3c;
+    background-color: @alertcolor;
     border-radius: 20px 10px 20px 10px;
     color: @textcolor1;
     margin: 7px 10px 7px 7px;
@@ -495,17 +501,18 @@ color: @iconcolor;
 }
 
 #systemd-failed-units.degraded {
-    background-color: #e7bc40
+    background-color: @warningcolor
 }
 
 #systemd-failed-units.ok {
-    background-color: #5fa052
+    background-color: @goodcolor
 }
 
 /* Timer */
 
 #custom-timer {
     background-color: darker(@backgroundlight);
+    border: 2px solid darker(@bordercolor);
     border-radius: 20px 10px 20px 10px;
     color: @textcolor1;
     font-size: 1.00rem;
@@ -544,6 +551,8 @@ tooltip label {
 #custom-updates,
 #custom-updates#zwc {
     background-color: darker(@backgroundlight);
+    border: 2px solid darker(@bordercolor);
+    border: 2px solid darker(@bordercolor);
     border-radius: 20px 10px 20px 10px;
     color: @textcolor1;
     margin: 0px 15px 0px 0px;
@@ -566,6 +575,7 @@ tooltip label {
 
 #custom-weather {
     background-color: darker(@backgroundlight);
+    border: 2px solid darker(@bordercolor);
     border-radius: 10px 20px 10px 20px;
     color: @textcolor1;
     margin: 0px 15px 0px 0px;
