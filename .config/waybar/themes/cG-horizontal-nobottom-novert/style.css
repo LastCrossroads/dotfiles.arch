@@ -15,7 +15,7 @@
 @define-color workspacesbackground1 @color5;
 @define-color workspacesbackground2 @color11;
 
-@define-color alertcolor #520000;
+@define-color alertcolor #820000;
 @define-color goodcolor #005200;
 @define-color warningcolor #d2b55b;
 
@@ -453,6 +453,16 @@ color: @iconcolor;
 #temperature {
     border-radius: 20px 999em 999em 20px;
     margin: 3px 7px 3px 0px
+}
+
+/* Privacy icon notifcation */
+
+#privacy {
+    color: @textcolor1;
+    font-size: 1.5rem;
+    -gtk-icon-transform: scale( 1.5 );
+    margin: 7px 15px 7px 15px;
+    padding: 2px 0px 0px 15px
 }
 
 /* System Load Monitor */
