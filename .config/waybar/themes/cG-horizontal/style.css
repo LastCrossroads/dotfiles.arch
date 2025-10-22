@@ -374,8 +374,6 @@ color: @iconcolor;
 
 #custom-notification {
     color: @iconcolor;
-    /* font-family: "AR Techni"; */
-    /* font-size: 2.2rem; */
     font-weight: bold;
     margin: 3px 5px 0px 13px;
     padding: 0px 15px 0px 10px
