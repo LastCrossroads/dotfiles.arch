@@ -254,7 +254,7 @@ window#waybar.empty #window {
     border: 5px solid lighter(@bordercolor);
     border-radius: 24px;
     color: @textcolor1;
-    margin: 0px 0px 0px 10px;
+    margin: 0px 0px 0px 15px;
     padding: 0px 10px 0px 10px
 }
 
@@ -350,6 +350,7 @@ color: @iconcolor;
 
 #network {
     background-color: darker(@backgroundlight);
+    border: 2px solid @bordercolor;
     border-radius: 10px 20px 10px 20px;
     color: @textcolor1;
     margin: 5px 5px 5px 0px;
@@ -374,8 +375,6 @@ color: @iconcolor;
 
 #custom-notification {
     color: @iconcolor;
-    /* font-family: "AR Techni"; */
-    /* font-size: 2.2rem; */
     font-weight: bold;
     margin: 3px 5px 0px 13px;
     padding: 0px 15px 0px 10px
@@ -385,7 +384,7 @@ color: @iconcolor;
 
 #pulseaudio, #jack {
     background-color: darker(@backgroundlight);
-    border: 2px solid darker(@bordercolor);
+    border: 2px solid @bordercolor;
     border-radius: 10px 20px 10px 20px;
     color: @textcolor1;
     margin: 0px 15px 0px 0px;
@@ -419,6 +418,7 @@ color: @iconcolor;
 
 #custom-fanspeed {
     background-color: darker(@backgroundlight);
+    border: 2px solid @bordercolor;
     border-radius: 20px 10px 20px 10px;
     color: @textcolor1;
     margin: 7px 10px 7px 7px;
@@ -458,7 +458,7 @@ color: @iconcolor;
 /* Privacy icon notifcation */
 
 #privacy {
-    color: @textcolor1;
+    color: @warningcolor;
     font-size: 1.5rem;
     -gtk-icon-transform: scale( 1.5 );
     margin: 7px 15px 7px 15px;
@@ -470,6 +470,7 @@ color: @iconcolor;
 #load,
 #custom-ping#zwc {
     background: darker(@backgroundlight);
+    border: 2px solid @bordercolor;
     border-radius: 10px 20px 10px 20px;
     color: @textcolor1;
     margin: 7px 15px 7px 15px;
@@ -493,7 +494,7 @@ color: @iconcolor;
 
 #custom-syslog {
     background-color: darker(darker(@backgroundlight));
-    border: 2px solid darker(@bordercolor);
+    border: 2px solid @bordercolor;
     border-radius: 22px;
     color: @textcolor1;
     font-size: 1.1rem;
@@ -522,7 +523,7 @@ color: @iconcolor;
 
 #custom-timer {
     background-color: darker(@backgroundlight);
-    border: 2px solid darker(@bordercolor);
+    border: 2px solid @bordercolor;
     border-radius: 20px 10px 20px 10px;
     color: @textcolor1;
     font-size: 1.00rem;
@@ -561,8 +562,7 @@ tooltip label {
 #custom-updates,
 #custom-updates#zwc {
     background-color: darker(@backgroundlight);
-    border: 2px solid darker(@bordercolor);
-    border: 2px solid darker(@bordercolor);
+    border: 2px solid @bordercolor;
     border-radius: 20px 10px 20px 10px;
     color: @textcolor1;
     margin: 0px 15px 0px 0px;
@@ -585,7 +585,7 @@ tooltip label {
 
 #custom-weather {
     background-color: darker(@backgroundlight);
-    border: 2px solid darker(@bordercolor);
+    border: 2px solid @bordercolor;
     border-radius: 10px 20px 10px 20px;
     color: @textcolor1;
     margin: 0px 15px 0px 0px;

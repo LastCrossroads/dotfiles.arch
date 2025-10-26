@@ -350,6 +350,7 @@ color: @iconcolor;
 
 #network {
     background-color: darker(@backgroundlight);
+    border: 2px solid @bordercolor;
     border-radius: 10px 20px 10px 20px;
     color: @textcolor1;
     margin: 5px 5px 5px 0px;
@@ -383,7 +384,7 @@ color: @iconcolor;
 
 #pulseaudio, #jack {
     background-color: darker(@backgroundlight);
-    border: 2px solid darker(@bordercolor);
+    border: 2px solid @bordercolor;
     border-radius: 10px 20px 10px 20px;
     color: @textcolor1;
     margin: 0px 15px 0px 0px;
@@ -417,6 +418,7 @@ color: @iconcolor;
 
 #custom-fanspeed {
     background-color: darker(@backgroundlight);
+    border: 2px solid @bordercolor;
     border-radius: 20px 10px 20px 10px;
     color: @textcolor1;
     margin: 7px 10px 7px 7px;
@@ -468,6 +470,7 @@ color: @iconcolor;
 #load,
 #custom-ping#zwc {
     background: darker(@backgroundlight);
+    border: 2px solid @bordercolor;
     border-radius: 10px 20px 10px 20px;
     color: @textcolor1;
     margin: 7px 15px 7px 15px;
@@ -491,7 +494,7 @@ color: @iconcolor;
 
 #custom-syslog {
     background-color: darker(darker(@backgroundlight));
-    border: 2px solid darker(@bordercolor);
+    border: 2px solid @bordercolor;
     border-radius: 22px;
     color: @textcolor1;
     font-size: 1.1rem;
@@ -520,7 +523,7 @@ color: @iconcolor;
 
 #custom-timer {
     background-color: darker(@backgroundlight);
-    border: 2px solid darker(@bordercolor);
+    border: 2px solid @bordercolor;
     border-radius: 20px 10px 20px 10px;
     color: @textcolor1;
     font-size: 1.00rem;
@@ -559,8 +562,7 @@ tooltip label {
 #custom-updates,
 #custom-updates#zwc {
     background-color: darker(@backgroundlight);
-    border: 2px solid darker(@bordercolor);
-    border: 2px solid darker(@bordercolor);
+    border: 2px solid @bordercolor;
     border-radius: 20px 10px 20px 10px;
     color: @textcolor1;
     margin: 0px 15px 0px 0px;
@@ -583,7 +585,7 @@ tooltip label {
 
 #custom-weather {
     background-color: darker(@backgroundlight);
-    border: 2px solid darker(@bordercolor);
+    border: 2px solid @bordercolor;
     border-radius: 10px 20px 10px 20px;
     color: @textcolor1;
     margin: 0px 15px 0px 0px;
