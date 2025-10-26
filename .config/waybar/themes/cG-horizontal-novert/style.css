@@ -170,6 +170,7 @@ window#waybar.empty #window {
 
 #battery {
     background-color: @backgroundlight;
+    border: 2px solid @bordercolor;
     border-radius: 10px 20px 10px 20px;
     color: @textcolor1;
     margin: 7px 15px 7px 0px;
@@ -205,6 +206,7 @@ window#waybar.empty #window {
 #bluetooth.off,
 #bluetooth.on {
     background-color: darker(@backgroundlight);
+    border: 2px solid @bordercolor;
     border-radius: 10px 20px 10px 20px;
     color: @textcolor1;
     margin: 5px 15px 5px 0px;
