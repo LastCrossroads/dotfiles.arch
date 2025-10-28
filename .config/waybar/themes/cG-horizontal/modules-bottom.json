@@ -38,6 +38,13 @@
     "format": "{}"
   },
 
+  // Stock price updates
+  "custom/stocks": {
+    "exec": "$HOME/.local/bin/waybar-stocks --config $HOME/.config/waybar/stocks.yml",
+    "interval": 1,
+    "return-type": "json"
+  },
+
   // Updates Count
   "custom/updates": {
     "format": "󰣇  {}",
@@ -138,8 +145,8 @@
   "mpris": {
     // "format": "<i>{title} - {artist} <small>[{position}/{length}]</small></i>",
     // "format-paused": "<i>{title} - {artist} <small>[{position}/{length}]</small></i>",
-    "format": "󱑽 <i>{title} - {artist}</i>",
-    "format-paused": "󱑽 <i>{title} - {artist}</i>",
+    "format": "󱑽 <i>{title}</i>",
+    "format-paused": "󱑽 <i>{title}</i>",
     "player-icons": {
       "chromium": "",
       "default": "󰐊",

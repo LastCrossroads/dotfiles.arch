@@ -132,6 +132,7 @@
     // Modules Right    
     "modules-right": [
         "mpris",
+        "custom/stocks",
         "jack",
         "pulseaudio",
         "custom/weather",

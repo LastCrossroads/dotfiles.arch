@@ -1,0 +1,54 @@
+refresh_interval: 60        # seconds between API updates
+rotation_interval: 3        # seconds to display each asset
+format: "{symbol} {price} ({change}%{icon})"
+
+colors:
+  up: "#99FF99"        # price increasing
+  down: "#FF9999"      # price decreasing
+  neutral: "#FFFFFF"   # no change
+
+assets:
+  - symbol: AIRI
+    name: AIRI
+  - symbol: AMD
+    name: AMD
+  - symbol: ARM
+    name: ARM
+  - symbol: AXON
+    name: AXON
+  - symbol: BA
+    name: BA
+  - symbol: BLK
+    name: BLK
+  - symbol: CRSP
+    name: CRSP
+  - symbol: CZGZF
+    name: CZGZF
+  - symbol: GD
+    name: GD
+  - symbol: HII
+    name: HII
+  - symbol: IBM
+    name: IBM
+  - symbol: KTOS
+    name: KTOS
+  - symbol: LHX
+    name: LHX
+  - symbol: LMT
+    name: LMT
+  - symbol: NOC
+    name: NOC
+  - symbol: PLTR
+    name: PLTR
+  - symbol: RTX
+    name: RTX
+  - symbol: QBTS
+    name: QBTS
+  - symbol: TDG
+    name: TDG
+  - symbol: TSM
+    name: TSM
+  - symbol: BTC-USD
+    name: BTC
+  - symbol: SPY
+    name: S&P500
