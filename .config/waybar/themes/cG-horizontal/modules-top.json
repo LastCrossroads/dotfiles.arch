@@ -146,7 +146,7 @@
       "critical": 90
     },
     "interval": 5,
-    "format": "󰍛 {usage}%",
+    "format": "󰍛  {usage}%",
     "format-alt": "{icon0}{icon1}{icon2}{icon3}",
     "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"]
   },
@@ -164,8 +164,8 @@
       "critical": 90
     },
     "interval": 10,
-    "format-alt": "󰘚 {used:0.1f}GB/{swapUsed:0.1f}GB",
-    "format": "󰘚 {percentage}% {swapPercentage}%",
+    "format-alt": "󰘚  {used:0.1f}GB/{swapUsed:0.1f}GB",
+    "format": "󰘚  {percentage}% {swapPercentage}%",
     // "max-length": 5,
     "tooltip": true,
     "tooltip-format": "System memory: {used:0.1f}GB/{total:0.1f}GB Swap: {swapUsed}GB/{totalSwap}GB"
@@ -178,7 +178,7 @@
     "critical-threshold": 85,
     "warning-threshold": 75,
     // "format-critical": "{icon}&#8239;{temperatureC}°C",
-    "format": "{icon}&#8239;{temperatureC}°C",
+    "format": "{icon}&#8239; {temperatureC}°C",
     "format-icons": ["", "", ""],
     "tooltip": true,
     "tooltip-format": "CPU temperature: {temperatureC}°C"
@@ -187,14 +187,14 @@
   "custom/fanspeed": {
     "interval": 5,
     "exec": "cat /sys/class/hwmon/hwmon1/device/fan_speed_rpm",
-    "format": "󰈐  {} RPM",
+    "format": "󰈐   {} RPM",
     "tooltip": true,
     "tooltip-format": "Fan speed: {} RPM"
   },
 
   "custom/gpuinfo": {
     "exec": "cat /sys/class/hwmon/hwmon5/device/gpu_busy_percent",
-    "format": "󰡁 {}%",
+    "format": "󰡁  {}%",
     "return-type": "",
     "interval": 5,
     "tooltip": true,
@@ -203,7 +203,7 @@
 
   "custom/gputemp": {
     "exec": "cat /sys/class/hwmon/hwmon2/temp2_input | bc -l | awk '{print int($1/1000)}'",
-    "format": " {}°C",
+    "format": "  {}°C",
     "return-type": "",
     "interval": 5,
     "states": {

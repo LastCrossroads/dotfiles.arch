@@ -185,7 +185,7 @@
   "custom/arch_news": {
     "exec": "$HOME/.local/scripts/arch_news 30",
     "interval": 3600,
-    "format": "󱀁 {}",
+    "format": "󱀁  {}",
     "on-click": "xdg-open https://archlinux.org/news/",
     "return-type": "json",
     "tooltip": true
