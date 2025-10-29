@@ -29,18 +29,13 @@
 
 window#waybar {
     /* animation: gradient_left_to_right 8s ease infinite; */
-    /* background: rgba(11, 11, 11, 0.7); */
-    /* background-color: rgba(11, 11, 11, 0.7); */
     /* background-color: alpha(darker(darker(@color1)), .6); */
     background: linear-gradient(-45deg, darker(darker(@textcolor4)) 0%, darker(darker(darker(@textcolor5))) 100%);
-    /* border: 48px solid transparent; */
     border: 2px solid darker(@bordercolor);
     border-radius: 22px;
     opacity: 0.97;
-    /*
     transition-duration: 0.5s;
     transition-property: background-color
-    */
 }
 
 window#waybar.empty #window {
@@ -134,7 +129,7 @@ window#waybar.empty #window {
 }
 
 window#waybar.empty #window {
-    background-color:transparent
+    background-color: transparent
 }
 
 /* Application Menu */
@@ -267,12 +262,18 @@ window#waybar.empty #window {
     color: @iconcolor;
     font-size: 1.4rem;
     font-weight: bold;
-    margin: 0px 25px 0px 20px;
-    padding: 0px
+    margin: 0px 15px 0px 10px;
+    padding: 0px 10px 0px 10px
 }
 
+#custom-exit:hover {
+    background: @backgroundlight
+}
+
+/* Hostname Label */
+
 #custom-hostname {
-    color: #000000;
+    color: lighter(@workspacesbackground2);
     font-size: 1.1em;
     margin: 10px 0px 30px 0px;
     padding: 15px 0px 0px 2px    
@@ -290,8 +291,12 @@ window#waybar.empty #window {
     color: @iconcolor;
     font-size: 1.1rem;
     font-weight: bold;
-    margin: 0px 25px 0px 20px;
-    padding: 0px
+    margin: 0px 10px 0px 10px;
+    padding: 0px 15px 0px 10px
+}
+
+#custom-hypr:hover {
+    background: @backgroundlight
 }
 
 #custom-reload,
@@ -310,11 +315,16 @@ color: @iconcolor;
     color: @iconcolor;
     font-size: 1.1rem;
     font-weight: bold;
-    margin: 0px 25px 0px 10px
+    margin: 0px 10px 0px 0px;
+    padding: 0px 15px 0px 10px
 }
 
 #idle_inhibitor.activated {
     color: #dc2f2f;
+}
+
+#idle_inhibitor:hover {
+    background: @backgroundlight
 }
 
 /* Keyboard Language Layout */
@@ -383,6 +393,10 @@ color: @iconcolor;
     padding: 0px 15px 0px 10px
 }
 
+#custom-notification:hover {
+    background: @backgroundlight
+}
+
 /* Crytpcurrency and stock tracker */
 
 #custom-stocks {
@@ -405,7 +419,7 @@ color: @iconcolor;
     border-radius: 10px 20px 10px 20px;
     color: @textcolor1;
     margin: 0px 15px 0px 0px;
-    padding: 0px 15px 0px 15px
+    padding: 0px 20px 0px 15px
 }
 
 #pulseaudio.muted {
@@ -507,7 +521,7 @@ color: @iconcolor;
     border-radius: 24px;
     color: @textcolor1;
     margin: 3px 15px 2px 0px;
-    padding: 0px 10px 0px 15px
+    padding: 0px 15px 0px 15px
 }
 
 /* journald display */
@@ -609,8 +623,8 @@ tooltip label {
     border: 2px solid @bordercolor;
     border-radius: 10px 20px 10px 20px;
     color: @textcolor1;
-    margin: 0px 15px 0px 0px;
-    padding: 0px 10px 0px 10px
+    margin: 0px 10px 0px 0px;
+    padding: 0px 15px 0px 10px
 }
 
 /* CSS Animation Defintions */
