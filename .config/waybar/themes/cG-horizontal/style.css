@@ -28,7 +28,7 @@
 }
 
 window#waybar {
-    /* animation: gradient_left_to_right 8s ease infinite; */
+    animation: gradient_left_to_right 8s ease infinite;
     /* background-color: alpha(darker(darker(@color1)), .6); */
     background: linear-gradient(-45deg, darker(darker(@textcolor4)) 0%, darker(darker(darker(@textcolor5))) 100%);
     border: 2px solid darker(@bordercolor);
@@ -229,10 +229,10 @@ window#waybar.empty #window {
     padding: 0px 30px 0px 30px;
     text-shadow:
         0 0 7px #fff,
-        0 0 10px #fff,
-        0 0 21px #fff,
-        0 0 42px #0fa,
-        0 0 82px #0fa
+        0 0 10px #0fa
+        /* 0 0 21px #0fa, */
+        /* 0 0 42px #0fa, */
+        /* 0 0 82px #0fa, */
         /* 0 0 92px #0fa */
 }
 
@@ -291,7 +291,7 @@ window#waybar.empty #window {
     color: @iconcolor;
     font-size: 1.1rem;
     font-weight: bold;
-    margin: 0px 10px 0px 10px;
+    margin: 2px 10px 2px 10px;
     padding: 0px 15px 0px 10px
 }
 

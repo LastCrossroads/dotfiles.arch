@@ -26,7 +26,7 @@ method = pulse
 source = auto
 
 [output]
-ascii_max_range = 7
+ascii_max_range = 8
 channels = mono
 mono_option = average
 data_format = ascii
