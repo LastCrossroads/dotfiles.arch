@@ -30,7 +30,7 @@
 window#waybar {
     animation: gradient_left_to_right 8s ease infinite;
     /* background-color: alpha(darker(darker(@color1)), .6); */
-    background: linear-gradient(-45deg, darker(darker(@textcolor4)) 0%, darker(darker(darker(@textcolor5))) 100%);
+    background: linear-gradient(25deg, darker(darker(@textcolor4)) 0%, darker(darker(darker(@textcolor5))) 100%);
     border: 2px solid darker(@bordercolor);
     border-radius: 22px;
     opacity: 0.97;
