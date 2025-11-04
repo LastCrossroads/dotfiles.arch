@@ -1,5 +1,9 @@
 /* Inspired by Stephan Raabe */
 
+/* Import Matugen Colors */
+
+@import '../../colors.css';
+
 /* Import Pywal Colors */
 
 @import '../../../../.cache/wal/colors-waybar.css';
@@ -14,6 +18,15 @@
 @define-color textcolor5 @color13;
 @define-color workspacesbackground1 @color5;
 @define-color workspacesbackground2 @color11;
+
+@define-color backgrounddark darker(@source_color);
+@define-color backgroundlight @source_color;
+@define-color bordercolor lighter(@inverse_primary);
+@define-color textcolor1 lighter(@primary_fixed);
+@define-color textcolor4 @secondary_fixed_dim;
+@define-color textcolor5 @tertiary_fixed_dim;
+@define-color workspacebackground1 lighter(@tertiary_container);
+@define-color workspacebackground2 lighter(@secondary_container);
 
 @define-color alertcolor #820000;
 @define-color goodcolor #005200;
