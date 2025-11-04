@@ -31,7 +31,7 @@ window#waybar {
     animation: gradient_left_to_right 8s ease infinite;
     /* background-color: alpha(darker(darker(@color1)), .6); */
     background: linear-gradient(25deg, darker(darker(@textcolor4)) 0%, darker(darker(darker(@textcolor5))) 100%);
-    border: 2px solid darker(@bordercolor);
+    border: 2px solid @bordercolor;
     border-radius: 22px;
     opacity: 0.97;
     transition-duration: 0.5s;
@@ -224,7 +224,7 @@ window#waybar.empty #window {
     color: @color2;
     font-size: 1.4rem;
     margin: 0px 0px 0px 0px;
-    min-width: 350px;
+    min-width: 365px;
     opacity: 0.5;
     padding: 0px 30px 0px 30px;
     text-shadow:
