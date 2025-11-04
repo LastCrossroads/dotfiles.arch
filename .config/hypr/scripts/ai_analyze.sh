@@ -39,7 +39,7 @@
 # ================================================
 
 # TODO: Add your Gemini API key here
-API_KEY=""
+API_KEY="AIzaSyDOQPYwX7OUQiuH_2HFvXxZo-T7AC1OAJw"
 
 API_URL_TEXT="https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${API_KEY}"
 API_URL_VISION="https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${API_KEY}"
