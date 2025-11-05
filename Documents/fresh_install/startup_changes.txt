@@ -200,3 +200,10 @@ Steam error 105 fix...
 doas ln -sf /run/systemd/resolve/stub-resolv.conf /etc/resolv.conf
 
 # Enable haveged service
+
+
+# hyprlock cava
+systemctl --user daemon-reexec
+systemctl --user daemon-reload
+systemctl --user enable --now cava-to-file.service
+systemctl --user start --now cava-to-file.service
