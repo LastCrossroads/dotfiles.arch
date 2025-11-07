@@ -23,6 +23,8 @@
 @define-color backgroundlight @source_color;
 @define-color bordercolor lighter(@inverse_primary);
 @define-color textcolor1 lighter(@primary_fixed);
+@define-color textcolor2 @secondary_fixed;
+@define-color textcolor3 @tertiary_fixed;
 @define-color textcolor4 @secondary_fixed_dim;
 @define-color textcolor5 @tertiary_fixed_dim;
 @define-color workspacebackground1 lighter(@tertiary_container);
