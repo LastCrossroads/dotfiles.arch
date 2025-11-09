@@ -21,12 +21,13 @@
 
 @define-color backgrounddark darker(@source_color);
 @define-color backgroundlight @source_color;
-@define-color bordercolor lighter(@inverse_primary);
+@define-color bordercolor lighter(@inverse_tertiary);
+/* @define-color bordercolor @tertiary; */
 @define-color textcolor1 lighter(@primary_fixed);
 @define-color textcolor2 @secondary_fixed;
 @define-color textcolor3 @tertiary_fixed;
 @define-color textcolor4 @secondary_fixed_dim;
-@define-color textcolor5 @tertiary_fixed_dim;
+@define-color textcolor5 @source_color;
 @define-color workspacebackground1 lighter(@tertiary_container);
 @define-color workspacebackground2 lighter(@secondary_container);
 
@@ -45,7 +46,7 @@
 window#waybar {
     animation: gradient_left_to_right 8s ease infinite;
     /* background-color: alpha(darker(darker(@color1)), .6); */
-    background: linear-gradient(25deg, darker(darker(@textcolor4)) 0%, darker(darker(darker(@textcolor5))) 100%);
+    background: linear-gradient(25deg, darker(darker(darker(@textcolor4))) 0%, darker(@textcolor5) 100%);
     border: 2px solid @bordercolor;
     border-radius: 22px;
     opacity: 0.97;

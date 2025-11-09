@@ -22,7 +22,8 @@ rasi_file="$HOME/.config/wallpaper/cache/current_wallpaper.rasi"
 blur_file="$HOME/.config/hypr/scripts/blur.sh"
 default_wallpaper="$HOME/wallpaper/default.jpg"
 wallpaper_effect="$HOME/.config/hypr/scripts/wallpaper-effect.sh"
-blur="50x30"
+# blur="50x30"
+blur="2x1"
 blur=$(cat $blur_file)
 
 # Create folder with generated versions of wallpaper if not exists
@@ -98,7 +99,7 @@ echo ":: Generate new cached wallpaper blur-$blur-$wallpaper_filename with blur 
 magick $used_wallpaper -resize 75% $blurred_wallpaper
 echo ":: Resized to 75%"
 if [ ! "$blur" == "0x0" ] ;then
-    magick $blurred_wallpaper -background none -blur $blur -vignette 0x5 $blurred_wallpaper
+    magick $blurred_wallpaper -background none -blur $blur $blurred_wallpaper
     cp $blurred_wallpaper $generated_versions/blur-$blur-$wallpaper_filename.png
     echo ":: Blurred"
 fi
