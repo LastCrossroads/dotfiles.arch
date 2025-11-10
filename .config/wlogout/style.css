@@ -20,12 +20,12 @@ window {
 
 button {
 	/* animation: pulse 10s ease-in infinite; */
-	background-color: rgba(22, 22, 22, 0.3);
+	/* background-color: rgba(22, 22, 22, 0.3); */
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: 25%;
-	border-style: solid;
-	border: 3px solid #FFFFFF;
+	/* border-style: solid; */
+	border: 6px solid #FFFFFF;
 	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 	color: #ffffff;
 	font-size: 1.2em;
@@ -35,8 +35,8 @@ button {
 button:active,
 button:focus {
 	animation: pulse 2s ease-in infinite;
-	color: #ffffff;
-	background-color: rgba(24, 24, 24, 1.0);
+	color: lighter(@backgroundlight);
+	/* background-color: rgba(24, 24, 24, 0.8); */
 	box-shadow: lighter(@backgroundlight) 0px 8px 24px;
 	font-family: "AR Techni Extrabold";
 	opacity: 0.8;
@@ -53,8 +53,8 @@ button:focus {
 }
 
 button:hover {
-	background-color: rgba(12, 12, 12, 0.5);
-	border: 3px solid @color11;
+	/* background-color: rgba(12, 12, 12, 0.3); */
+	border: 6px solid @color11;
 	color: #ffffff;
 	opacity: 0.9
 }
@@ -63,37 +63,37 @@ button:hover {
 
 #lock {
 	margin: 10px;
-	border-radius: 20px;
+	border-radius: 40px;
 	background-image: image(url("icons/lock.png"));
 }
 
 #logout {
 	margin: 10px;
-	border-radius: 20px;
+	border-radius: 40px;
 	background-image: image(url("icons/logout.png"));
 }
 
 #suspend {
 	margin: 10px;
-	border-radius: 20px;
+	border-radius: 40px;
 	background-image: image(url("icons/suspend.png"));
 }
 
 #hibernate {
 	margin: 10px;
-	border-radius: 20px;
+	border-radius: 40px;
 	background-image: image(url("icons/hibernate.png"));
 }
 
 #shutdown {
 	margin: 10px;
-	border-radius: 20px;
+	border-radius: 40px;
 	background-image: image(url("icons/shutdown.png"));
 }
 
 #reboot {
 	margin: 10px;
-	border-radius: 20px;
+	border-radius: 40px;
 	background-image: image(url("icons/reboot.png"));
 }
 
